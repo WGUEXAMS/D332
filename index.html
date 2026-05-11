@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cryptography Quiz</title>
+<style>
+  :root {
+    --bg:#f5f5f3;--card:#fff;--border:#d3d1c7;--border2:#b4b2a9;
+    --text:#1a1a18;--text2:#888780;--hover:#f1efe8;--prog-bg:#e8e6df;
+    --correct-bg:#EAF3DE;--correct-border:#639922;--correct-text:#27500A;
+    --wrong-bg:#FCEBEB;--wrong-border:#A32D2D;--wrong-text:#501313;
+    --reveal-bg:#E6F1FB;--reveal-border:#378ADD;--reveal-text:#0C447C;
+    --selected-bg:#EEEAF8;--selected-border:#534AB7;--selected-text:#1a1a18;
+    --accent:#534AB7;
+    --badge-test-bg:#EAF3DE;--badge-test-text:#27500A;
+    --badge-prac-bg:#E6F1FB;--badge-prac-text:#0C447C;
+  }
+  [data-theme="dark"] {
+    --bg:#1a1a1e;--card:#26262c;--border:#3a3a42;--border2:#4a4a54;
+    --text:#e8e6e0;--text2:#888898;--hover:#2e2e36;--prog-bg:#2e2e36;
+    --correct-bg:#1a2e10;--correct-border:#4a8020;--correct-text:#a0d060;
+    --wrong-bg:#2e1010;--wrong-border:#8a2020;--wrong-text:#f08080;
+    --reveal-bg:#0e1e34;--reveal-border:#2060a0;--reveal-text:#80b8f0;
+    --selected-bg:#1e1a38;--selected-border:#7b72d8;--selected-text:#e8e6e0;
+    --accent:#7b72d8;
+    --badge-test-bg:#1a2e10;--badge-test-text:#a0d060;
+    --badge-prac-bg:#0e1e34;--badge-prac-text:#80b8f0;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0;margin:0;transition:background .2s;}
+  .card{background:var(--card);border-radius:0px;border:none;padding:2rem;max-width:100%;width:100%;min-height:100vh;}
+  .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;}
+  .header h1{font-size:18px;font-weight:500;}
+  .dark-toggle{background:transparent;border:.5px solid var(--border2);border-radius:99px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--text2);font-family:inherit;}
+  .dark-toggle:hover{background:var(--hover);color:var(--text);}
+  .progress-bar-bg{background:var(--prog-bg);border-radius:99px;height:6px;margin-bottom:1.25rem;overflow:hidden;}
+  .progress-bar-fill{height:100%;border-radius:99px;background:var(--accent);transition:width .4s ease;}
+  .mode-screen{text-align:center;padding:1rem 0 1.5rem;}
+  .mode-screen p{font-size:14px;color:var(--text2);margin-bottom:2rem;}
+  .mode-cards{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .mode-card{border:.5px solid var(--border);border-radius:12px;padding:1.5rem 1.25rem;width:200px;cursor:pointer;text-align:left;background:var(--card);transition:background .15s,border-color .15s;}
+  .mode-card:hover{background:var(--hover);border-color:var(--border2);}
+  .mode-card .icon{font-size:22px;margin-bottom:.65rem;}
+  .mode-card .title{font-size:15px;font-weight:500;margin-bottom:.35rem;}
+  .mode-card .desc{font-size:13px;color:var(--text2);line-height:1.5;}
+  .mode-badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 10px;border-radius:99px;margin-bottom:.7rem;}
+  .badge-test{background:var(--badge-test-bg);color:var(--badge-test-text);}
+  .badge-practice{background:var(--badge-prac-bg);color:var(--badge-prac-text);}
+  .q-counter{font-size:13px;color:var(--text2);margin-bottom:.35rem;}
+  .q-text{font-size:15px;font-weight:500;margin-bottom:1rem;line-height:1.5;}
+  .options{display:flex;flex-direction:column;gap:9px;}
+  .opt-btn{background:var(--card);border:.5px solid var(--border2);border-radius:8px;padding:11px 15px;text-align:left;font-size:14px;color:var(--text);cursor:pointer;transition:background .15s,border-color .15s;line-height:1.45;font-family:inherit;}
+  .opt-btn:hover{background:var(--hover);}
+  .opt-btn.selected{background:var(--selected-bg);border-color:var(--selected-border);color:var(--selected-text);font-weight:500;}
+  .opt-btn.correct{background:var(--correct-bg);border-color:var(--correct-border);color:var(--correct-text);}
+  .opt-btn.wrong{background:var(--wrong-bg);border-color:var(--wrong-border);color:var(--wrong-text);}
+  .opt-btn.revealed{background:var(--reveal-bg);border-color:var(--reveal-border);color:var(--reveal-text);}
+  .opt-btn.picked{background:var(--selected-bg);border-color:var(--selected-border);color:var(--selected-text);font-weight:500;}
+  .opt-btn:disabled{cursor:default;}
+  .hint{font-size:12px;color:var(--text2);margin-top:.4rem;}
+  .feedback-wrap{margin-top:.9rem;min-height:20px;}
+  .feedback{font-size:14px;font-weight:500;}
+  .feedback.correct{color:var(--correct-border);}
+  .feedback.wrong{color:var(--wrong-border);}
+  .feedback.info{color:var(--reveal-border);}
+  .rationale{font-size:13px;color:var(--text2);margin-top:.75rem;line-height:1.55;padding:10px 12px;background:var(--hover);border-radius:7px;border-left:3px solid var(--accent);}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.1rem;gap:8px;flex-wrap:wrap;}
+  .nav-left,.nav-right{display:flex;gap:7px;flex-wrap:wrap;}
+  .action-btn{background:transparent;border:.5px solid var(--border2);border-radius:8px;padding:8px 13px;font-size:13px;cursor:pointer;color:var(--text2);font-family:inherit;}
+  .action-btn:hover:not(:disabled){background:var(--hover);color:var(--text);}
+  .action-btn:disabled{opacity:.3;cursor:default;}
+  .action-btn.active-toggle{background:var(--reveal-bg);border-color:var(--reveal-border);color:var(--reveal-text);}
+  .next-btn{background:transparent;border:.5px solid var(--border2);border-radius:8px;padding:8px 18px;font-size:14px;cursor:pointer;color:var(--text);font-family:inherit;}
+  .next-btn:hover{background:var(--hover);}
+  .submit-btn{background:var(--accent);border:.5px solid var(--accent);border-radius:8px;padding:8px 18px;font-size:14px;cursor:pointer;color:#fff;font-family:inherit;}
+  .submit-btn:hover{opacity:.9;}
+  /* Number grid — bottom */
+  .num-grid{display:flex;flex-wrap:wrap;gap:4px;margin-top:1.1rem;padding-top:1rem;border-top:.5px solid var(--border);}
+  .num-btn{width:30px;height:28px;border-radius:6px;border:.5px solid var(--border2);background:var(--card);color:var(--text2);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;}
+  .num-btn:hover{background:var(--hover);color:var(--text);}
+  .num-btn.active{border-color:var(--accent);color:var(--accent);font-weight:700;}
+  .num-btn.num-selected{background:var(--selected-bg);border-color:var(--selected-border);color:var(--selected-text);}
+  .num-btn.done-correct{background:var(--correct-bg);border-color:var(--correct-border);color:var(--correct-text);}
+  .num-btn.done-wrong{background:var(--wrong-bg);border-color:var(--wrong-border);color:var(--wrong-text);}
+  .num-btn.done-revealed{background:var(--reveal-bg);border-color:var(--reveal-border);color:var(--reveal-text);}
+  .num-btn.done-picked{background:var(--selected-bg);border-color:var(--selected-border);color:var(--selected-text);}
+  .score-card{text-align:center;padding:1.5rem .5rem;}
+  .score-num{font-size:52px;font-weight:500;color:var(--accent);}
+  .score-label{font-size:15px;color:var(--text2);margin-bottom:1.25rem;}
+  .score-msg{font-size:15px;margin-bottom:1.25rem;}
+  .summary-row{display:flex;gap:12px;justify-content:center;margin-bottom:1.25rem;flex-wrap:wrap;}
+  .summary-pill{font-size:13px;padding:6px 14px;border-radius:99px;font-weight:500;}
+  .pill-correct{background:var(--correct-bg);color:var(--correct-text);}
+  .pill-wrong{background:var(--wrong-bg);color:var(--wrong-text);}
+  .end-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem;}
+  .restart-btn{background:transparent;border:.5px solid var(--border2);border-radius:8px;padding:9px 18px;font-size:13px;cursor:pointer;color:var(--text);font-family:inherit;}
+  .restart-btn:hover{background:var(--hover);}
+  .missed-list{text-align:left;margin-top:1rem;}
+  .missed-item{background:var(--hover);border-radius:8px;padding:11px 13px;margin-bottom:9px;font-size:13px;border-left:3px solid var(--wrong-border);}
+  .missed-q{font-weight:500;margin-bottom:4px;}
+  .missed-a{color:var(--correct-border);}
+  .practice-end{text-align:center;padding:1.5rem 0;}
+  .practice-end .big{font-size:36px;margin-bottom:.5rem;}
+  .practice-end h2{font-size:18px;font-weight:500;margin-bottom:.5rem;}
+  .practice-end p{font-size:14px;color:var(--text2);margin-bottom:1.5rem;}
+</style>
+</head>
+<body>
+<div class="card" id="app" data-theme="light">
+  <div class="header">
+    <h1>Cryptography Quiz</h1>
+    <button class="dark-toggle" id="theme-btn" onclick="toggleDark()">&#127769; Dark</button>
+  </div>
+  <div id="root"></div>
+</div>
+<script>
+function toggleDark(){const a=document.getElementById('app');const d=a.getAttribute('data-theme')==='dark';a.setAttribute('data-theme',d?'light':'dark');document.getElementById('theme-btn').textContent=d?'\u{1F319} Dark':'\u2600\uFE0F Light';}
+
+const questions=[
+  {q:"What is Kerckhoffs's Principle and why is it fundamental to modern cryptography?",opts:["The algorithm must be kept secret at all times","A cryptosystem should remain secure even if everything except the key is public","Keys should be as short as possible for efficiency","Only government-approved algorithms should be used"],ans:1,rat:"Kerckhoffs's principle states that a cryptosystem should be secure even if everything about the system, except the key, is public knowledge. This allows algorithms to be publicly scrutinized and standardized (like AES), with security depending solely on key secrecy."},
+  {q:"What is the difference between confusion and diffusion?",opts:["Confusion spreads plaintext bits; diffusion hides key relationships","Confusion obscures the relationship between key and ciphertext; diffusion spreads plaintext influence over many ciphertext bits","Confusion is used in stream ciphers; diffusion in block ciphers","They are the same concept with different names"],ans:1,rat:"Confusion makes the relationship between the key and ciphertext complex, while diffusion spreads the influence of one plaintext bit over many ciphertext bits. These Shannon concepts thwart statistical analysis."},
+  {q:"Why is the One-Time Pad (OTP) theoretically unbreakable?",opts:["It uses extremely long keys","It has never been successfully attacked","Ciphertext reveals no information about plaintext with truly random, single-use keys as long as the message","It uses quantum mechanics"],ans:2,rat:"OTP provides perfect secrecy when the key is truly random, used only once, and as long as the message. However, key distribution and management make it impractical."},
+  {q:"In the Vigen\u00e8re cipher, what is the Kasiski examination used to determine?",opts:["The encryption algorithm","The length of the keyword","The plaintext language","The sender's identity"],ans:1,rat:"The Kasiski examination finds repeated sequences in ciphertext and analyzes distances between them to determine keyword length, the first step in breaking polyalphabetic ciphers."},
+  {q:"What is the primary vulnerability of Electronic Codebook (ECB) mode?",opts:["It is too slow","Identical plaintext blocks produce identical ciphertext blocks, revealing patterns","It requires too much memory","It cannot handle large files"],ans:1,rat:"ECB encrypts each block independently with the same key, so patterns in plaintext appear in ciphertext. Images encrypted with ECB may still show silhouettes."},
+  {q:"What problem does Diffie-Hellman solve, and what vulnerability does basic DH have?",opts:["Digital signatures; vulnerable to key theft","Secure key exchange over insecure channels; vulnerable to man-in-the-middle attacks","Symmetric encryption; vulnerable to brute force","Hashing; vulnerable to collisions"],ans:1,rat:"Diffie-Hellman allows two parties to establish a shared secret over an insecure channel, but without authentication, it is vulnerable to man-in-the-middle attacks."},
+  {q:"What is the specific purpose of a 'salt' in password hashing?",opts:["To make passwords longer","To ensure identical passwords produce different hashes, preventing rainbow table attacks","To encrypt the password twice","To speed up the hashing process"],ans:1,rat:"Salt ensures each password hash is unique even for identical passwords, preventing precomputed rainbow table attacks and making parallel attacks infeasible."},
+  {q:"In PKI, what is the role of a Certificate Authority (CA)?",opts:["To encrypt all network traffic","To bind public keys to identities by issuing digitally signed certificates","To generate private keys for users","To store encrypted passwords"],ans:1,rat:"The CA solves the trust problem by vouching that a specific public key belongs to a specific entity through digitally signed certificates."},
+  {q:"What is the hash value length in bits for MD5?",opts:["128 bits","160 bits","256 bits","512 bits"],ans:0,rat:"MD5 produces a 128-bit hash value. It is now considered cryptographically broken and should not be used for security-sensitive applications."},
+  {q:"What is the hash value length in bits for SHA-1?",opts:["128 bits","160 bits","256 bits","384 bits"],ans:1,rat:"SHA-1 produces a 160-bit hash value. It is deprecated due to collision vulnerabilities."},
+  {q:"Which symmetric block cipher uses a 112-bit key and 64-bit blocks?",opts:["AES","3DES (Triple DES)","Blowfish","RC5"],ans:1,rat:"3DES operates on 64-bit blocks with a 112-bit effective key length (though it uses 168 bits with parity). It is being phased out due to small block size."},
+  {q:"Which symmetric block cipher modes enable a block cipher to operate like a stream cipher?",opts:["ECB, CBC","CFB, OFB, CTR","DES, 3DES","GCM, CCM"],ans:1,rat:"CFB (Cipher Feedback), OFB (Output Feedback), and CTR (Counter) modes convert block ciphers into stream ciphers, eliminating padding and enabling real-time encryption."},
+  {q:"Which cryptographic goal ensures that data cannot be altered without detection?",opts:["Availability","Integrity","Confidentiality","Nonrepudiation"],ans:1,rat:"Integrity ensures that information remains accurate and unmodified during storage or transmission. Cryptographic hashes and message authentication codes are commonly used to support integrity verification."},
+  {q:"Which encryption method uses the same key for encryption and decryption?",opts:["Symmetric encryption","Asymmetric encryption","Public key infrastructure","Hashing"],ans:0,rat:"Symmetric encryption relies on a single shared secret key for both encryption and decryption processes, making it efficient for large amounts of data."},
+  {q:"Which algorithm is classified as an asymmetric encryption algorithm?",opts:["AES","DES","RSA","Blowfish"],ans:2,rat:"RSA uses a public and private key pair, which makes it an asymmetric cryptographic algorithm suitable for encryption and digital signatures."},
+  {q:"What is the primary purpose of a hashing algorithm?",opts:["Compress video files","Encrypt wireless traffic","Generate private keys","Verify data integrity"],ans:3,rat:"Hashing algorithms generate fixed-length values used to confirm that data has not changed, supporting integrity verification."},
+  {q:"Which protocol secures web traffic using encryption?",opts:["FTP","HTTP","HTTPS","Telnet"],ans:2,rat:"HTTPS uses TLS encryption to secure communications between web clients and servers, protecting confidentiality and integrity."},
+  {q:"Which cryptographic attack attempts to try every possible key combination?",opts:["Replay attack","Brute-force attack","Birthday attack","Spoofing attack"],ans:1,rat:"A brute-force attack systematically attempts every possible key until the correct one is found, especially against weak encryption keys."},
+  {q:"Which term describes the process of converting plaintext into unreadable text?",opts:["Decryption","Hashing","Encryption","Authentication"],ans:2,rat:"Encryption transforms readable plaintext into ciphertext to protect confidentiality from unauthorized access."},
+  {q:"What is the primary function of a digital certificate?",opts:["Compress network traffic","Store passwords","Replace encryption keys","Verify identity"],ans:3,rat:"Digital certificates bind public keys to verified identities, enabling trusted communications in PKI environments."},
+  {q:"Which organization commonly issues digital certificates?",opts:["Certificate Authority","Domain Registrar","Internet Service Provider","Security Operations Center"],ans:0,rat:"Certificate Authorities validate identities and issue digital certificates used in secure communications and authentication."},
+  {q:"Which algorithm is considered outdated due to its small key size?",opts:["AES-256","RSA-4096","DES","SHA-256"],ans:2,rat:"DES uses a 56-bit key, which is vulnerable to modern brute-force attacks and is no longer considered secure."},
+  {q:"Which concept ensures that a sender cannot deny sending a message?",opts:["Availability","Confidentiality","Nonrepudiation","Authorization"],ans:2,rat:"Nonrepudiation provides proof of origin through mechanisms like digital signatures, preventing denial of actions."},
+  {q:"Which cryptographic method is fastest for encrypting large volumes of data?",opts:["Hashing","Symmetric encryption","Asymmetric encryption","Tokenization"],ans:1,rat:"Symmetric encryption algorithms are computationally efficient and commonly used for bulk data encryption."},
+  {q:"Which protocol is commonly used to secure email transmissions?",opts:["SMTP with TLS","FTP","SNMPv1","TFTP"],ans:0,rat:"SMTP combined with TLS encrypts email communications and helps prevent interception during transmission."},
+];
+
+let mode=null,current=0;
+let testState=questions.map(()=>null);
+let practiceState=questions.map(()=>({picked:null,showAnswer:false}));
+let testGraded=false;
+
+function resetState(){current=0;testState=questions.map(()=>null);practiceState=questions.map(()=>({picked:null,showAnswer:false}));testGraded=false;}
+
+function numGrid(){
+  const btns=questions.map((_,i)=>{
+    let cls='num-btn';
+    if(i===current)cls+=' active';
+    else if(mode==='test'){
+      if(testGraded){cls+=testState[i]===questions[i].ans?' done-correct':testState[i]!==null?' done-wrong':'';}
+      else if(testState[i]!==null)cls+=' num-selected';
+    } else {
+      const ps=practiceState[i];
+      if(ps.showAnswer)cls+=' done-revealed';
+      else if(ps.picked!==null)cls+=' done-picked';
+    }
+    return `<button class="${cls}" onclick="jumpTo(${i})">${i+1}</button>`;
+  }).join('');
+  return `<div class="num-grid">${btns}</div>`;
+}
+function jumpTo(i){current=i;render();}
+
+function renderModeSelect(){
+  document.getElementById('root').innerHTML=`
+    <div class="mode-screen">
+      <p>${questions.length} questions &nbsp;&middot;&nbsp; Choose your mode</p>
+      <div class="mode-cards">
+        <div class="mode-card" onclick="startMode('test')">
+          <div class="icon">&#128221;</div><div class="title">Test</div>
+          <div class="desc">Select answers freely, change your mind anytime, then submit at the end for grading.</div>
+        </div>
+        <div class="mode-card" onclick="startMode('practice')">
+          <div class="icon">&#128218;</div><div class="title">Practice</div>
+          <div class="desc">Pick answers and use Show Answer anytime. No score tracked.</div>
+        </div>
+      </div>
+    </div>`;
+}
+function startMode(m){mode=m;resetState();render();}
+
+function render(){
+  const root=document.getElementById('root');
+  if(mode==='test'&&testGraded&&current>=questions.length){renderTestResults();return;}
+  if(mode==='practice'&&current>=questions.length){renderPracticeEnd();return;}
+  const q=questions[current];
+  const pct=Math.round((current/questions.length)*100);
+  const isLast=current===questions.length-1;
+  let optHtml='',fbText='',fbCls='feedback',practiceControls='',rationaleHtml='',navRight='',hint='';
+
+  if(mode==='test'){
+    const sel=testState[current];
+    optHtml=q.opts.map((o,i)=>{
+      let cls='opt-btn';
+      if(testGraded){if(i===q.ans)cls+=' correct';else if(i===sel)cls+=' wrong';}
+      else if(i===sel)cls+=' selected';
+      return `<button class="${cls}" ${testGraded?'disabled':''} onclick="testPick(${i})">${String.fromCharCode(65+i)}) ${o}</button>`;
+    }).join('');
+    if(testGraded){
+      if(sel===q.ans){fbText='&#10003; Correct!';fbCls+=' correct';}
+      else if(sel===null){fbText='Not answered';fbCls+=' info';}
+      else{fbText='&#10007; Incorrect &mdash; correct: '+String.fromCharCode(65+q.ans)+') '+q.opts[q.ans];fbCls+=' wrong';}
+    } else {
+      hint=`<div class="hint">Select an answer &mdash; you can change it before submitting</div>`;
+    }
+    if(isLast&&!testGraded){navRight=`<button class="action-btn" ${current===0?'disabled':''} onclick="prev()">&larr; Back</button><button class="submit-btn" onclick="submitTest()">Submit all &rarr;</button>`;}
+    else{navRight=`<button class="action-btn" ${current===0?'disabled':''} onclick="prev()">&larr; Back</button><button class="next-btn" onclick="next()">${isLast&&testGraded?'Results &rarr;':'Next &rarr;'}</button>`;}
+  } else {
+    const ps=practiceState[current];
+    optHtml=q.opts.map((o,i)=>{
+      let cls='opt-btn';
+      if(ps.showAnswer&&i===q.ans)cls+=' revealed';
+      if(ps.picked===i&&!(ps.showAnswer&&i===q.ans))cls+=' picked';
+      return `<button class="${cls}" onclick="practicePick(${i})">${String.fromCharCode(65+i)}) ${o}</button>`;
+    }).join('');
+    if(ps.showAnswer){
+      fbText='Answer: '+String.fromCharCode(65+q.ans)+') '+q.opts[q.ans];fbCls+=' info';
+      rationaleHtml=`<div class="rationale"><strong>Rationale:</strong> ${q.rat}</div>`;
+      practiceControls=`<button class="action-btn active-toggle" onclick="toggleShowAnswer()">Hide answer</button>`;
+    } else if(ps.picked!==null){
+      fbText='Selected: '+String.fromCharCode(65+ps.picked)+') '+q.opts[ps.picked];fbCls+=' info';
+      practiceControls=`<button class="action-btn" onclick="toggleShowAnswer()">Show answer</button>`;
+    } else {
+      practiceControls=`<button class="action-btn" onclick="toggleShowAnswer()">Show answer</button>`;
+    }
+    navRight=`<button class="action-btn" ${current===0?'disabled':''} onclick="prev()">&larr; Back</button><button class="next-btn" onclick="next()">${isLast?'Finish &rarr;':'Next &rarr;'}</button>`;
+  }
+
+  const badge=mode==='practice'?'<span class="mode-badge badge-practice">Practice</span>':'<span class="mode-badge badge-test">Test</span>';
+  root.innerHTML=`
+    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+    ${badge}
+    <div class="q-counter">Question ${current+1} of ${questions.length}</div>
+    <div class="q-text">${q.q}</div>
+    <div class="options">${optHtml}</div>
+    ${hint}
+    <div class="feedback-wrap"><div class="${fbCls}">${fbText}</div></div>
+    ${rationaleHtml}
+    <div class="nav">
+      <div class="nav-left"><button class="action-btn" onclick="backToMenu()">&#8862; Menu</button>${practiceControls}</div>
+      <div class="nav-right">${navRight}</div>
+    </div>
+    ${numGrid()}`;
+}
+
+function testPick(i){if(testGraded)return;testState[current]=i;render();}
+function submitTest(){testGraded=true;current=0;render();}
+function practicePick(i){practiceState[current].picked=i;render();}
+function toggleShowAnswer(){practiceState[current].showAnswer=!practiceState[current].showAnswer;render();}
+function next(){current++;render();}
+function prev(){if(current>0){current--;render();}}
+function backToMenu(){mode=null;resetState();renderModeSelect();}
+
+function renderTestResults(){
+  const root=document.getElementById('root');
+  const score=testState.filter((s,i)=>s===questions[i].ans).length;
+  const wrong=testState.filter((s,i)=>s!==null&&s!==questions[i].ans).length;
+  const unanswered=testState.filter(s=>s===null).length;
+  const pct=Math.round((score/questions.length)*100);
+  const msg=pct>=90?'&#127881; Excellent work!':pct>=70?'&#128077; Good job &mdash; keep reviewing!':'&#128218; Keep studying &mdash; you\'ve got this!';
+  const missedItems=questions.map((q,i)=>testState[i]!==q.ans?{q:q.q,correct:String.fromCharCode(65+q.ans)+') '+q.opts[q.ans]}:null).filter(Boolean);
+  const missedHtml=missedItems.length?'<div class="missed-list">'+missedItems.map(m=>`<div class="missed-item"><div class="missed-q">${m.q}</div><div class="missed-a">&#10003; ${m.correct}</div></div>`).join('')+'</div>':'';
+  root.innerHTML=`<div class="score-card"><div class="score-num">${score}/${questions.length}</div><div class="score-label">${pct}% correct</div>
+    <div class="summary-row"><span class="summary-pill pill-correct">&#10003; ${score} correct</span><span class="summary-pill pill-wrong">&#10007; ${wrong} wrong</span>${unanswered?`<span class="summary-pill" style="background:var(--hover);color:var(--text2)">&#8212; ${unanswered} skipped</span>`:''}</div>
+    <div class="score-msg">${msg}</div>
+    <div class="end-btns"><button class="restart-btn" onclick="reviewTest()">Review answers</button><button class="restart-btn" onclick="startMode('test')">Retake test</button><button class="restart-btn" onclick="startMode('practice')">Practice mode</button><button class="restart-btn" onclick="backToMenu()">Menu</button></div>
+    ${missedItems.length?'<p style="font-size:13px;color:var(--text2);margin-top:1.5rem;text-align:left;font-weight:500;">Questions you missed:</p>'+missedHtml:''}</div>`;
+}
+function reviewTest(){current=0;render();}
+function renderPracticeEnd(){
+  document.getElementById('root').innerHTML=`<div class="practice-end"><div class="big">&#128218;</div><h2>Practice complete!</h2><p>You reviewed all ${questions.length} questions.</p><div class="end-btns"><button class="restart-btn" onclick="startMode('practice')">Practice again</button><button class="restart-btn" onclick="startMode('test')">Take the test</button><button class="restart-btn" onclick="backToMenu()">Menu</button></div></div>`;
+}
+
+renderModeSelect();
+</script>
+</body>
+</html>
