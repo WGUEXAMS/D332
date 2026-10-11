@@ -423,6 +423,11 @@ const questions = [
       "<strong>Instructions:</strong> Examine all website components in the browser to identify potential vulnerabilities. Determine which component (certificate, source code, or cookies) contains the highest-severity vulnerability, and remediate <em>only</em> that vulnerability.",
       "To restore the simulation to its original state at any time, click the <strong>Reset All</strong> button."
     ],
+    vuln: {
+      prompt: "Which component contains the highest-severity vulnerability?",
+      options: ["Certificate", "Source code", "Cookies"],
+      answer: "Certificate"
+    },
     options: [
       { id: "remove",  text: "Remove certificate from server" },
       { id: "csr",     text: "Generate a Certificate Signing Request" },
@@ -774,17 +779,38 @@ const BUTTONS = [
 
 function bodyDnd(q, st, stage) {
   const sec = el("div", "section");
-  sectionHead(sec, "Secure System — Browser Investigation", "Click each view, then drag the correct remediation steps into order.");
+  sectionHead(sec, "Secure System — Browser Investigation", "Click each view, then answer below.");
 
   const simWrap = el("div");
   sec.appendChild(simWrap);
   renderDndSim();
+
+  const vulnBox = el("div", "qbox actions-box"); vulnBox.style.marginTop = "18px";
+  const vulnLab = el("label"); vulnLab.textContent = q.vuln.prompt; vulnBox.appendChild(vulnLab);
+  const vulnList = el("div", "chk-list");
+  vulnBox.appendChild(vulnList);
+  sec.appendChild(vulnBox);
+  renderVuln();
 
   const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
   sec.appendChild(actionsRow);
   const analysisBox = buildAnalysis(q.explain);
   sec.appendChild(analysisBox);
   stage.appendChild(sec);
+
+  function renderVuln() {
+    vulnList.innerHTML = "";
+    q.vuln.options.forEach(opt => {
+      const lbl = el("label", "chk");
+      const inp = document.createElement("input"); inp.type = "radio"; inp.name = "dnd-vuln"; inp.value = opt; inp.checked = st.vuln === opt;
+      inp.addEventListener("change", () => { st.vuln = opt; clearFeedback(); });
+      const span = el("span", null, opt);
+      const badge = el("span", "badge");
+      if (st.checked && inp.checked) { const ok = opt === q.vuln.answer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+      lbl.append(inp, span, badge);
+      vulnList.appendChild(lbl);
+    });
+  }
 
   function renderDndSim() {
     simWrap.innerHTML = "";
@@ -815,23 +841,26 @@ function bodyDnd(q, st, stage) {
   }
 
   function clearFeedback() {
+    st.checked = false;
     pill.classList.remove("show", "full", "partial");
     analysisBox.classList.remove("show");
+    renderVuln();
   }
 
   function doSubmit() {
     let best = q.orders[0], bestN = -1;
     q.orders.forEach(o => { const n = o.filter((id, i) => st.slots[i] === id).length; if (n > bestN) { bestN = n; best = o; } });
-    const filled = st.slots.every(Boolean);
-    const tampered = Object.values(st.flags).some(Boolean);
-    const componentPoint = filled && !tampered ? 1 : 0;
-    const points = bestN + componentPoint;
+    const vulnPts = st.vuln === q.vuln.answer ? 1 : 0;
+    const points = bestN + vulnPts;
+    st.checked = true;
     if (st.view !== "remcert") { st.view = "remcert"; renderDndSim(); }
+    renderVuln();
     setPill(pill, points, 5);
     analysisBox.classList.add("show");
   }
 
   function doShow() {
+    st.vuln = q.vuln.answer;
     st.slots = q.orders[0].slice();
     st.flags = {};
     st.view = "remcert";
@@ -1491,7 +1520,7 @@ function buildAnalysis(html) {
 ============================================================ */
 function freshState(q) {
   if (q.type === "table") return { rows: q.rows.map(() => ({ vuln: "", remed: "" })), checked: false };
-  if (q.type === "dnd") return { view: "login", slots: [null, null, null, null], flags: {}, result: null, checked: false };
+  if (q.type === "dnd") return { view: "login", vuln: "", slots: [null, null, null, null], flags: {}, result: null, checked: false };
   if (q.type === "multi") return { tab: 0, ans: {}, checked: false };
   if (q.type === "sim") return { open: null, tab: "vuln", ans: { vuln: "", rem: [] }, checked: false };
   if (q.type === "hotspot") return { sel: [], tool: "", checked: false };
